@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          path: main
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -36,7 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          path: main
       - uses: actions/setup-node@v1
         with:
           node-version: 12
