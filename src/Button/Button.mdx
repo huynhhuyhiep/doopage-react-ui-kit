@@ -50,6 +50,10 @@ export default Example;
   <Button outline disabled>Some messages</Button>
   <div>With Tooltip</div>
   <Button fullWidth upcaseText tooltip='tooltip'>Some messages</Button>
+  <div>With icon</div>
+  <Button color='info' startIcon={<AdbIcon/>}>Some messages</Button>
+  <Button color='success' simple endIcon={<AdbIcon/>}>Some messages</Button>
+  <Button color='success' outline endIcon={<AdbIcon/>} startIcon={<AdbIcon/>}>Some messages</Button>
   <div>Just icon</div>
   <Button justIcon size='tiny' color='info' outline><AdbIcon/></Button>
   <Button justIcon size='small' color='success' simple><AdbIcon/></Button>
@@ -57,6 +61,10 @@ export default Example;
   <Button justIcon size='large' color='danger'><AdbIcon/></Button>
   <div>With href</div>
   <Button href='https://www.npmjs.com/package/@doopage/component'>With href</Button>
+  <div>With loading</div>
+  <Button loading>With href</Button>
+  <Button loading justIcon><AdbIcon/></Button>
+  <Button loading justIcon size='small'><AdbIcon/></Button>
 </Playground>
 
 ## Properties

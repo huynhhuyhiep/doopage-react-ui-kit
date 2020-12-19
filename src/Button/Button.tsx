@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 import MuiButton, { ButtonProps } from '@material-ui/core/Button';
-import { Tooltip, Zoom } from '@material-ui/core';
+import { CircularProgress, Tooltip, Zoom } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import ButtonStyles from './ButtonStyles';
@@ -11,7 +11,13 @@ const useStyles = makeStyles(ButtonStyles);
 type CustomButtonProps = Omit<ButtonProps, 'color' | 'variant' | 'size'>;
 
 export interface Props extends CustomButtonProps {
+	/**
+	 * @default false
+	 */
 	loading: boolean;
+	/**
+	 * @default true
+	 */
 	show: boolean;
 	color:
 		| 'info'
@@ -23,13 +29,20 @@ export interface Props extends CustomButtonProps {
 		| 'gray';
 	tooltip?: string;
 	round?: boolean;
+	/**
+	 * @default normal
+	 */
 	size: 'tiny' | 'small' | 'normal' | 'large';
-	fullWidth: boolean;
-	upcaseText: boolean;
-	justIcon: boolean;
+	fullWidth?: boolean;
+	upcaseText?: boolean;
+	justIcon?: boolean;
 	simple: boolean;
 	styles?: any;
 	outline: boolean;
+	/**
+	 * @default 'Đang xử lý...'
+	 */
+	loadingText?: string;
 }
 
 const Button: FC<Props> = (props) => {
@@ -48,6 +61,7 @@ const Button: FC<Props> = (props) => {
 		simple,
 		justIcon,
 		outline,
+		loadingText,
 		...rest
 	} = props;
 
@@ -66,9 +80,22 @@ const Button: FC<Props> = (props) => {
 
 	if (!show) return null;
 
+	const renderChildren = () => {
+		if (!loading) return children;
+
+		if (justIcon) {
+			return (
+				<div style={{ marginTop: -2, color: '#fff' }} className='flex-center'>
+					<CircularProgress color='inherit' size={30} />
+				</div>
+			);
+		}
+		return loadingText;
+	};
+
 	const button = (
 		<MuiButton {...rest} disabled={loading || disabled} className={btnClasses}>
-			{children}
+			{renderChildren()}
 		</MuiButton>
 	);
 
@@ -91,6 +118,7 @@ Button.defaultProps = {
 	justIcon: false,
 	simple: false,
 	outline: false,
+	loadingText: 'Đang xử lý...',
 };
 
 export default memo(Button);
