@@ -14,7 +14,7 @@ or
 yarn add @doopage/react-ui-kit
 ```
 ## Documentation
-[Doc](https://huynhhuyhiep.github.io/doopage/react-ui-kit)
+[Doc](https://huynhhuyhiep.github.io/doopage-react-ui-kit)
 
 ## Usage
 
