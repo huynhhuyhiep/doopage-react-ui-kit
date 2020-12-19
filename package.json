@@ -1,11 +1,11 @@
 {
-  "name": "@doopage/component",
-  "homepage": "https://huynhhuyhiep.github.io/doopage-component",
-  "version": "0.0.13",
-  "description": "Base component for DooPage project",
+  "name": "@doopage/react-ui-kit",
+  "homepage": "https://huynhhuyhiep.github.io/doopage/react-ui-kit",
+  "version": "0.0.1",
+  "description": "UI-kit for DooPage project",
   "repository": {
     "type": "git",
-    "url": "https://github.com/huynhhuyhiep/doopage-component"
+    "url": "https://github.com/huynhhuyhiep/doopage-react-uit-kit"
   },
   "main": "dist/cjs/index",
   "module": "dist/es/index",
@@ -13,7 +13,7 @@
   "types": "dist/types/index.d.ts",
   "sideEffects": false,
   "author": {
-    "name": "huynhhuyhiep",
+    "name": "HuynhHuyHiep",
     "email": "huynhhuyhiep0808@gmail.com"
   },
   "scripts": {
@@ -147,7 +147,9 @@
   },
   "keywords": [
     "react",
-    "@doopage/component",
+    "components",
+    "react-ui",
+    "@doopage/ui-kit",
     "library",
     "ui-kit",
     "doopage"
