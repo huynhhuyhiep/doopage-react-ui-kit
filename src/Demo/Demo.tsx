@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import './Demo.scss';
 
 export type Type = 'info' | 'success' | 'danger' | 'warning';
@@ -20,8 +20,7 @@ export interface DemoProps {
 	children?: any;
 }
 
-
-const Demo: SFC<DemoProps> = ({ children, type = 'info', ...rest }) => (
+const Demo: FC<DemoProps> = ({ children, type = 'info', ...rest }) => (
 	<div
 		data-testid='DemoMessage'
 		className={'my-demo-class'}
