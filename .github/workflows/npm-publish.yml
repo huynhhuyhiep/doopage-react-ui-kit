@@ -4,37 +4,37 @@ on:
     branches:
       - main
 jobs:
-#  test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v1
-#      - uses: actions/setup-node@v1
-#        with:
-#          node-version: 12
-#      - run: npm install
-#      - run: npm run test
-#  publish-npm:
-#    needs: test
-#    runs-on: ubuntu-latest
-#    if: ${{ success() }}
-#    steps:
-#      - uses: actions/checkout@v2
-#        with:
-#          ref: main
-#      - uses: actions/setup-node@v1
-#        with:
-#          node-version: 12
-#          registry-url: https://registry.npmjs.org/
-#      - run: |
-#          git config --global user.name 'Huynh Huy Hiep'
-#          git config --global user.email 'huynhhuyhiep0808@gmail.com'
-#      - run: npm install
-#      - run: npm run publish-npm
-#        env:
-#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-#          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install
+      - run: npm run test
+  publish-npm:
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ success() }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          git config --global user.name 'Huynh Huy Hiep'
+          git config --global user.email 'huynhhuyhiep0808@gmail.com'
+      - run: npm install
+      - run: npm run publish-npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
   publish-doc:
-#    needs: [ publish-npm ]
+    needs: [ publish-npm ]
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps:
