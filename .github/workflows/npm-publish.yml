@@ -1,7 +1,8 @@
 name: Npm publish
-push:
-  branches:
-    - main
+on:
+  push:
+    branches:
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -27,7 +28,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   publish-doc:
-    needs: [test, publish-npm]
+    needs: [ test, publish-npm ]
     runs-on: ubuntu-latest
     if: always()
     steps:
