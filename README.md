@@ -1,6 +1,6 @@
-# @doopage/component
+# @doopage/react-ui-kit
 
-> Base component for DooPage project
+> UI Kit for DooPage project
 
 [![NPM](https://img.shields.io/npm/v/@doopage/react-ui-kit.svg)](https://www.npmjs.com/package/@doopage/react-ui-kit) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 

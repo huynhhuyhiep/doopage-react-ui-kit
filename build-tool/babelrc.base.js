@@ -1,7 +1,8 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable indent */
 module.exports = ({ pure, withModules, isUMD = false }) => ({
-	presets: ['@babel/preset-typescript',
+	presets: [
+		'@babel/preset-typescript',
 		'@babel/preset-react',
 		...(pure
 			? []
@@ -30,7 +31,7 @@ module.exports = ({ pure, withModules, isUMD = false }) => ({
 		['@babel/proposal-class-properties', { loose: true }],
 		'@babel/transform-runtime',
 		'minify-dead-code-elimination',
-		
+
 		...(isUMD
 			? []
 			: [
