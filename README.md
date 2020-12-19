@@ -14,7 +14,7 @@ or
 yarn add @doopage/component
 ```
 ## Documentation
-[Doc](https://github.com/huynhhuyhiep/doopage-component)
+[Doc](https://huynhhuyhiep.github.io/doopage-component)
 
 ## Usage
 
