@@ -21,11 +21,11 @@ yarn add @doopage/component
 ```jsx
 import React from 'react'
 
-import { Demo } from '@doopage/component'
+import { Button } from '@doopage/component'
 
-const Example = ({message}) => <Demo type={'warning'}>{message}</Demo>;
+const MyComponent = () => <Button color={'warning'}>Button</Button>;
 
-export default Example;
+export default MyComponent;
 ```
 
 ## License
