@@ -1,11 +1,11 @@
 {
   "name": "@doopage/component",
-  "homepage": "http://huynhhuyhiep.github.io/@doopage/component",
+  "homepage": "https://huynhhuyhiep.github.io/doopage-component",
   "version": "0.0.2",
   "description": "Base component for DooPage project",
   "repository": {
     "type": "git",
-    "url": "https://github.com/huynhhuyhiep/@doopage/component"
+    "url": "https://github.com/huynhhuyhiep/doopage-component"
   },
   "main": "dist/cjs/index",
   "module": "dist/es/index",
