@@ -14,7 +14,7 @@
   "sideEffects": false,
   "author": {
     "name": "huynhhuyhiep",
-    "email": ""
+    "email": "huynhhuyhiep0808@gmail.com"
   },
   "scripts": {
     "installPeer": "node build-tool/peerDep.js",
@@ -29,7 +29,7 @@
     "doc:dev": "docz dev",
     "doc:build": "docz build",
     "doc:deploy": "npm run doc:build && gh-pages -d docs",
-    "publish": "npm publish -access=public"
+    "publish-npm": "npm publish -access=public"
   },
   "files": [
     "dist"

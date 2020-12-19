@@ -26,11 +26,10 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: |
-          ls
           git config --global user.name 'Huynh Huy Hiep'
           git config --global user.email 'huynhhuyhiep0808@gmail.com'
       - run: npm install
-      - run: npm run publish
+      - run: npm run publish-npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
