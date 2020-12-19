@@ -1,15 +1,15 @@
-import path from 'path';
-import glob from 'glob';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
 import replace from '@rollup/plugin-replace';
-import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
-import { terser } from 'rollup-plugin-terser';
-import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import glob from 'glob';
 import { camelize } from 'inflected';
+import path from 'path';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import { terser } from 'rollup-plugin-terser';
 
 const { pkg, fromRoot, extensions } = require('./utils');
 
@@ -84,15 +84,15 @@ export default {
 		commonjs({ include: 'node_modules/**' }),
 		babel({
 			exclude: 'node_modules/**', // only transpile our source code,
-			runtimeHelpers: true,
+			babelHelpers: 'runtime',
 			presets: [here('babelrc.umd.js')],
-			extensions
+			extensions,
 		}),
 		postcss({
 			extract: `dist/${pkg.name}.css`,
 			plugins: [autoprefixer()],
 			minimize: true,
-			sourceMap: true,
+			sourceMap: false,
 			modules: false,
 		}),
 		replace(replacements),
