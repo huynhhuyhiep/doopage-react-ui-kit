@@ -1,7 +1,7 @@
 export default {
 	title: `DooPage Component`,
 	dest: './docs',
-	menu: ['Introduction'],
+	menu: ['Getting Started'],
 	src: './src',
 	typescript: true,
 	base: '/doopage-component/', // base path of deployed docz
