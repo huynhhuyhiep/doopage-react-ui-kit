@@ -39,14 +39,14 @@ jobs:
     if: ${{ success() }}
     steps:
       - uses: actions/checkout@v2
-        with: 
+        with:
           path: main
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - uses: peaceiris/actions-gh-pages@v3
       - run: npm install
-      - run: npm run doc:deploy
-        env:
+      - run: npm run doc:build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./docs
