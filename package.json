@@ -28,7 +28,8 @@
     "prepublishOnly": "npm run lint && npm run release && npm run build",
     "doc:dev": "docz dev",
     "doc:build": "docz build",
-    "doc:deploy": "npm run doc:build && gh-pages -d docs"
+    "doc:deploy": "npm run doc:build && gh-pages -d docs",
+    "publish": "npm publish -access=public"
   },
   "files": [
     "dist"
