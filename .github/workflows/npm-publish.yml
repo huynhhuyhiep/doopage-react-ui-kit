@@ -16,7 +16,7 @@ jobs:
   publish-npm:
     needs: test
     runs-on: ubuntu-latest
-    if: always()
+    if: ${{ success() }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -30,7 +30,7 @@ jobs:
   publish-doc:
     needs: [ test, publish-npm ]
     runs-on: ubuntu-latest
-    if: always()
+    if: ${{ success() }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
