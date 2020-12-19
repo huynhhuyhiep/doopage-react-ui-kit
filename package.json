@@ -1,7 +1,7 @@
 {
   "name": "@doopage/component",
   "homepage": "https://huynhhuyhiep.github.io/doopage-component",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Base component for DooPage project",
   "repository": {
     "type": "git",
