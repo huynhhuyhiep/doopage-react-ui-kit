@@ -1,5 +1,5 @@
 export default {
-	title: 'DooPage Component',
+	title: `DooPage Component`,
 	dest: './docs',
 	menu: ['Introduction'],
 	src: './src',
