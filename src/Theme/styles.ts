@@ -1,7 +1,6 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { theme } from '../Theme';
+import { grayColor, primaryColor } from '../utils/color';
 
-const { grayColor, primaryColor } = theme.colors;
 const useStyles = makeStyles(() =>
 	createStyles({
 		root: {
@@ -10,6 +9,9 @@ const useStyles = makeStyles(() =>
 				color: (props: any) => !props.error && primaryColor,
 			},
 			'& .MuiInput-underline': {
+				'&:before:hover': {
+					borderBottomColor: (props: any) => !props.error && grayColor,
+				},
 				'&:after': {
 					borderBottomColor: (props: any) => !props.error && primaryColor,
 				},
@@ -26,7 +28,7 @@ const useStyles = makeStyles(() =>
 				},
 			},
 			'& .MuiFilledInput-underline': {
-				'&:before': {
+				'&:before:hover': {
 					borderBottomColor: (props: any) => !props.error && grayColor,
 				},
 				'&:after': {

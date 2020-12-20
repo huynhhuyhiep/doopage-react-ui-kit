@@ -1,0 +1,68 @@
+---
+name: Theme
+route: /theme
+---
+
+
+
+
+
+
+import { Playground } from "docz";
+import { Button, setTheme, useTheme } from "../index";
+
+# Theme
+
+## Basic usage
+Set theme color before render App
+
+```jsx
+import { setTheme } from '@doopage/react-ui-kit'
+
+setTheme({
+  primaryColor: 'blue',
+  infoColor: 'yellow'
+})
+
+ReactDOM.render(<App/>, document.getElementById("root"));
+```
+
+To get theme
+```jsx
+import { getTheme } from '@doopage/react-ui-kit'
+const theme = getTheme()
+```
+
+useTheme
+```jsx
+import { useTheme } from '@doopage/react-ui-kit'
+const MyComponent = () => {
+  const theme = useTheme()
+    return (
+      <div>{theme.primaryColor}</div>
+    )
+}
+```
+
+## Playground
+<Playground>
+  {setTheme({
+    primaryColor: 'blue',
+    infoColor: 'yellow',
+  })}
+  <Button color='primary'>
+    Blue button
+  </Button>
+</Playground>
+
+<Playground>
+  {() =>
+  {
+    const theme = useTheme()
+    return (
+      <Button color='primary'>
+        {theme.primaryColor}
+      </Button>
+    )
+  }}
+</Playground>
