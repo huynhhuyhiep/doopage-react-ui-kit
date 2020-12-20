@@ -11,14 +11,8 @@ const useStyles = makeStyles(ButtonStyles);
 type CustomButtonProps = Omit<ButtonProps, 'color' | 'variant' | 'size'>;
 
 export interface Props extends CustomButtonProps {
-	/**
-	 * @default false
-	 */
-	loading: boolean;
-	/**
-	 * @default true
-	 */
-	show: boolean;
+	loading?: boolean;
+	show?: boolean;
 	color:
 		| 'info'
 		| 'success'
@@ -27,18 +21,18 @@ export interface Props extends CustomButtonProps {
 		| 'primary'
 		| 'white'
 		| 'gray';
-	tooltip?: string;
+	helperText?: string;
 	round?: boolean;
 	/**
 	 * @default normal
 	 */
-	size: 'tiny' | 'small' | 'normal' | 'large';
+	size?: 'tiny' | 'small' | 'normal' | 'large';
 	fullWidth?: boolean;
 	upcaseText?: boolean;
 	justIcon?: boolean;
-	simple: boolean;
+	simple?: boolean;
 	styles?: any;
-	outline: boolean;
+	outline?: boolean;
 	/**
 	 * @default 'Đang xử lý...'
 	 */
@@ -48,20 +42,20 @@ export interface Props extends CustomButtonProps {
 const Button: FC<Props> = (props) => {
 	const classes = useStyles();
 	const {
-		loading,
-		disabled,
+		loading = false,
+		disabled = false,
 		children,
-		color,
-		tooltip,
-		show,
-		size,
-		round,
-		fullWidth,
-		upcaseText,
-		simple,
-		justIcon,
-		outline,
-		loadingText,
+		color = 'primary',
+		helperText,
+		show = true,
+		size = 'normal',
+		round = false,
+		fullWidth = false,
+		upcaseText = false,
+		simple = false,
+		justIcon = false,
+		outline = false,
+		loadingText = 'Đang xử lý...',
 		...rest
 	} = props;
 
@@ -99,26 +93,18 @@ const Button: FC<Props> = (props) => {
 		</MuiButton>
 	);
 
-	if (tooltip)
+	if (helperText)
 		return (
-			<Tooltip TransitionComponent={Zoom} title={tooltip} placement={'bottom'}>
+			<Tooltip
+				TransitionComponent={Zoom}
+				title={helperText}
+				placement={'bottom'}
+			>
 				{button}
 			</Tooltip>
 		);
 
 	return button;
-};
-
-Button.defaultProps = {
-	show: true,
-	loading: false,
-	color: 'primary',
-	fullWidth: false,
-	upcaseText: false,
-	justIcon: false,
-	simple: false,
-	outline: false,
-	loadingText: 'Đang xử lý...',
 };
 
 export default memo(Button);
