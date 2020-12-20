@@ -1,16 +1,12 @@
 import React, { FC, memo } from 'react';
 import MuiButton, { ButtonProps } from '@material-ui/core/Button';
 import { CircularProgress, Tooltip, Zoom } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
-import ButtonStyles from './ButtonStyles';
+import useStyles from './styles';
 
-// @ts-ignore
-const useStyles = makeStyles(ButtonStyles);
+type BaseProps = Omit<ButtonProps, 'color' | 'variant' | 'size'>;
 
-type CustomButtonProps = Omit<ButtonProps, 'color' | 'variant' | 'size'>;
-
-export interface Props extends CustomButtonProps {
+export interface Props extends BaseProps {
 	loading?: boolean;
 	show?: boolean;
 	color:
@@ -39,7 +35,7 @@ export interface Props extends CustomButtonProps {
 	loadingText?: string;
 }
 
-const Button: FC<Props> = (props) => {
+const Index: FC<Props> = (props) => {
 	const classes = useStyles();
 	const {
 		loading = false,
@@ -56,10 +52,11 @@ const Button: FC<Props> = (props) => {
 		justIcon = false,
 		outline = false,
 		loadingText = 'Đang xử lý...',
+		className,
 		...rest
 	} = props;
 
-	const btnClasses = classNames({
+	const customClass = classNames(className, {
 		[classes.button]: true,
 		[classes[size]]: size,
 		[classes[color]]: color,
@@ -88,7 +85,7 @@ const Button: FC<Props> = (props) => {
 	};
 
 	const button = (
-		<MuiButton {...rest} disabled={loading || disabled} className={btnClasses}>
+		<MuiButton {...rest} disabled={loading || disabled} className={customClass}>
 			{renderChildren()}
 		</MuiButton>
 	);
@@ -107,4 +104,4 @@ const Button: FC<Props> = (props) => {
 	return button;
 };
 
-export default memo(Button);
+export default memo(Index);

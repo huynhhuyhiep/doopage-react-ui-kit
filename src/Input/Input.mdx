@@ -1,0 +1,66 @@
+---
+name: Input
+route: /input
+---
+
+
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb";
+import { Playground, Props } from "docz";
+import Input from "./index";
+
+# Input
+
+## Basic usage
+
+```jsx
+import { Input } from '@doopage/react-ui-kit'
+
+const Example = () => <Input />;
+
+export default Example;
+```
+
+## Playground
+
+### Normal
+<Playground>
+  <Input variant="outlined" label='input label' required />
+  <Input variant="outlined" label='input disabled' disabled value='value' />
+  <Input variant="standard" label='input label' />
+  <Input variant="filled" label='input label' />
+</Playground>
+
+### Helper Text
+<Playground>
+  <Input helperText='this is helper text' value={'this is content'} />
+</Playground>
+
+### Error
+<Playground>
+  <Input variant="outlined" label='input label' error='this is error' />
+  <Input variant="standard" label='input label' error='this is error' />
+  <Input variant="filled" label='input label' error='this is error' />
+</Playground>
+
+### Loading
+<Playground>
+  <Input loading label='input label' />
+</Playground>
+
+### With Icon
+<Playground>
+  <Input helperText='this is helper text' label='input label' endIcon={<AdbIcon />} startIcon={<AdbIcon />} />
+</Playground>
+
+### Full width
+<Playground>
+  <Input helperText='this is helper text' label='input label' fullWidth />
+</Playground>
+
+## Properties
+
+<Props of={Input} />

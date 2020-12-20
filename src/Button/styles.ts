@@ -1,3 +1,4 @@
+import { makeStyles } from '@material-ui/core/styles';
 import {
 	dangerColor,
 	infoColor,
@@ -7,7 +8,7 @@ import {
 	grayColor,
 } from '../utils/color';
 
-const buttonStyle = {
+const useStyles = makeStyles({
 	button: {
 		minHeight: 'auto',
 		minWidth: 'auto',
@@ -20,7 +21,7 @@ const buttonStyle = {
 		padding: '8px 20px',
 		margin: '.3125rem 1px',
 		fontSize: '0.8rem',
-		fontWeight: '500',
+		fontWeight: 500,
 		letterSpacing: '0.25',
 		willChange: 'box-shadow, transform',
 		textTransform: 'unset',
@@ -350,6 +351,6 @@ const buttonStyle = {
 			},
 		},
 	},
-};
+});
 
-export default buttonStyle;
+export default useStyles;
