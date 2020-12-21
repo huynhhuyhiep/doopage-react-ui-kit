@@ -1,5 +1,15 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { theme } from '../Theme';
+import { getHoverShadow, getShadow } from '../utils/constants';
+
+const createButtonShadow = (backgroundColor: string) => ({
+	boxShadow: getShadow(backgroundColor),
+	backgroundColor,
+	'&:hover,&:focus': {
+		backgroundColor,
+		boxShadow: getHoverShadow(backgroundColor),
+	},
+});
 
 const useStyles = makeStyles(() => {
 	const {
@@ -13,11 +23,10 @@ const useStyles = makeStyles(() => {
 
 	return createStyles({
 		button: {
+			...createButtonShadow(grayColor),
 			minHeight: 'auto',
 			minWidth: 'auto',
 			color: '#FFFFFF',
-			boxShadow:
-				'0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12)',
 			border: 'none',
 			borderRadius: '3px',
 			position: 'relative',
@@ -36,12 +45,6 @@ const useStyles = makeStyles(() => {
 			verticalAlign: 'middle',
 			touchAction: 'manipulation',
 			cursor: 'pointer',
-			'&:hover,&:focus': {
-				color: '#FFFFFF',
-				backgroundColor: grayColor,
-				boxShadow:
-					'0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2)',
-			},
 			'& .fab,& .fas,& .far,& .fal,& .material-icons': {
 				position: 'relative',
 				display: 'inline-block',
@@ -82,68 +85,18 @@ const useStyles = makeStyles(() => {
 		upcaseText: {
 			textTransform: 'uppercase',
 		},
-		primary: {
-			backgroundColor: `${primaryColor} !important`,
-			boxShadow:
-				'0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12)',
-			'&:hover,&:focus': {
-				backgroundColor: `${primaryColor} !important`,
-				boxShadow:
-					'0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2)',
-			},
-		},
-		info: {
-			backgroundColor: `${infoColor} !important`,
-			boxShadow:
-				'0 2px 2px 0 rgba(0, 188, 212, 0.14), 0 3px 1px -2px rgba(0, 188, 212, 0.2), 0 1px 5px 0 rgba(0, 188, 212, 0.12)',
-			'&:hover,&:focus': {
-				backgroundColor: `${infoColor} !important`,
-				boxShadow:
-					'0 14px 26px -12px rgba(0, 188, 212, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 188, 212, 0.2)',
-			},
-		},
-		success: {
-			backgroundColor: `${successColor} !important`,
-			boxShadow:
-				'0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12)',
-			'&:hover,&:focus': {
-				backgroundColor: successColor,
-				boxShadow:
-					'0 14px 26px -12px rgba(76, 175, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(76, 175, 80, 0.2)',
-			},
-		},
-		warning: {
-			backgroundColor: `${warningColor} !important`,
-			boxShadow:
-				'0 2px 2px 0 rgba(255, 152, 0, 0.14), 0 3px 1px -2px rgba(255, 152, 0, 0.2), 0 1px 5px 0 rgba(255, 152, 0, 0.12)',
-			'&:hover,&:focus': {
-				backgroundColor: warningColor,
-				boxShadow:
-					'0 14px 26px -12px rgba(255, 152, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 152, 0, 0.2)',
-			},
-		},
-		danger: {
-			backgroundColor: `${dangerColor} !important`,
-			boxShadow:
-				'0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12)',
-			'&:hover,&:focus': {
-				backgroundColor: dangerColor,
-				boxShadow:
-					'0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2)',
-			},
-		},
+		primary: createButtonShadow(primaryColor),
+		info: createButtonShadow(infoColor),
+		success: createButtonShadow(successColor),
+		warning: createButtonShadow(warningColor),
+		danger: createButtonShadow(dangerColor),
 		white: {
 			'&,&:focus,&:hover': {
 				backgroundColor: '#FFFFFF !important',
 				color: grayColor,
 			},
 		},
-		gray: {
-			'&,&:focus,&:hover': {
-				backgroundColor: `${grayColor} !important`,
-				color: '#FFFFFF',
-			},
-		},
+		gray: createButtonShadow(grayColor),
 		simple: {
 			'&,&:focus,&:hover': {
 				color: '#FFFFFF',

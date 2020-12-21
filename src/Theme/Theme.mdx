@@ -15,13 +15,12 @@ import { Button, setTheme, useTheme } from "../index";
 
 ## Basic usage
 Set theme color before render App
-
+Color must following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla().
 ```jsx
 import { setTheme } from '@doopage/react-ui-kit'
 
 setTheme({
-  primaryColor: 'blue',
-  infoColor: 'yellow'
+  primaryColor: '#551A8B',
 })
 
 ReactDOM.render(<App/>, document.getElementById("root"));
@@ -47,8 +46,7 @@ const MyComponent = () => {
 ## Playground
 <Playground>
   {setTheme({
-    primaryColor: 'blue',
-    infoColor: 'yellow',
+    primaryColor: '#551A8B'
   })}
   <Button color='primary'>
     Blue button
