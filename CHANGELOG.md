@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.5 (2020-12-21)
+
+
+### Features
+
+* **Select:** Add select component ([2aa6a1e](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/2aa6a1e5f5950526018c7c6b05c906732d2fdae1))
+
 ### 0.0.4 (2020-12-21)
 
 
