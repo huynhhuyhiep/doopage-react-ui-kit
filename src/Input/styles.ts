@@ -1,9 +1,10 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { theme } from '../Theme';
 
-const { grayColor, primaryColor } = theme.colors;
-const useStyles = makeStyles(() =>
-	createStyles({
+const useStyles = makeStyles(() => {
+	const { grayColor, primaryColor } = theme.colors;
+
+	return createStyles({
 		root: {
 			margin: '0 3px',
 			'& label.Mui-focused': {
@@ -37,7 +38,7 @@ const useStyles = makeStyles(() =>
 				opacity: 0.7,
 			},
 		},
-	})
-);
+	});
+});
 
 export default useStyles;

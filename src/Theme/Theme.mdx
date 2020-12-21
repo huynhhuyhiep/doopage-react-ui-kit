@@ -8,8 +8,10 @@ route: /theme
 
 
 
+
+
 import { Playground } from "docz";
-import { Button, setTheme, useTheme } from "../index";
+import { Button, setTheme, useTheme, Input } from "../index";
 
 # Theme
 
@@ -49,8 +51,9 @@ const MyComponent = () => {
     primaryColor: '#551A8B'
   })}
   <Button color='primary'>
-    Blue button
+    Purple button
   </Button>
+  <Input variant="outlined" label='purple input' />
 </Playground>
 
 <Playground>
@@ -58,9 +61,11 @@ const MyComponent = () => {
   {
     const theme = useTheme()
     return (
-      <Button color='primary'>
-        {theme.primaryColor}
-      </Button>
+      <>
+        <Button color='primary'>
+          {theme.primaryColor}
+        </Button>
+      </>
     )
   }}
 </Playground>
