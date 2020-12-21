@@ -1,0 +1,91 @@
+---
+name: Select
+route: /select
+---
+
+
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb";
+import {Playground, Props} from "docz"; import {useState} from "react";
+import Select, {SelectOption} from "./index";
+
+# Select
+
+## Basic usage
+
+```jsx
+import { Select } from '@doopage/react-ui-kit'
+
+const options = [{id: '1', name: "option 1"}, {id: '2', name: "option 2"}]
+const Example = () => {
+    return <Select options={options}/>;
+}
+
+export default Example;
+```
+
+## Playground
+
+### Simple Select
+<Playground>
+    {() =>
+    {
+        const [value, setValue] = useState('1')
+        const options = [{id: '1', name: "option 1"}, {id: '2', name: "option 2"}]
+        return (
+            <Select
+                options={options}
+                label='Select'
+                fullWidth
+                value={value}
+                onChange={e => setValue(e.target.value)}
+            />
+        )
+    }}
+</Playground>
+
+### Multiple Select
+<Playground>
+    {() =>
+    {
+        const [value, setValue] = useState(['1'])
+        const options = [{id: '1', name: "option 1"}, {id: '2', name: "option 2"}]
+        return (
+            <Select
+                multiple
+                options={options}
+                label='Select'
+                fullWidth
+                value={value}
+                onChange={e => setValue(e.target.value)}
+            />
+        )
+    }}
+</Playground>
+
+### Advanced
+<Playground>
+    <Select
+        options={[{id: '1', name: "option 1", icon: <AdbIcon/>, description: 'description options'}]}
+        label='Select'
+        fullWidth
+    />
+    <Select
+        options={[1, 2, 3, 4, 5]}
+        label='Select'
+        fullWidth
+    />
+</Playground>
+
+## Properties
+
+### Option
+<Props of={SelectOption}/>
+
+### Select
+<Props of={Select}/>
+
+

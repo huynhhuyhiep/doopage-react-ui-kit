@@ -20,7 +20,7 @@
     "installPeer": "node build-tool/peerDep.js",
     "test": "jest",
     "test:dev": "jest --watch",
-    "lint": "eslint src/**/*.{js,tsx,ts,jsx} --fix",
+    "lint": "eslint src/**/*.{tsx,ts} --fix",
     "stylelint": "stylelint src/**/*.{ts,tsx,jsx,js,css,scss,less} --fix",
     "commit": "git-cz",
     "release": "standard-version && git push --follow-tags origin main",
@@ -31,7 +31,8 @@
     "doc:deploy": "npm run doc:build && gh-pages -d docs",
     "publish-npm": "npm publish -access=public",
     "update": "npx npm-check --update",
-    "depcheck": "npx depcheck"
+    "depcheck": "npx depcheck",
+    "check-before-publish": "npm run test && npm run lint && npm run build && npm run doc:build"
   },
   "files": [
     "dist"

@@ -5,7 +5,7 @@ import useStyles from './styles';
 
 type BaseProps = Omit<TextFieldProps, 'color' | 'error'>;
 
-export interface Props extends BaseProps {
+export interface InputProps extends BaseProps {
 	loading?: boolean;
 	show?: boolean;
 	helperText?: string;
@@ -14,7 +14,7 @@ export interface Props extends BaseProps {
 	error?: string;
 }
 
-const Index: FC<Props> = (props) => {
+const Input: FC<InputProps> = (props) => {
 	const classes = useStyles(props);
 	const {
 		loading = false,
@@ -23,7 +23,6 @@ const Index: FC<Props> = (props) => {
 		error,
 		label,
 		InputLabelProps,
-		InputProps,
 		variant = 'standard',
 		endIcon,
 		startIcon,
@@ -53,7 +52,7 @@ const Index: FC<Props> = (props) => {
 			InputProps={{
 				startAdornment: startIcon,
 				endAdornment: renderLoading() || endIcon,
-				...InputProps,
+				...props.InputProps,
 			}}
 			helperText={error}
 			error={!!error}
@@ -62,4 +61,4 @@ const Index: FC<Props> = (props) => {
 	);
 };
 
-export default memo(Index);
+export default memo(Input);
