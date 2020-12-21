@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.7 (2020-12-21)
+
+
+### Bug Fixes
+
+* **Input:** theme not update ([3e208b6](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/3e208b6bc482105a93e009090957460d12939a2b))
+
 ### 0.0.6 (2020-12-21)
 
 ### 0.0.5 (2020-12-21)
