@@ -14,7 +14,7 @@ export type SizeType = 'tiny' | 'small' | 'normal' | 'large';
 
 export const getShadow = (color: string) => {
 	const rgb = decomposeColor(color).values.toString();
-	console.log('decomposeColor', rgb);
+
 	return `0 2px 2px 0 rgba(${rgb}, 0.14), 0 3px 1px -2px rgba(${rgb}, 0.2), 0 1px 5px 0 rgba(${rgb}, 0.12)`;
 };
 

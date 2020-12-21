@@ -1,0 +1,67 @@
+---
+name: Popup
+route: /popup
+---
+
+
+import MenuIcon from '@material-ui/icons/Menu';
+import {Playground, Props} from "docz";
+import Popup from "./index";
+
+# Popup
+
+## Basic usage
+
+```jsx
+import { Popup } from '@doopage/react-ui-kit'
+
+const Example = () => {
+    return <Popup label={'menu'}>this is popup</Popup>;
+}
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+    <Popup label={'menu'}>this is popup</Popup>
+</Playground>
+
+### Advanced
+<Playground>
+    <Popup
+        label={<MenuIcon/>}
+        buttonProps={{justIcon: true, color: 'gray', size: 'small', round: true}}
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+        }}
+        transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+        }}
+    >
+        <div>
+            this is pop up
+        </div>
+    </Popup>
+</Playground>
+
+### Hover
+<Playground>
+    <Popup
+        label={<MenuIcon/>}
+        hover
+    >
+        <div>
+            this is pop up
+        </div>
+    </Popup>
+</Playground>
+
+## Properties
+
+<Props of={Popup}/>
+
