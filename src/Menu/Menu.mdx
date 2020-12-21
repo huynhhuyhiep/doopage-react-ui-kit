@@ -1,0 +1,90 @@
+---
+name: Menu
+route: /menu
+---
+
+
+
+
+
+
+
+
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb"; import { Playground, Props } from "docz";
+import Menu, { MenuOption } from "./index";
+
+# Popup
+
+## Basic usage
+
+```jsx
+import { Menu } from '@doopage/react-ui-kit'
+
+const Example = () => {
+    return (
+      <Menu
+        label={'menu'}
+        options={[{id: '1', name: 'option1', onClick: () => {console.log('on click')}}]}
+      >
+        this is popup
+      </Menu>
+    );
+}
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+  {() =>
+  {
+    const handleClick = (item) => console.log('on click', item)
+    return (
+      <Menu
+        label={'menu'}
+        options={[
+          { name: 'option 1', onClick: handleClick },
+          { name: 'option 2', onClick: handleClick },
+        ]}
+      />
+    )
+  }}
+</Playground>
+
+### Advanced
+<Playground>
+  {() =>
+  {
+    const handleClick = (item) => console.log('on click', item)
+    return (
+      <Menu
+        label={'menu'}
+        options={[
+          { id: '1', name: 'option 1', onClick: handleClick, description: 'description option 1', icon: <AdbIcon /> },
+          {
+            id: '2',
+            name: 'option 2',
+            onClick: handleClick,
+            description: 'description option 2',
+            icon: <AdbIcon />,
+            closeOnClick: false
+          },
+        ]}
+      />
+    )
+  }}
+</Playground>
+
+## Properties
+
+### Option
+<Props of={MenuOption} />
+
+### Menu
+<Props of={Menu} />

@@ -1,0 +1,23 @@
+---
+name: Menu Item
+route: /menu-item
+---
+
+import AdbIcon from "@material-ui/icons/Adb";
+import { Playground, Props } from "docz";
+import { MenuItem } from "../index";
+
+# Menu Item
+
+## Playground
+
+### Basic
+<Playground>
+  <MenuItem selected name='name of menu item'/>
+  <br/>
+  <MenuItem selected onClick={() => console.log('click item')} name='name of menu item' description='description' icon={<AdbIcon/>}/>
+</Playground>
+
+## Properties
+
+<Props of={MenuItem} />

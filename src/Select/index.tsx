@@ -1,6 +1,6 @@
 import React, { FC, memo, ReactNode, useMemo } from 'react';
-import { ListItemIcon, ListItemText, MenuItem } from '@material-ui/core';
 import Input, { InputProps } from '../Input';
+import { MenuItem } from '../index';
 
 export type Option = {
 	id: string;
@@ -55,15 +55,9 @@ const Select: FC<Props> = (props) => {
 			}}
 			{...rest}
 		>
-			{options.map((item) => {
-				const { id, name, description, icon } = item;
-				return (
-					<MenuItem key={id} value={id}>
-						{icon && <ListItemIcon>{icon}</ListItemIcon>}
-						<ListItemText primary={name} secondary={description} />
-					</MenuItem>
-				);
-			})}
+			{options.map((item) => (
+				<MenuItem key={item.id} value={item.id} {...item} />
+			))}
 		</Input>
 	);
 };
