@@ -1,4 +1,11 @@
-import React, { FC, memo, ReactNode, useMemo } from 'react';
+import React, {
+	FC,
+	forwardRef,
+	memo,
+	ReactNode,
+	useImperativeHandle,
+	useMemo,
+} from 'react';
 import Popover, { PopoverProps } from '@material-ui/core/Popover';
 import {
 	bindHover,
@@ -7,8 +14,6 @@ import {
 	PopupState,
 	usePopupState,
 } from 'material-ui-popup-state/hooks';
-
-import { Box } from '@material-ui/core';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import Button, { Props as ButtonProps } from '../Button';
 
@@ -20,7 +25,7 @@ export interface PopupProps extends PopoverProps {
 	popupState?: PopupState;
 }
 
-const Popup: FC<PopupProps> = (props) => {
+const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 	const {
 		show = true,
 		children,
@@ -37,9 +42,7 @@ const Popup: FC<PopupProps> = (props) => {
 		...popupState,
 	});
 
-    const content = useMemo(() => {
-        if (React.c)
-    }, [children])
+	useImperativeHandle(ref, () => popupValue, [popupValue]);
 
 	if (!show) return null;
 	if (!hover)
@@ -60,7 +63,7 @@ const Popup: FC<PopupProps> = (props) => {
 					}}
 					{...rest}
 				>
-					<Box p={2}>{children}</Box>
+					{children}
 				</Popover>
 			</>
 		);
@@ -83,10 +86,10 @@ const Popup: FC<PopupProps> = (props) => {
 				{...rest}
 				disableRestoreFocus
 			>
-				<Box p={2}>{children}</Box>
+				{children}
 			</HoverPopover>
 		</>
 	);
-};
+});
 
 export default memo(Popup);

@@ -1,22 +1,38 @@
 ---
-name: Popup
-route: /popup
+name: Menu
+route: /menu
 ---
 
 
-import MenuIcon from '@material-ui/icons/Menu';
-import {Playground, Props} from "docz";
-import Popup from "./index";
+
+
+
+
+
+
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb"; import { Playground, Props } from "docz";
+import Menu, { MenuOption } from "./index";
 
 # Popup
 
 ## Basic usage
 
 ```jsx
-import { Popup } from '@doopage/react-ui-kit'
+import { Menu } from '@doopage/react-ui-kit'
 
 const Example = () => {
-    return <Popup label={'menu'}>this is popup</Popup>;
+    return (
+      <Menu
+        label={'menu'}
+        options={[{id: '1', name: 'option1', onClick: () => {console.log('on click')}}]}
+      >
+        this is popup
+      </Menu>
+    );
 }
 
 export default Example;
@@ -26,42 +42,49 @@ export default Example;
 
 ### Basic
 <Playground>
-    <Popup label={'menu'}>this is popup</Popup>
+  {() =>
+  {
+    const handleClick = (item) => console.log('on click', item)
+    return (
+      <Menu
+        label={'menu'}
+        options={[
+          { name: 'option 1', onClick: handleClick },
+          { name: 'option 2', onClick: handleClick },
+        ]}
+      />
+    )
+  }}
 </Playground>
 
 ### Advanced
 <Playground>
-    <Popup
-        label={<MenuIcon/>}
-        buttonProps={{justIcon: true, color: 'gray', size: 'small', round: true}}
-        anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-        }}
-        transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-        }}
-    >
-        <div>
-            this is pop up
-        </div>
-    </Popup>
-</Playground>
-
-### Hover
-<Playground>
-    <Popup
-        label={<MenuIcon/>}
-        hover
-    >
-        <div>
-            this is pop up
-        </div>
-    </Popup>
+  {() =>
+  {
+    const handleClick = (item) => console.log('on click', item)
+    return (
+      <Menu
+        label={'menu'}
+        options={[
+          { id: '1', name: 'option 1', onClick: handleClick, description: 'description option 1', icon: <AdbIcon /> },
+          {
+            id: '2',
+            name: 'option 2',
+            onClick: handleClick,
+            description: 'description option 2',
+            icon: <AdbIcon />,
+            closeOnClick: false
+          },
+        ]}
+      />
+    )
+  }}
 </Playground>
 
 ## Properties
 
-<Props of={Popup}/>
+### Option
+<Props of={MenuOption} />
 
+### Menu
+<Props of={Menu} />

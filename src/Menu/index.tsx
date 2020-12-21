@@ -1,34 +1,42 @@
-import React, { FC, memo, ReactNode, useMemo } from 'react';
-import Popover from '@material-ui/core/Popover';
-import {
-	bindHover,
-	bindPopover,
-	bindTrigger,
-	PopupState,
-	usePopupState,
-} from 'material-ui-popup-state/hooks';
-
-import { Box } from '@material-ui/core';
-import HoverPopover from 'material-ui-popup-state/HoverPopover';
+import React, { FC, memo, ReactNode, useRef } from 'react';
 import { PopupProps } from '../Popup';
-import Button, { Props as ButtonProps } from '../Button';
-import { Popup } from '../index';
+import { MenuItem, Popup } from '../index';
 
 export type Option = {
 	id: string;
 	name: string;
 	description?: string;
 	icon?: ReactNode;
+	onClick: (item: Option, e: any) => void;
+	closeOnClick?: boolean;
 };
 
 export interface Props extends PopupProps {
-	options: Array<Option> | string[] | number[];
+	options: Array<Option>;
 }
 
 const Menu: FC<Props> = (props) => {
-	const { options, ...rest } = props;
-
-	return <Popup {...rest}></Popup>;
+	const { options, ...restProps } = props;
+	const popupRef = useRef();
+	return (
+		<Popup {...restProps} ref={popupRef}>
+			{options.map((item) => {
+				const { name, id, onClick, closeOnClick = true, ...rest } = item;
+				return (
+					<MenuItem
+						key={id || name}
+						name={name}
+						onClick={(e) => {
+							onClick(item, e);
+							// @ts-ignore
+							if (closeOnClick) popupRef.current?.close();
+						}}
+						{...rest}
+					/>
+				);
+			})}
+		</Popup>
+	);
 };
 
 export default memo(Menu);

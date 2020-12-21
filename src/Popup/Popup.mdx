@@ -4,8 +4,12 @@ route: /popup
 ---
 
 
-import MenuIcon from '@material-ui/icons/Menu';
-import {Playground, Props} from "docz";
+
+
+
+
+import MenuIcon from "@material-ui/icons/Menu";
+import { Playground, Props } from "docz"; import { useRef } from "react"; import { Button } from "../index";
 import Popup from "./index";
 
 # Popup
@@ -26,42 +30,63 @@ export default Example;
 
 ### Basic
 <Playground>
-    <Popup label={'menu'}>this is popup</Popup>
+  <Popup label={'menu'}>this is popup</Popup>
 </Playground>
 
 ### Advanced
 <Playground>
-    <Popup
-        label={<MenuIcon/>}
-        buttonProps={{justIcon: true, color: 'gray', size: 'small', round: true}}
-        anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-        }}
-        transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-        }}
-    >
-        <div>
-            this is pop up
-        </div>
-    </Popup>
+  <Popup
+    label={<MenuIcon />}
+    buttonProps={{ justIcon: true, color: 'gray', size: 'small', round: true }}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'left',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'left',
+    }}
+  >
+    <div>
+      this is pop up
+    </div>
+  </Popup>
+</Playground>
+
+### Control
+<Playground>
+  {() =>
+  {
+    const popupRef = useRef()
+    const handleClose = () =>
+    {
+      popupRef.current.close()
+    }
+    return (
+      <>
+        <Popup label={<MenuIcon />} ref={popupRef}>
+          <Button color='gray' simple onClick={handleClose}>
+            Close popup
+          </Button>
+        </Popup>
+      </>
+    )
+  }}
 </Playground>
 
 ### Hover
 <Playground>
-    <Popup
-        label={<MenuIcon/>}
-        hover
-    >
-        <div>
-            this is pop up
-        </div>
-    </Popup>
+  <Popup
+    label={<MenuIcon />}
+    hover
+  >
+    <div>
+      this is pop up
+    </div>
+  </Popup>
 </Playground>
 
 ## Properties
 
-<Props of={Popup}/>
+<Props of={Popup} />
 
