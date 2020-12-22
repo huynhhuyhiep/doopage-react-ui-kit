@@ -1,0 +1,41 @@
+---
+name: Space
+route: /space
+---
+
+
+
+
+import { Playground, Props } from "docz";
+import { Avatar, Space } from "../index";
+import { doopageLogo } from "../utils/constants";
+
+# Space
+
+## Basic usage
+
+```jsx
+import { Space, Avatar } from '@doopage/react-ui-kit';
+
+const Example = () => {
+    return <Space><Avatar alt={'Logo'} /><Avatar alt={'Logo'} /><Avatar alt={'Logo'} /></Space>;
+}
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+  <Space>
+    <Avatar src={doopageLogo} alt={'Logo'} />
+    <Avatar alt={'Logo'} />
+  </Space>
+</Playground>
+
+## Properties
+
+<Props of={Space} />
+
+

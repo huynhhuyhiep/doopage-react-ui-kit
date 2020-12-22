@@ -6,5 +6,7 @@ export { default as Select } from './Select';
 export { default as Popup } from './Popup';
 export { default as Menu } from './Menu';
 export { default as MenuItem } from './MenuItem';
+export { default as Avatar } from './Avatar';
+export { default as Space } from './Space';
 
 export { theme, setTheme, useTheme, getTheme } from './Theme';
