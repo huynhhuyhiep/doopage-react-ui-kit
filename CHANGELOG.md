@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.8 (2020-12-22)
+
+
+### Features
+
+* **Popup:** Allow custom button ([b7b3592](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/b7b359258ae1bd365ccbeebacde9d4d8e819f7df))
+
 ### 0.0.7 (2020-12-21)
 
 
