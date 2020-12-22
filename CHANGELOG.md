@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.9 (2020-12-22)
+
+
+### Features
+
+* **Avatar:** Add avatar ([34f7e98](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/34f7e98a506e26ffce94253cbdf4f94444671426))
+
 ### 0.0.8 (2020-12-22)
 
 
