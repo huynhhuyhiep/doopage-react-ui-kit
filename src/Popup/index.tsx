@@ -17,10 +17,13 @@ import {
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import Button, { Props as ButtonProps } from '../Button';
 
-export interface PopupProps extends PopoverProps {
+type BaseProps = Omit<PopoverProps, 'open'>;
+
+export interface PopupProps extends BaseProps {
 	show?: boolean;
-	buttonProps: ButtonProps;
-	label: ReactNode;
+	buttonProps?: ButtonProps;
+	button?: ReactNode;
+	label?: ReactNode;
 	hover?: boolean;
 	popupState?: PopupState;
 }
@@ -33,6 +36,7 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 		label,
 		hover,
 		popupState,
+		button,
 		...rest
 	} = props;
 	const popupId = useMemo(() => new Date().getTime().toString(), []);
@@ -48,9 +52,16 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 	if (!hover)
 		return (
 			<>
-				<Button {...buttonProps} {...bindTrigger(popupValue)}>
-					{label}
-				</Button>
+				{button ? (
+					<div style={{ width: 'fit-content' }} {...bindHover(popupValue)}>
+						{button}
+					</div>
+				) : (
+					// @ts-ignore
+					<Button {...buttonProps} {...bindTrigger(popupValue)}>
+						{label}
+					</Button>
+				)}
 				<Popover
 					{...bindPopover(popupValue)}
 					anchorOrigin={{
@@ -70,9 +81,16 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 
 	return (
 		<>
-			<Button {...buttonProps} {...bindHover(popupValue)}>
-				{label}
-			</Button>
+			{button ? (
+				<div style={{ width: 'fit-content' }} {...bindHover(popupValue)}>
+					{button}
+				</div>
+			) : (
+				// @ts-ignore
+				<Button {...buttonProps} {...bindHover(popupValue)}>
+					{label}
+				</Button>
+			)}
 			<HoverPopover
 				{...bindPopover(popupValue)}
 				anchorOrigin={{

@@ -1,15 +1,14 @@
-import React, { FC, memo, ReactNode, useRef } from 'react';
+import React, { FC, memo, useRef } from 'react';
 import { PopupProps } from '../Popup';
 import { MenuItem, Popup } from '../index';
+import { Props as MenuItemProps } from '../MenuItem/index';
 
-export type Option = {
-	id: string;
-	name: string;
-	description?: string;
-	icon?: ReactNode;
-	onClick: (item: Option, e: any) => void;
+type BaseProps = Omit<MenuItemProps, 'onClick'>;
+
+export interface Option extends BaseProps {
 	closeOnClick?: boolean;
-};
+	onClick: (item: Option, e: any) => void;
+}
 
 export interface Props extends PopupProps {
 	options: Array<Option>;
@@ -27,7 +26,7 @@ const Menu: FC<Props> = (props) => {
 						key={id || name}
 						name={name}
 						onClick={(e) => {
-							onClick(item, e);
+							onClick?.(item, e);
 							// @ts-ignore
 							if (closeOnClick) popupRef.current?.close();
 						}}
