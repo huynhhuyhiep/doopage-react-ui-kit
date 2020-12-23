@@ -1,0 +1,65 @@
+---
+name: Autocomplete
+route: /autocomplete
+---
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb"; import {Playground, Props} from "docz";
+import {Autocomplete} from "../index";
+
+# Autocomplete
+Base on https://material-ui.com/components/autocomplete/#autocomplete
+
+Related component
+- [Input](https://huynhhuyhiep.github.io/doopage-react-ui-kit/input)
+
+Icon
+- https://material-ui.com/components/material-icons/
+
+## Basic usage
+
+```jsx
+import { Autocomplete } from '@doopage/react-ui-kit'
+
+const Example = () =>
+    <Autocomplete
+      options={[
+          { id: '1', name: 'The Shawshank Redemption' },
+          { id: '2', name: 'The Godfather' },
+      ]}
+    />
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+    <Autocomplete
+        options={[
+            {id: '1', name: 'The Shawshank Redemption'},
+            {id: '2', name: 'The Godfather'},
+        ]}
+    />
+</Playground>
+
+### Custom option item
+<Playground>
+    <Autocomplete
+        options={[
+            {id: '1', name: "option 1", icon: <AdbIcon/>, description: 'description options'}, {
+                id: '2',
+                name: "option 2",
+                icon: <AdbIcon/>,
+                description: 'description options'
+            }]}
+    />
+</Playground>
+
+
+## Properties
+
+<Props of={Autocomplete}/>
