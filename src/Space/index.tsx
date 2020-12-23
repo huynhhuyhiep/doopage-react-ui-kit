@@ -10,7 +10,7 @@ export interface Props extends BoxProps {
 }
 
 const Space: FC<Props> = (props) => {
-	const { show = true, children, ...rest } = props;
+	const { show = true, children, spaceHeight, spaceWidth, ...rest } = props;
 	const classes = useStyles(props);
 	if (!show) return null;
 

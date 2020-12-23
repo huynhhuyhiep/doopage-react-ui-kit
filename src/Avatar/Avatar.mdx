@@ -3,10 +3,14 @@ name: Avatar
 route: /avatar
 ---
 
-import AdbIcon from "@material-ui/icons/Adb"; import { Playground, Props } from "docz";
-import { Avatar, Space } from "../index";
-import { doopageLogo } from "../utils/constants";
-import { UserProps } from "./index";
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb"; import {Playground, Props} from "docz";
+import {Avatar, Space, getTheme} from "../index";
+import {doopageLogo} from "../utils/constants";
+import {UserProps} from "./index";
 
 # Avatar
 
@@ -26,112 +30,153 @@ export default Example;
 
 ### Basic
 <Playground>
-  <Space>
-    <Avatar src={doopageLogo} alt={'Logo'} />
-    <Avatar icon={<AdbIcon />} />
-    <Avatar alt={'Logo'} />
-    <Avatar />
-  </Space>
+    <Space>
+        <Avatar src={doopageLogo} alt={'Logo'}/>
+        <Avatar src={'/error_src.img'} alt={'Logo'}/>
+        <Avatar icon={<AdbIcon/>}/>
+        <Avatar alt={'Logo'}/>
+        <Avatar/>
+    </Space>
 </Playground>
 
 ### Size
 <Playground>
-  <Space spaceHeight={8}>
-    <Space>
-      <Avatar src={doopageLogo} size='large' />
-      <Avatar src={doopageLogo} alt={'Logo'} />
-      <Avatar src={doopageLogo} size='small' />
-      <Avatar src={doopageLogo} size="tiny" />
+    <Space spaceHeight={8}>
+        <Space>
+            <Avatar src={doopageLogo} size='large'/>
+            <Avatar src={doopageLogo} alt={'Logo'}/>
+            <Avatar src={doopageLogo} size='small'/>
+            <Avatar src={doopageLogo} size="tiny"/>
+        </Space>
+        <Space>
+            <Avatar icon={<AdbIcon/>} size='large'/>
+            <Avatar icon={<AdbIcon/>}/>
+            <Avatar icon={<AdbIcon/>} size='small'/>
+            <Avatar icon={<AdbIcon/>} size="tiny"/>
+        </Space>
+        <Space>
+            <Avatar alt={'Logo'} size='large'/>
+            <Avatar alt={'Logo'}/>
+            <Avatar alt={'Logo'} size='small'/>
+            <Avatar alt={'Logo'} size="tiny"/>
+        </Space>
     </Space>
-    <Space>
-      <Avatar icon={<AdbIcon />} size='large' />
-      <Avatar icon={<AdbIcon />} />
-      <Avatar icon={<AdbIcon />} size='small' />
-      <Avatar icon={<AdbIcon />} size="tiny" />
-    </Space>
-    <Space>
-      <Avatar alt={'Logo'} size='large' />
-      <Avatar alt={'Logo'} />
-      <Avatar alt={'Logo'} size='small' />
-      <Avatar alt={'Logo'} size="tiny" />
-    </Space>
-  </Space>
 </Playground>
 
 ### Variant
 <Playground>
-  <Space>
-    <Avatar variant='square' />
-    <Avatar variant='rounded' />
-    <Avatar variant='circle' />
-  </Space>
+    <Space>
+        <Avatar variant='square'/>
+        <Avatar variant='rounded'/>
+        <Avatar variant='circular'/>
+    </Space>
 </Playground>
 
 ### With helperText
 <Playground>
-  <Space>
-    <Avatar helperText={'this is helperText'} color='blue' />
-  </Space>
+    <Space>
+        <Avatar helperText={'this is helperText'} color='blue'/>
+    </Space>
 </Playground>
 
 ### With User
 <Playground>
-  <Avatar
-    onClick={() => console.log('click avatar')}
-    user={{
-      name: 'Huynh Huy Hiep',
-      avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-    }}
-  />
+    <Avatar
+        onClick={() => console.log('click avatar')}
+        user={{
+            name: 'Huynh Huy Hiep',
+            avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+        }}
+    />
+</Playground>
+
+### With border
+<Playground>
+    <Space>
+        <Avatar
+            onClick={() => console.log('click avatar')}
+            border
+            user={{
+                name: 'Huynh Huy Hiep',
+                avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+            }}
+        />
+        <Avatar
+            onClick={() => console.log('click avatar')}
+            borderStyle={{border: `2px solid ${getTheme().primaryColor}`, backgroundColor: getTheme().primaryColor}}
+            user={{
+                name: 'Huynh Huy Hiep',
+                avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+            }}
+        />
+    </Space>
 </Playground>
 
 ### With Badge
 <Playground>
-  <Space spaceWidth={15}>
-    <Avatar
-      onClick={() => console.log('click avatar')}
-      user={{
-        name: 'Huynh Huy Hiep',
-        avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-      }}
-      badge={
+    <Space spaceWidth={15}>
         <Avatar
-          border
-          size={"small"}
-          user={{
-            name: 'Supporter',
-            avatar: 'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
-          }}
+            onClick={() => console.log('click avatar')}
+            user={{
+                name: 'Huynh Huy Hiep',
+                avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+            }}
+            badge={
+                <Avatar
+                    border
+                    size={"small"}
+                    user={{
+                        name: 'Supporter',
+                        avatar: 'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
+                    }}
+                />
+            }
         />
-      }
-    />
-    <Avatar
-      size={50}
-      onClick={() => console.log('click avatar')}
-      user={{
-        name: 'Huynh Huy Hiep',
-        avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-      }}
-      badge={
         <Avatar
-          border
-          size={"small"}
-          user={{
-            name: 'Supporter',
-            avatar: 'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
-          }}
+            size={50}
+            onClick={() => console.log('click avatar')}
+            user={{
+                name: 'Huynh Huy Hiep',
+                avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+            }}
+            badge={
+                <Avatar
+                    border
+                    size={"small"}
+                    user={{
+                        name: 'Supporter',
+                        avatar: 'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
+                    }}
+                />
+            }
         />
-      }
-    />
-  </Space>
+        <Avatar
+            size={50}
+            onClick={() => console.log('click avatar')}
+            user={{
+                name: 'Huynh Huy Hiep',
+                avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+            }}
+            badge={
+                <Avatar
+                    border
+                    size={"small"}
+                    user={{
+                        name: 'Supporter',
+                        avatar: 'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
+                    }}
+                />
+            }
+        />
+    </Space>
 </Playground>
 
 ## Properties
 
 ### User Object
-<Props of={UserProps} />
+<Props of={UserProps}/>
 
 ### Avatar
-<Props of={Avatar} />
+<Props of={Avatar}/>
 
 

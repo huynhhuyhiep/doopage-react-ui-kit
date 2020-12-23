@@ -3,7 +3,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
-			backgroundColor: theme.palette.background.paper,
 			width: (props: any) =>
 				typeof props?.size === 'number' ? props?.size : undefined,
 			height: (props: any) =>
@@ -50,9 +49,11 @@ const useStyles = makeStyles((theme: Theme) =>
 			boxShadow:
 				'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
 		},
-		border: {
+		border: (props: any) => ({
 			border: `2px solid ${theme.palette.background.paper}`,
-		},
+			backgroundColor: theme.palette.background.paper,
+			...props?.borderStyle,
+		}),
 	})
 );
 

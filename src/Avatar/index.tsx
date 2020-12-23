@@ -13,7 +13,13 @@ export type UserProps = {
 	fb_id?: string;
 };
 
-export interface Props extends AvatarProps {
+type BaseProps = Omit<AvatarProps, 'variant'>;
+
+export interface Props extends BaseProps {
+	/**
+	 * default is circular
+	 */
+	variant?: 'circular' | 'rounded' | 'square';
 	show?: boolean;
 	user?: UserProps;
 	helperText?: string;
@@ -37,10 +43,14 @@ export interface Props extends AvatarProps {
 	size: 'tiny' | 'small' | 'normal' | 'large' | number;
 	icon: ReactNode;
 	shadow?: boolean;
-	border?: boolean;
+	/**
+	 * true or border style
+	 */
+	border?: boolean | string;
 	color?: string;
 	badge?: ReactNode;
 	badgeProps?: BadgeProps;
+	borderStyle?: CSSStyleSheet;
 }
 
 const getColor = (str = '') => listColor[str.charCodeAt(0) % listColor.length];
@@ -67,9 +77,11 @@ const Avatar: FC<Props> = (props) => {
 		style,
 		badge,
 		border,
+		borderStyle,
 		badgeProps,
 		...rest
 	} = props;
+
 	const { name, avatar, image, img, fb_id } = user || {};
 	const imageSrc = useMemo(
 		() =>
@@ -78,6 +90,7 @@ const Avatar: FC<Props> = (props) => {
 				: src || avatar || image || img,
 		[src, avatar, image, img, fb_id]
 	);
+
 	const genColor = useMemo(() => getColor(alt || name), [alt, name]);
 	const [backgroundColor, setBackgroundColor] = useState(() => {
 		if (color) return color;
@@ -91,7 +104,7 @@ const Avatar: FC<Props> = (props) => {
 		[classes[size]]: !!size,
 		[classes.shadow]: shadow,
 		[classes.cursor]: onClick,
-		[classes.border]: border,
+		[classes.border]: border || borderStyle,
 	});
 
 	if (!show) return null;
