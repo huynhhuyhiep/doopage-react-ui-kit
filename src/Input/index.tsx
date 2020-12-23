@@ -1,6 +1,6 @@
 import React, { FC, memo, ReactNode } from 'react';
 import TextField, { TextFieldProps } from '@material-ui/core/TextField';
-import { CircularProgress, InputAdornment } from '@material-ui/core';
+import { CircularProgress } from '@material-ui/core';
 import useStyles from './styles';
 
 type BaseProps = Omit<TextFieldProps, 'color' | 'error'>;
@@ -26,19 +26,11 @@ const Input: FC<InputProps> = (props) => {
 		variant = 'standard',
 		endIcon,
 		startIcon,
+		InputProps: inputProps,
 		...rest
 	} = props;
 
 	if (!show) return null;
-
-	const renderLoading = () => {
-		if (!loading) return null;
-		return (
-			<InputAdornment position='end'>
-				<CircularProgress color='inherit' size={20} />
-			</InputAdornment>
-		);
-	};
 
 	return (
 		<TextField
@@ -50,9 +42,19 @@ const Input: FC<InputProps> = (props) => {
 				...InputLabelProps,
 			}}
 			InputProps={{
-				startAdornment: startIcon,
-				endAdornment: renderLoading() || endIcon,
-				...props.InputProps,
+				...inputProps,
+				startAdornment: startIcon || inputProps?.startAdornment,
+				endAdornment: (
+					<>
+						{loading ? (
+							<CircularProgress color='inherit' size={20} />
+						) : (
+							endIcon || inputProps?.endAdornment || null
+						)}
+						{endIcon}
+						{inputProps?.endAdornment}
+					</>
+				),
 			}}
 			helperText={error}
 			error={!!error}

@@ -12,6 +12,7 @@ export interface MenuItemProps extends MuiMenuItemProps {
 	icon?: ReactNode;
 	endIcon?: ReactNode;
 	justContent?: boolean;
+	id: string;
 }
 
 const MenuItem: FC<MenuItemProps> = (props) => {

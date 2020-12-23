@@ -11,6 +11,12 @@ route: /chip
 
 
 
+
+
+
+
+
+
 import AdbIcon from "@material-ui/icons/Adb";
 import DoneIcon from "@material-ui/icons/Done";
 import { Playground, Props } from "docz";
@@ -80,24 +86,41 @@ export default Example;
   <Space>
     <Chip
       helperText='this is helper text'
-      color='primary' label='primary' avatar={<AdbIcon />} onDelete={() => console.log('delete click')}>Chip</Chip>
-    <Chip color='primary' label='primary' avatar={<Avatar src={doopageLogo} />}
-          onDelete={() => console.log('delete click')} square outlined>Chip</Chip>
+      color='primary'
+      label='primary'
+      avatar={<AdbIcon />}
+      onDelete={() => console.log('delete click')}
+    >
+      Chip
+    </Chip>
+    <Chip
+      color='primary'
+      label='primary'
+      avatar={<Avatar src={doopageLogo} />}
+      onDelete={() => console.log('delete click')}
+      square
+      outlined
+    >
+      Chip
+    </Chip>
     <Chip color='primary' label='primary' avatar={<Avatar>D</Avatar>}>Chip</Chip>
-    <Chip color='info' label='info' o
-          utlined
-          avatar={<Avatar src={doopageLogo} />}
-          size='medium'
-          helperText='this is helper text'
-          onDelete={() => console.log('delete click')}
+    <Chip
+      color='info'
+      label='info'
+      utlined
+      avatar={<Avatar src={doopageLogo} />}
+      size='medium'
+      helperText='this is helper text'
+      onDelete={() => console.log('delete click')}
     />
-    <Chip color='success'
-          helperText='this is helper text'
-          label='Success' outlined avatar={<AdbIcon />}
-          size='medium'
-          deleteIcon={<DoneIcon />}
-          onDelete={() => console.log('delete click')}
-          square
+    <Chip
+      color='success'
+      helperText='this is helper text'
+      label='Success' outlined avatar={<AdbIcon />}
+      size='medium'
+      deleteIcon={<DoneIcon />}
+      onDelete={() => console.log('delete click')}
+      square
     />
   </Space>
 </Playground>

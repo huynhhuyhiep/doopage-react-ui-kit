@@ -6,8 +6,31 @@ route: /autocomplete
 
 
 
-import AdbIcon from "@material-ui/icons/Adb"; import {Playground, Props} from "docz";
-import {Autocomplete} from "../index";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb"; import {
+  Playground,
+  Props
+} from "docz"; import { useState } from "react"; import Avatar from "../Avatar";
+import { Autocomplete } from "../index"; import { doopageLogo } from "../utils/constants";
 
 # Autocomplete
 Base on https://material-ui.com/components/autocomplete/#autocomplete
@@ -38,28 +61,73 @@ export default Example;
 
 ### Basic
 <Playground>
-    <Autocomplete
-        options={[
-            {id: '1', name: 'The Shawshank Redemption'},
-            {id: '2', name: 'The Godfather'},
-        ]}
-    />
+  <Autocomplete
+    options={[
+      { id: '1', name: 'The Shawshank Redemption' },
+      { id: '2', name: 'The Godfather' },
+    ]}
+  />
 </Playground>
 
 ### Custom option item
 <Playground>
-    <Autocomplete
-        options={[
-            {id: '1', name: "option 1", icon: <AdbIcon/>, description: 'description options'}, {
-                id: '2',
-                name: "option 2",
-                icon: <AdbIcon/>,
-                description: 'description options'
-            }]}
-    />
+  <Autocomplete
+    options={[
+      { id: '1', name: "option 1", icon: <AdbIcon />, description: 'description options' }, {
+        id: '2',
+        name: "option 2",
+        icon: <AdbIcon />,
+        description: 'description options'
+      }]}
+  />
 </Playground>
 
+### Multiple
+<Playground>
+  <Autocomplete
+    debug
+    multiple
+    placeholder='Select options'
+    label='Autocomplete Multiple'
+    variant='outlined'
+    chipColor='info'
+    options={Array(10).fill(0).map((item, index) => ({
+      id: index.toString(),
+      name: `option ${index}`,
+      icon: index % 2 ? <AdbIcon /> : <Avatar src={doopageLogo} size={"small"} />,
+      description: `description option ${index}`
+    }))}
+  />
+</Playground>
+
+### Control
+<Playground>
+  {() =>
+  {
+    const [value, setValue] = useState(['1', '2'])
+    console.log('selected Value', value)
+    return (
+      <Autocomplete
+        debug
+        multiple
+        placeholder='Select options'
+        label='Autocomplete Multiple'
+        variant='filled'
+        value={value}
+        onChange={(value) =>
+        {
+          setValue(value);
+        }}
+        options={Array(10).fill(0).map((item, index) => ({
+          id: index.toString(),
+          name: `option ${index}`,
+          icon: index % 2 ? <AdbIcon /> : <Avatar src={doopageLogo} size={"small"} />,
+        }))}
+      />
+    )
+  }}
+</Playground>
 
 ## Properties
 
-<Props of={Autocomplete}/>
+<Props of={Autocomplete} />

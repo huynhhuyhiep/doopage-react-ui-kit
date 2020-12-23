@@ -35,7 +35,8 @@ const Menu: FC<Props> = (props) => {
 				const defaultDivider = divider && index !== options.length - 1;
 				return (
 					<MenuItem
-						key={id || name}
+						id={id}
+						key={id}
 						name={name}
 						onClick={(e) => {
 							onClick?.(item, e);
