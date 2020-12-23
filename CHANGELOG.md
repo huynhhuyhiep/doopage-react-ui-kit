@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.11 (2020-12-23)
+
+
+### Features
+
+* **Checkbox:** add check box ([8f953d5](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/8f953d57869b54cca27da930a3b25af7733345dc))
+
 ### 0.0.10 (2020-12-23)
 
 ### 0.0.9 (2020-12-22)
