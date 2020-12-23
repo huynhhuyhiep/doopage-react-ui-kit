@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { Chip, ChipProps, Tooltip, Zoom } from '@material-ui/core';
+import { Chip as MuiChip, ChipProps, Tooltip, Zoom } from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
 
@@ -14,7 +14,7 @@ export interface Props extends BaseProps {
 	square?: boolean;
 }
 
-const Index: FC<Props> = (props) => {
+const Chip: FC<Props> = (props) => {
 	const classes = useStyles(props);
 	const {
 		helperText,
@@ -38,7 +38,7 @@ const Index: FC<Props> = (props) => {
 	});
 
 	let chipCom = (
-		<Chip
+		<MuiChip
 			variant={outlined ? 'outlined' : 'default'}
 			{...rest}
 			label={label || children}
@@ -61,4 +61,4 @@ const Index: FC<Props> = (props) => {
 	return chipCom;
 };
 
-export default memo(Index);
+export default memo(Chip);

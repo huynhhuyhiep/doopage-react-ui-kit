@@ -1,6 +1,6 @@
 import React, { FC, memo, ReactNode, useMemo } from 'react';
 import Input, { InputProps } from '../Input';
-import { MenuItem } from '../index';
+import MenuItem from '../MenuItem';
 
 export type Option = {
 	id: string;

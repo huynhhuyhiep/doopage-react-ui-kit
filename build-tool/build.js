@@ -111,8 +111,12 @@ function getRollupCommands() {
 				: null,
 		]
 			.filter(Boolean)
-			.join(isWindow?'&& ': ' ');
-		cmds[format] = [`${env}${isWindow?' && ':''}`, ...rollupCommand, sourceMap]
+			.join(isWindow ? '&& ' : ' ');
+		cmds[format] = [
+			`${env}${isWindow ? ' && ' : ''}`,
+			...rollupCommand,
+			sourceMap,
+		]
 			.filter(Boolean)
 			.join(' ');
 		return cmds;
@@ -128,10 +132,6 @@ const babelFormats = [
 		name: 'es',
 		babelrc: here('./babelrc.esm.js'),
 	},
-	{
-		name: 'cjs',
-		babelrc: here('./babelrc.cjs.js'),
-	},
 ];
 
 function getBabelCommands() {
@@ -142,10 +142,7 @@ function getBabelCommands() {
 			}),
 			`--presets ${babelrc}`,
 			`--out-dir dist/${name}`,
-			'--ignore src/**/*.test.ts',
-			'--ignore src/**/*.test.tsx',
-			'--ignore src/**/*.test.js',
-			'--ignore src/**/*.test.jsx',
+			'--ignore "src/**/*.test.tsx","src/**/*.test.ts"',
 			`--extensions ${extensions.join(',')}`,
 			'src',
 		].join(' ');
@@ -169,7 +166,6 @@ rimraf.sync(fromRoot('dist'));
 
 const scripts = getConcurrentlyArgs({
 	...generateTypesCommand(),
-	...getRollupCommands(),
 	...getBabelCommands(),
 });
 

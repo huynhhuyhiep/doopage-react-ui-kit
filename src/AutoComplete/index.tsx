@@ -11,8 +11,8 @@ import MuiAutocomplete, {
 } from '@material-ui/lab/Autocomplete';
 import { debounce } from '@material-ui/core/utils';
 import Input, { InputProps } from '../Input';
-import { MenuItemProps } from '../MenuItem';
-import { Chip, MenuItem } from '../index';
+import MenuItem, { MenuItemProps } from '../MenuItem';
+import Chip from '../Chip';
 
 type BaseProps = Omit<AutocompleteProps<any, any, any, any>, 'onChange'>;
 

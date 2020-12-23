@@ -1,7 +1,6 @@
 import React, { FC, memo, useRef } from 'react';
-import { PopupProps } from '../Popup';
-import { MenuItem, Popup } from '../index';
-import { MenuItemProps } from '../MenuItem';
+import Popup, { PopupProps } from '../Popup';
+import MenuItem, { MenuItemProps } from '../MenuItem';
 
 type BaseProps = Omit<MenuItemProps, 'onClick'>;
 
