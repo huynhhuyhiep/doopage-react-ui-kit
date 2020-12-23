@@ -7,12 +7,18 @@ route: /avatar
 
 
 
-import AdbIcon from "@material-ui/icons/Adb"; import {Playground, Props} from "docz";
-import {Avatar, Space, getTheme} from "../index";
+import {Box} from "@material-ui/core";
+import AdbIcon from "@material-ui/icons/Adb";
+import {Playground, Props} from "docz";
+import {Avatar, Space, getTheme, UserProps} from "../index";
 import {doopageLogo} from "../utils/constants";
-import {UserProps} from "./index";
 
 # Avatar
+Base on https://material-ui.com/components/avatars/
+
+Related component
+- https://material-ui.com/components/badges/
+- https://material-ui.com/components/tooltips/
 
 ## Basic usage
 
@@ -151,22 +157,12 @@ export default Example;
             }
         />
         <Avatar
-            size={50}
             onClick={() => console.log('click avatar')}
             user={{
                 name: 'Huynh Huy Hiep',
                 avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
             }}
-            badge={
-                <Avatar
-                    border
-                    size={"small"}
-                    user={{
-                        name: 'Supporter',
-                        avatar: 'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
-                    }}
-                />
-            }
+            badge={<Box width={10} height={10} bgcolor={getTheme().successColor} borderRadius={5}/>}
         />
     </Space>
 </Playground>

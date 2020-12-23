@@ -145,17 +145,19 @@ const Avatar: FC<Props> = (props) => {
 
 	if (badge || badgeProps)
 		avatarCom = (
-			<Badge
-				overlap='circle'
-				anchorOrigin={{
-					vertical: 'bottom',
-					horizontal: 'right',
-				}}
-				{...badgeProps}
-				badgeContent={badge}
-			>
-				{avatarCom}
-			</Badge>
+			<div>
+				<Badge
+					overlap='circle'
+					anchorOrigin={{
+						vertical: 'bottom',
+						horizontal: 'right',
+					}}
+					{...badgeProps}
+					badgeContent={badge}
+				>
+					{avatarCom}
+				</Badge>
+			</div>
 		);
 
 	return avatarCom;
