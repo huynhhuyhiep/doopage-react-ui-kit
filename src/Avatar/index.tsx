@@ -166,4 +166,4 @@ const Avatar: FC<Props> = (props) => {
 export default memo(Avatar);
 
 // @ts-ignore
-export const UserProps = (props: UserProps) => null;
+export const UProps = (props: UserProps) => null;

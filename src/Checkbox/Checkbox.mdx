@@ -1,0 +1,72 @@
+---
+name: Checkbox
+route: /checkbox
+---
+
+
+
+
+
+import {Playground, Props} from "docz";
+import {Space} from "../index";
+import Checkbox from "./index";
+
+# Checkbox
+Base on https://material-ui.com/components/checkboxes/
+
+Related component
+- https://material-ui.com/api/form-control-label/#formcontrollabel-api
+- https://material-ui.com/components/tooltips/
+- https://material-ui.com/components/icons/
+
+Icon
+- https://material-ui.com/components/material-icons/
+
+## Basic usage
+
+```jsx
+import { Checkbox } from '@doopage/react-ui-kit'
+
+const Example = () => <Checkbox />;
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+    <Checkbox color='primary'/>
+    <Checkbox color='primary' disabled checked/>
+    <Checkbox color='primary' disabled/>
+</Playground>
+
+### With label
+<Playground>
+    <Checkbox color='primary' checked>Primary</Checkbox>
+    <Checkbox color='info' checked>Info</Checkbox>
+    <Checkbox color='warning' label='Warning' checked/>
+    <Checkbox color='success' checked>Success</Checkbox>
+    <Checkbox color='danger' checked>Danger</Checkbox>
+
+    <Checkbox simple color='info' disabled>Disable</Checkbox>
+</Playground>
+
+### With helperText
+<Playground>
+    <Checkbox helperText='this is heplerText'/>
+</Playground>
+
+### Label placement
+<Playground>
+    <Space spaceWidth={15}>
+        <Checkbox color='primary' checked labelPlacement='start'>Primary</Checkbox>
+        <Checkbox color='info' checked labelPlacement='end'>Info</Checkbox>
+        <Checkbox color='warning' label='Warning' checked labelPlacement='bottom'/>
+        <Checkbox color='success' checked labelPlacement='top'>Success</Checkbox>
+    </Space>
+</Playground>
+
+## Properties
+
+<Props of={Checkbox}/>

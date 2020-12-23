@@ -33,6 +33,22 @@ export interface Props extends BaseProps {
 	 * @default 'Đang xử lý...'
 	 */
 	loadingText?: string;
+	/**
+	 * Tooltip placement, @default 'bottom'
+	 */
+	placement?:
+		| 'bottom-end'
+		| 'bottom-start'
+		| 'bottom'
+		| 'left-end'
+		| 'left-start'
+		| 'left'
+		| 'right-end'
+		| 'right-start'
+		| 'right'
+		| 'top-end'
+		| 'top-start'
+		| 'top';
 }
 
 const Index: FC<Props> = (props) => {
@@ -53,6 +69,7 @@ const Index: FC<Props> = (props) => {
 		outline = false,
 		loadingText = 'Đang xử lý...',
 		className,
+		placement = 'bottom',
 		...rest
 	} = props;
 
@@ -95,7 +112,7 @@ const Index: FC<Props> = (props) => {
 			<Tooltip
 				TransitionComponent={Zoom}
 				title={helperText}
-				placement={'bottom'}
+				placement={placement}
 			>
 				{button}
 			</Tooltip>

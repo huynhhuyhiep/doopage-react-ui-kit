@@ -7,6 +7,8 @@ export { default as Popup } from './Popup';
 export { default as Menu } from './Menu';
 export { default as MenuItem } from './MenuItem';
 export { default as Avatar } from './Avatar';
-export { UserProps } from './Avatar';
 export { default as Space } from './Space';
+export { default as Switch } from './Switch';
+export { default as Checkbox } from './Checkbox';
+
 export { theme, setTheme, useTheme, getTheme } from './Theme';

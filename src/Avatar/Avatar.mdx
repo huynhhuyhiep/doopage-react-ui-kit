@@ -4,14 +4,12 @@ route: /avatar
 ---
 
 
-
-
-
 import {Box} from "@material-ui/core";
 import AdbIcon from "@material-ui/icons/Adb";
 import {Playground, Props} from "docz";
-import {Avatar, Space, getTheme, UserProps} from "../index";
+import {Avatar, Space, getTheme} from "../index";
 import {doopageLogo} from "../utils/constants";
+import {UProps} from "./index";
 
 # Avatar
 Base on https://material-ui.com/components/avatars/
@@ -170,7 +168,7 @@ export default Example;
 ## Properties
 
 ### User Object
-<Props of={UserProps}/>
+<Props of={UProps}/>
 
 ### Avatar
 <Props of={Avatar}/>

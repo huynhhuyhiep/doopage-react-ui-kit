@@ -1,0 +1,76 @@
+---
+name: Switch
+route: /switch
+---
+
+
+
+
+
+import {Playground, Props} from "docz"; import {Space} from "../index";
+import Switch from "./index";
+
+# Switch
+Base on https://material-ui.com/components/switches/
+
+Related component
+- https://material-ui.com/api/form-control-label/#formcontrollabel-api
+- https://material-ui.com/components/tooltips/
+- https://material-ui.com/components/icons/
+
+Icon
+- https://material-ui.com/components/material-icons/
+
+## Basic usage
+
+```jsx
+import { Switch } from '@doopage/react-ui-kit'
+
+const Example = () => <Switch />;
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+    <Switch color='primary' checked/>
+    <Switch color='primary' disabled/>
+</Playground>
+
+### With label
+<Playground>
+    <Switch color='primary' checked>Primary</Switch>
+    <Switch color='info' checked>Info</Switch>
+    <Switch color='warning' label='Warning' checked/>
+    <Switch color='success' checked>Success</Switch>
+    <Switch color='danger' checked>Danger</Switch>
+
+    <Switch simple color='info' disabled>Disable</Switch>
+</Playground>
+
+### Size
+<Playground>
+    <Switch size='small' color='success'>Small</Switch>
+    <Switch size='normal' color='warning'>Normal</Switch>
+</Playground>
+
+### With helperText
+<Playground>
+    <Switch helperText='this is heplerText'/>
+</Playground>
+
+### Label placement
+<Playground>
+    <Space spaceWidth={15}>
+        <Switch color='primary' checked labelPlacement='start'>Primary</Switch>
+        <Switch color='info' checked labelPlacement='end'>Info</Switch>
+        <Switch color='warning' label='Warning' checked labelPlacement='bottom'/>
+        <Switch color='success' checked labelPlacement='top'>Success</Switch>
+    </Space>
+</Playground>
+
+## Properties
+
+<Props of={Switch}/>

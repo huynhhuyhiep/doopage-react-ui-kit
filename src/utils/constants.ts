@@ -1,4 +1,5 @@
 import { decomposeColor } from '@material-ui/core/styles';
+import { theme } from '../Theme';
 
 export type ColorType =
 	| 'info'
@@ -12,16 +13,34 @@ export type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 
 export type SizeType = 'tiny' | 'small' | 'normal' | 'large';
 
-export const getShadow = (color: string) => {
-	const rgb = decomposeColor(color).values.toString();
+export const getColor = (color: ColorType = 'primary') =>
+	theme.colors[`${color}Color`];
 
-	return `0 2px 2px 0 rgba(${rgb}, 0.14), 0 3px 1px -2px rgba(${rgb}, 0.2), 0 1px 5px 0 rgba(${rgb}, 0.12)`;
+export const getRGBColor = (color: string) =>
+	decomposeColor(color).values.toString();
+
+export const getOpacityColor = (color: string) => (opacity: number) => {
+	const rgb = getRGBColor(color);
+	return `rgba(${rgb}, ${opacity})`;
+};
+
+export const getShadow = (color: string) => {
+	const opacityColor = getOpacityColor(color);
+
+	return `
+	0 2px 2px 0 ${opacityColor(0.14)}, 
+	0 3px 1px -2px ${opacityColor(0.2)}, 
+	0 1px 5px 0 ${opacityColor(0.12)}
+	`;
 };
 
 export const getHoverShadow = (color: string) => {
-	const rgb = decomposeColor(color).values.toString();
+	const opacityColor = getOpacityColor(color);
 
-	return `0 14px 26px -12px rgba(${rgb}, 0.42), 0 4px 23px 0px rgba(${rgb}, 0.12), 0 8px 10px -5px rgba(${rgb}, 0.2)`;
+	return `
+	0 14px 26px -12px ${opacityColor(0.42)}, 
+	0 4px 23px 0px ${opacityColor(0.12)}, 
+	0 8px 10px -5px ${opacityColor(0.2)}`;
 };
 
 export const doopageLogo =
