@@ -12,15 +12,27 @@ export interface Option extends BaseProps {
 
 export interface Props extends PopupProps {
 	options: Array<Option>;
+	/**
+	 * Apply divider for all item
+	 */
+	divider?: boolean;
 }
 
 const Menu: FC<Props> = (props) => {
-	const { options, ...restProps } = props;
+	const { options, divider, ...restProps } = props;
 	const popupRef = useRef();
 	return (
 		<Popup {...restProps} ref={popupRef}>
-			{options.map((item) => {
-				const { name, id, onClick, closeOnClick = true, ...rest } = item;
+			{options.map((item, index) => {
+				const {
+					name,
+					id,
+					onClick,
+					closeOnClick = true,
+					divider: dividerItem,
+					...rest
+				} = item;
+				const defaultDivider = divider && index !== options.length - 1;
 				return (
 					<MenuItem
 						key={id || name}
@@ -30,6 +42,7 @@ const Menu: FC<Props> = (props) => {
 							// @ts-ignore
 							if (closeOnClick) popupRef.current?.close();
 						}}
+						divider={defaultDivider || dividerItem}
 						{...rest}
 					/>
 				);

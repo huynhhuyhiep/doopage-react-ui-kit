@@ -5,11 +5,12 @@ route: /menu
 
 
 
+
 import AdbIcon from "@material-ui/icons/Adb"; import {
-  Playground,
-  Props
-} from "docz"; import { doopageLogo } from "../utils/constants";
-import Menu, { MenuOption } from "./index";
+    Playground,
+    Props
+} from "docz"; import {Avatar} from "../index"; import {doopageLogo} from "../utils/constants";
+import Menu, {MenuOption} from "./index";
 
 # Popup
 
@@ -34,62 +35,59 @@ export default Example;
 
 ### Basic
 <Playground>
-  {() =>
-  {
-    const handleClick = (item) => console.log('on click', item)
-    return (
-      <Menu
-        label={'menu'}
-        options={[
-          { name: 'option 1', onClick: handleClick },
-          { name: 'option 2', onClick: handleClick },
-        ]}
-      />
-    )
-  }}
+    {() =>
+    {
+        const handleClick = (item) => console.log('on click', item)
+        return (
+            <Menu
+                label={'menu'}
+                options={[
+                    {name: 'option 1', onClick: handleClick},
+                    {name: 'option 2', onClick: handleClick},
+                ]}
+            />
+        )
+    }}
 </Playground>
 
 ### Advanced
 <Playground>
-  {() =>
-  {
-    const handleClick = (item) => console.log('on click', item)
-    return (
-      <Menu
-        button={<div style={{ width: 100, backgroundColor: 'blue' }}>click here</div>}
-        hover
-        options={[
-          {
-            id: '1',
-            name: 'option 1',
-            onClick: handleClick,
-            description: 'description option 1',
-            icon: <AdbIcon />,
-            disabled: true,
-          },
-          {
-            id: '2',
-            name: 'option 2',
-            onClick: handleClick,
-            description: 'description option 2',
-            icon: <img
-              width={25}
-              height={25}
-              src={doopageLogo}
-              alt="Logo"
-            />,
-            closeOnClick: false
-          },
-        ]}
-      />
-    )
-  }}
+    {() =>
+    {
+        const handleClick = (item) => console.log('on click', item)
+        return (
+            <Menu
+                button={<div style={{width: 100, backgroundColor: 'gray', textAlign: 'center', color: '#fff'}}>click
+                    here</div>}
+                hover
+                options={[
+                    {
+                        id: '1',
+                        name: 'option 1',
+                        onClick: handleClick,
+                        description: 'description option 1',
+                        icon: <AdbIcon/>,
+                        disabled: true,
+                        divider: true
+                    },
+                    {
+                        id: '2',
+                        name: 'option 2',
+                        onClick: handleClick,
+                        description: 'description option 2',
+                        icon: <Avatar src={doopageLogo} size='small' shadow={false}/>,
+                        closeOnClick: false
+                    },
+                ]}
+            />
+        )
+    }}
 </Playground>
 
 ## Properties
 
 ### Option
-<Props of={MenuOption} />
+<Props of={MenuOption}/>
 
 ### Menu
-<Props of={Menu} />
+<Props of={Menu}/>
