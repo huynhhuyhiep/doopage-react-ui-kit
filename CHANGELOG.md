@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.13 (2020-12-23)
+
+
+### Features
+
+* **Autocomplete:** Support multiple select ([49b99ca](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/49b99ca02225fc1fc03d6a7ea06464900cd2aa7c))
+
 ### 0.0.12 (2020-12-23)
 
 
