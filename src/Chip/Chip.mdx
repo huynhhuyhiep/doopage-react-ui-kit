@@ -1,0 +1,107 @@
+---
+name: Chip
+route: /chip
+---
+
+
+
+
+
+
+
+
+
+import AdbIcon from "@material-ui/icons/Adb";
+import DoneIcon from "@material-ui/icons/Done";
+import { Playground, Props } from "docz";
+import Avatar from "../Avatar";
+import { Chip, Space } from "../index";
+import { doopageLogo } from "../utils/constants";
+
+# Chip
+Base on https://material-ui.com/components/chips/#chip
+
+Related component
+- [Avatar](https://huynhhuyhiep.github.io/doopage-react-ui-kit/avatar)
+- https://material-ui.com/components/tooltips/
+
+Icon
+- https://material-ui.com/components/material-icons/
+
+## Basic usage
+
+```jsx
+import { Chip } from '@doopage/react-ui-kit'
+
+const Example = () => <Chip>chip component</Chip>;
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+  <Space>
+    <Chip color='primary'>Chip</Chip>
+    <Chip label={'Chip'} />
+  </Space>
+</Playground>
+
+### Color
+<Playground>
+  <Space>
+    <Chip label='default' />
+    <Chip color='primary' label='primary'>Chip</Chip>
+    <Chip color='info' label='info' />
+    <Chip color='warning' label='warning' />
+    <Chip color='danger' label='danger' />
+  </Space>
+</Playground>
+
+### Variant
+<Playground>
+  <Space>
+    <Chip color='primary' label='primary'>Chip</Chip>
+    <Chip color='info' label='info' outlined size='medium' />
+  </Space>
+</Playground>
+
+### Square
+<Playground>
+  <Space>
+    <Chip color='primary' label='primary' square>Chip</Chip>
+    <Chip color='info' label='info' outlined size='medium' square />
+  </Space>
+</Playground>
+
+### Advanced
+<Playground>
+  <Space>
+    <Chip
+      helperText='this is helper text'
+      color='primary' label='primary' avatar={<AdbIcon />} onDelete={() => console.log('delete click')}>Chip</Chip>
+    <Chip color='primary' label='primary' avatar={<Avatar src={doopageLogo} />}
+          onDelete={() => console.log('delete click')} square outlined>Chip</Chip>
+    <Chip color='primary' label='primary' avatar={<Avatar>D</Avatar>}>Chip</Chip>
+    <Chip color='info' label='info' o
+          utlined
+          avatar={<Avatar src={doopageLogo} />}
+          size='medium'
+          helperText='this is helper text'
+          onDelete={() => console.log('delete click')}
+    />
+    <Chip color='success'
+          helperText='this is helper text'
+          label='Success' outlined avatar={<AdbIcon />}
+          size='medium'
+          deleteIcon={<DoneIcon />}
+          onDelete={() => console.log('delete click')}
+          square
+    />
+  </Space>
+</Playground>
+
+### Properties
+
+<Props of={Chip} />
