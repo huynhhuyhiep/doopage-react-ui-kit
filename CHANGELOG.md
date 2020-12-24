@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.16 (2020-12-24)
+
+
+### Bug Fixes
+
+* **Avatar:** make size props is optional ([a2225ac](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/a2225ac4ade554e8941efbe63ea4ba28d351c9e1))
+
 ### 0.0.15 (2020-12-24)
 
 
