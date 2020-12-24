@@ -19,11 +19,12 @@ export interface Props extends BaseProps {
 	/**
 	 * default is circular
 	 */
-	variant?: 'circular' | 'rounded' | 'square';
 	show?: boolean;
 	user?: UserProps;
 	helperText?: string;
 	tooltipProps?: TooltipProps;
+	rounded?: boolean;
+	square?: boolean;
 	/**
 	 * Tooltip placement.
 	 */
@@ -41,7 +42,7 @@ export interface Props extends BaseProps {
 		| 'top-start'
 		| 'top';
 	size: 'tiny' | 'small' | 'normal' | 'large' | number;
-	icon: ReactNode;
+	icon?: ReactNode;
 	shadow?: boolean;
 	/**
 	 * true or border style
@@ -79,6 +80,8 @@ const Avatar: FC<Props> = (props) => {
 		border,
 		borderStyle,
 		badgeProps,
+		rounded,
+		square,
 		...rest
 	} = props;
 
@@ -117,6 +120,7 @@ const Avatar: FC<Props> = (props) => {
 	let avatarCom = (
 		<MuiAvatar
 			{...rest}
+			variant={rounded ? 'rounded' : square ? 'square' : 'circular'}
 			style={{ backgroundColor, ...style }}
 			className={customClass}
 			src={imageSrc}

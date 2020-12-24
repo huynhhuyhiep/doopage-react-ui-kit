@@ -53,7 +53,7 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 		return (
 			<>
 				{button ? (
-					<div style={{ width: 'fit-content' }} {...bindHover(popupValue)}>
+					<div style={{ width: 'fit-content' }} {...bindTrigger(popupValue)}>
 						{button}
 					</div>
 				) : (
