@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.15 (2020-12-24)
+
+
+### Features
+
+* **Avatar:** Remove avatar variant, add rounded and square props ([1a0eac9](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/1a0eac9442e784cb38390a68857b3cef780133c1))
+
 ### 0.0.14 (2020-12-23)
 
 ### 0.0.13 (2020-12-23)
