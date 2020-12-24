@@ -41,7 +41,7 @@ export interface Props extends BaseProps {
 		| 'top-end'
 		| 'top-start'
 		| 'top';
-	size: 'tiny' | 'small' | 'normal' | 'large' | number;
+	size?: 'tiny' | 'small' | 'normal' | 'large' | number;
 	icon?: ReactNode;
 	shadow?: boolean;
 	/**
@@ -136,7 +136,7 @@ const Avatar: FC<Props> = (props) => {
 		</MuiAvatar>
 	);
 
-	if (name || helperText)
+	if (helperText)
 		avatarCom = (
 			<Tooltip
 				title={name || helperText || 'title'}

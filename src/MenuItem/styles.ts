@@ -4,7 +4,7 @@ const useStyles = makeStyles(() =>
 	createStyles({
 		root: {
 			padding: (props: any) =>
-				props?.justContent ? 0 : props?.icon ? '0 12px' : 'auto',
+				props?.justContent ? 0 : props?.icon ? '6px 12px' : 'auto',
 			'& .MuiListItemIcon-root': {
 				minWidth: 35,
 			},
