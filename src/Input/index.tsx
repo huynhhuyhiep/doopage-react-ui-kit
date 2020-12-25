@@ -51,8 +51,6 @@ const Input: FC<InputProps> = (props) => {
 						) : (
 							endIcon || inputProps?.endAdornment || null
 						)}
-						{endIcon}
-						{inputProps?.endAdornment}
 					</>
 				),
 			}}
