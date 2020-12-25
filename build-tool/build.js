@@ -76,12 +76,12 @@ function getConcurrentlyArgs(scripts, { killOthers = true } = {}) {
 
 	// prettier-ignore
 	return [
-		killOthers ? '--kill-others-on-fail' : null,
+    killOthers ? '--kill-others-on-fail' : null,
     '--prefix', '[{name}]',
-		'--names', Object.keys(scripts).join(','),
+    '--names', Object.keys(scripts).join(','),
     '--prefix-colors', prefixColors,
     ...Object.values(scripts).map((s) => JSON.stringify(s)), // stringify escapes quotes ✨
-	].filter(Boolean);
+  ].filter(Boolean);
 }
 
 const rollupFormats = ['umd', 'umd.min'];
@@ -132,6 +132,10 @@ const babelFormats = [
 		name: 'es',
 		babelrc: here('./babelrc.esm.js'),
 	},
+	{
+		name: 'cjs',
+		babelrc: here('./babelrc.cjs.js'),
+	},
 ];
 
 function getBabelCommands() {
@@ -165,6 +169,7 @@ rimraf.sync(fromRoot('dist'));
 
 const scripts = getConcurrentlyArgs({
 	...generateTypesCommand(),
+	...getRollupCommands(),
 	...getBabelCommands(),
 });
 
