@@ -1,5 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable indent */
+/* eslint-disable no-template-curly-in-string */
 module.exports = ({ pure, withModules, isUMD = false }) => ({
 	presets: [
 		'@babel/preset-typescript',
@@ -21,6 +22,34 @@ module.exports = ({ pure, withModules, isUMD = false }) => ({
 	],
 	plugins: [
 		[
+			'transform-imports',
+			{
+				lodash: {
+					transform: 'lodash/${member}',
+					preventFullImport: true,
+				},
+				'@material-ui/core': {
+					transform: '@material-ui/core/${member}',
+					preventFullImport: true,
+				},
+				'@material-ui/icons': {
+					transform: '@material-ui/icons/${member}',
+					preventFullImport: true,
+				},
+				'@material-ui/lab': {
+					transform: '@material-ui/lab/${member}',
+					preventFullImport: true,
+				},
+			},
+		],
+		[
+			'transform-remove-console',
+			{
+				exclude: ['error', 'warn'],
+			},
+		],
+		['@babel/plugin-transform-runtime'],
+		[
 			'transform-react-remove-prop-types',
 			{
 				mode: 'unsafe-wrap',
@@ -29,7 +58,6 @@ module.exports = ({ pure, withModules, isUMD = false }) => ({
 		],
 		['@babel/plugin-proposal-object-rest-spread', { loose: true }],
 		['@babel/proposal-class-properties', { loose: true }],
-		'@babel/transform-runtime',
 		'minify-dead-code-elimination',
 
 		...(isUMD

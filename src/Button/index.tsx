@@ -9,7 +9,7 @@ type BaseProps = Omit<ButtonProps, 'color' | 'variant' | 'size'>;
 export interface Props extends BaseProps {
 	loading?: boolean;
 	show?: boolean;
-	color:
+	color?:
 		| 'info'
 		| 'success'
 		| 'danger'
