@@ -1,3 +1,41 @@
 {
-	"presets": ["@babel/preset-env", "@babel/preset-react" ]
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "transform-imports",
+      {
+        "lodash": {
+          "transform": "lodash/${member}",
+          "preventFullImport": true
+        },
+        "@material-ui/core": {
+          "transform": "@material-ui/core/esm/${member}",
+          "preventFullImport": true
+        },
+        "@material-ui/icons": {
+          "transform": "@material-ui/icons/esm/${member}",
+          "preventFullImport": true
+        }
+      }
+    ],
+    [
+      "transform-remove-console",
+      {
+        "exclude": [
+          "error",
+          "warn"
+        ]
+      }
+    ],
+    ["@babel/plugin-transform-runtime"]
+  ],
+  "ignore": [
+    "**/*.test.js",
+    "**/*.test.jsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

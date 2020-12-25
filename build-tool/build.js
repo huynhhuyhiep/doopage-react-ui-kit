@@ -142,7 +142,6 @@ function getBabelCommands() {
 			}),
 			`--presets ${babelrc}`,
 			`--out-dir dist/${name}`,
-			'--ignore "src/**/*.test.tsx","src/**/*.test.ts"',
 			`--extensions ${extensions.join(',')}`,
 			'src',
 		].join(' ');
