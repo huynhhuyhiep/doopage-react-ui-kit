@@ -3,6 +3,7 @@
 /* eslint-disable global-require */
 
 // #!/usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
 const which = require('which');
@@ -128,7 +129,7 @@ const babelFormats = [
 		babelrc: here('./babelrc.esm.pure.js'),
 	},
 	{
-		name: './',
+		name: 'es',
 		babelrc: here('./babelrc.esm.js'),
 	},
 	{

@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/huynhhuyhiep/doopage-react-ui-kit"
   },
-  "main": "dist/es/index",
+  "main": "dist/cjs/index",
   "module": "dist/es/index",
   "style": "dist/@doopage/component.css",
   "types": "dist/types/index.d.ts",
