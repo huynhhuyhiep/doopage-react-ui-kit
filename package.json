@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/huynhhuyhiep/doopage-react-ui-kit"
   },
-  "main": "dist/cjs/index",
+  "main": "dist/es/index",
   "module": "dist/es/index",
   "style": "dist/@doopage/component.css",
   "types": "dist/types/index.d.ts",
@@ -29,7 +29,7 @@
     "doc:dev": "docz dev --typescript --port=3003",
     "doc:build": "docz build",
     "doc:deploy": "npm run doc:build && gh-pages -d docs",
-    "publish-npm": "npm publish -access=public",
+    "publish-npm": "npm publish",
     "update": "npx npm-check --update",
     "depcheck": "npx depcheck",
     "check-before-publish": "npm run test && npm run lint && npm run build && npm run doc:build"
@@ -38,9 +38,16 @@
     "dist"
   ],
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "prop-types": "^15.7.2"
+    "@types/react": "^16.8.6 || ^17.0.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "fontsource-roboto": "^3.1.5",
+    "material-ui-popup-state": "^1.7.1",
+    "node-sass": "^4.14.1",
+    "valtio": "^0.4.10"
   },
   "license": "MIT",
   "engines": {
@@ -66,15 +73,8 @@
     ]
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
     "@types/classnames": "^2.2.11",
     "classnames": "^2.2.6",
-    "fontsource-roboto": "^3.1.5",
-    "material-ui-popup-state": "^1.7.1",
-    "node-sass": "^4.14.1",
-    "valtio": "^0.4.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
@@ -152,10 +152,16 @@
   "keywords": [
     "react",
     "components",
+    "react-components",
     "react-ui",
+    "react-ui-kit",
+    "ui-kit",
     "@doopage/ui-kit",
     "library",
-    "ui-kit",
-    "doopage"
-  ]
+    "doopage",
+    "react-button"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

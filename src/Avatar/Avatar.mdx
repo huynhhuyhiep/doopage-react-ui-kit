@@ -72,7 +72,7 @@ export default Example;
     <Space>
         <Avatar square/>
         <Avatar rounded/>
-        <Avatar />
+        <Avatar/>
     </Space>
 </Playground>
 
@@ -137,6 +137,12 @@ export default Example;
             }
         />
         <Avatar
+            badgeProps={{
+                anchorOrigin: {
+                    vertical: "top",
+                    horizontal: "right",
+                },
+            }}
             size={50}
             onClick={() => console.log('click avatar')}
             user={{

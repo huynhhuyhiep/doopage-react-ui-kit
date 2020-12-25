@@ -16,6 +16,7 @@ import {
 } from 'material-ui-popup-state/hooks';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import Button, { Props as ButtonProps } from '../Button';
+import useStyles from './styles';
 
 type BaseProps = Omit<PopoverProps, 'open'>;
 
@@ -39,6 +40,7 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 		button,
 		...rest
 	} = props;
+	const classes = useStyles();
 	const popupId = useMemo(() => new Date().getTime().toString(), []);
 	const popupValue = usePopupState({
 		popupId,
@@ -53,7 +55,7 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 		return (
 			<>
 				{button ? (
-					<div style={{ width: 'fit-content' }} {...bindTrigger(popupValue)}>
+					<div className={classes.trigger} {...bindTrigger(popupValue)}>
 						{button}
 					</div>
 				) : (
@@ -82,7 +84,7 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 	return (
 		<>
 			{button ? (
-				<div style={{ width: 'fit-content' }} {...bindHover(popupValue)}>
+				<div className={classes.trigger} {...bindHover(popupValue)}>
 					{button}
 				</div>
 			) : (
