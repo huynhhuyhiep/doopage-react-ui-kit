@@ -1,20 +1,25 @@
 import React, { FC, memo } from 'react';
-import { Chip as MuiChip, ChipProps, Tooltip, Zoom } from '@material-ui/core';
+import {
+	Chip as MuiChip,
+	ChipProps as MuiChipProps,
+	Tooltip,
+	Zoom,
+} from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
 
-type BaseProps = Omit<ChipProps, 'color' | 'variant'>;
+type BaseProps = Omit<MuiChipProps, 'color' | 'variant'>;
 
-export interface Props extends BaseProps {
+export interface ChipProps extends BaseProps {
 	show?: boolean;
 	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
 	helperText?: string;
 	label?: string;
 	outlined?: boolean;
-	square?: boolean;
+	rounded?: boolean;
 }
 
-const Chip: FC<Props> = (props) => {
+const Chip: FC<ChipProps> = (props) => {
 	const classes = useStyles(props);
 	const {
 		helperText,
@@ -25,7 +30,7 @@ const Chip: FC<Props> = (props) => {
 		className,
 		size = 'small',
 		outlined,
-		square,
+		rounded = true,
 		...rest
 	} = props;
 
@@ -34,7 +39,7 @@ const Chip: FC<Props> = (props) => {
 	const customClass = classNames(className, classes.root, {
 		[classes[color]]: color,
 		[classes.outlined]: outlined,
-		[classes.square]: square,
+		[classes.square]: !rounded,
 	});
 
 	let chipCom = (
