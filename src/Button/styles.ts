@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { theme } from '../Theme';
-import { getHoverShadow, getShadow } from '../utils/constants';
+import { getHoverShadow, getOpacityColor, getShadow } from '../utils/constants';
 
 const createButtonShadow = (backgroundColor: string) => ({
 	boxShadow: getShadow(backgroundColor),
@@ -10,6 +10,20 @@ const createButtonShadow = (backgroundColor: string) => ({
 		boxShadow: getHoverShadow(backgroundColor),
 	},
 });
+
+const createButtonSmooth = (color: string) => {
+	const opacityColor = getOpacityColor(color);
+	return {
+		'&': {
+			color,
+			backgroundColor: opacityColor(0.25),
+			border: `1px solid ${opacityColor(0.85)}`,
+		},
+		'&:focus,&:hover,&:visited': {
+			border: `1px solid ${opacityColor(1)}`,
+		},
+	};
+};
 
 const useStyles = makeStyles(() => {
 	const {
@@ -306,6 +320,17 @@ const useStyles = makeStyles(() => {
 					height: '13px',
 				},
 			},
+		},
+		smooth: {
+			boxShadow: 'none',
+			background: 'inherit',
+			fontWeight: 400,
+			'&$gray': createButtonSmooth(grayColor),
+			'&$primary': createButtonSmooth(primaryColor),
+			'&$info': createButtonSmooth(infoColor),
+			'&$success': createButtonSmooth(successColor),
+			'&$warning': createButtonSmooth(warningColor),
+			'&$danger': createButtonSmooth(dangerColor),
 		},
 	});
 });

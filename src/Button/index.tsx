@@ -9,16 +9,18 @@ type BaseProps = Omit<ButtonProps, 'color' | 'variant' | 'size'>;
 export interface Props extends BaseProps {
 	loading?: boolean;
 	show?: boolean;
-	color:
+	color?:
 		| 'info'
 		| 'success'
 		| 'danger'
 		| 'warning'
 		| 'primary'
 		| 'white'
-		| 'gray';
+		| 'gray'
+		| 'transparent';
 	helperText?: string;
 	round?: boolean;
+	smooth?: boolean;
 	/**
 	 * @default normal
 	 */
@@ -70,6 +72,7 @@ const Index: FC<Props> = (props) => {
 		loadingText = 'Đang xử lý...',
 		className,
 		placement = 'bottom',
+		smooth,
 		...rest
 	} = props;
 
@@ -83,6 +86,7 @@ const Index: FC<Props> = (props) => {
 		[classes.disabled]: disabled,
 		[classes.simple]: simple,
 		[classes.outline]: outline,
+		[classes.smooth]: smooth,
 		[classes.justIcon]: justIcon,
 	});
 
