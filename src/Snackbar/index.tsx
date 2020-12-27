@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import {
 	OptionsObject,
 	SnackbarKey,
@@ -11,10 +11,6 @@ import { proxy } from 'valtio';
 import CloseIcon from '@material-ui/icons/Close';
 import useStyles from './styles';
 import Button from '../Button';
-
-type BaseProps = Omit<SnackbarProviderProps, 'color'>;
-
-export type Props = BaseProps;
 
 export interface SnackbarControlType {
 	show: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
@@ -77,7 +73,7 @@ export const showWarningSnackbar = showSnackbarVariant('warning');
 export const showInfoSnackbar = showSnackbarVariant('info');
 export const showPrimarySnackbar = showSnackbarVariant('primary');
 
-const Provider: FC<Props> = (props) => {
+const Index: FC<SnackbarProviderProps> = (props) => {
 	const classes = useStyles(props);
 	return (
 		<SnackbarProvider
@@ -109,4 +105,6 @@ const Provider: FC<Props> = (props) => {
 	);
 };
 
-export default memo(Provider);
+export const SnackbarProps = (_props: SnackbarProviderProps) => null;
+
+export default Index;

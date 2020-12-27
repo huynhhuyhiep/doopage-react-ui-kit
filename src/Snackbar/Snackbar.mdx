@@ -1,17 +1,13 @@
 ---
 name: Snack bar
 route: /snack-bar
+menu: Feedback
+
 ---
 
 
-
-
-
-
-
-
-
-import { Playground, Props } from "docz"; import { useState } from "react";
+import { Playground, Props } from "docz";
+import { useState } from "react";
 import {
   Snackbar,
   Button,
@@ -23,7 +19,7 @@ import {
   showPrimarySnackbar,
   closeSnackbar,
   Checkbox,
-} from "../index";
+} from "../index"; import { SnackbarProps } from "./index";
 
 # Snackbar
 Base on https://iamhosseindhv.com/notistack <br/>
@@ -150,4 +146,4 @@ You can pass any material-ui snackbar props to either <Snackbar /> component or 
 
 ## Properties
 
-<Props of={Snackbar} />
+<Props of={SnackbarProps} />

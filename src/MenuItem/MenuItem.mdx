@@ -1,6 +1,8 @@
 ---
 name: Menu Item
 route: /menu-item
+menu: Data Display
+
 ---
 
 import AdbIcon from "@material-ui/icons/Adb";
@@ -24,9 +26,9 @@ Icon
 
 ### Disable padding
 <Playground>
-  <MenuItem selected name='name of menu item' justContent disableHover/>
+  <MenuItem selected name='name of menu item' justContent/>
 </Playground>
 
 ## Properties
 
-<Props of={MenuItem} />
+<Props of={MenuItem} table/>

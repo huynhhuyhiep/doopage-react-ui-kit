@@ -10,6 +10,7 @@ route: /theme
 
 
 
+import { InlineCode } from "@nejcm/docz-theme-extended";
 import { Playground } from "docz";
 import { Button, setTheme, useTheme, Input } from "../index";
 
@@ -17,7 +18,9 @@ import { Button, setTheme, useTheme, Input } from "../index";
 
 ## Basic usage
 Set theme color before render App
-Color must following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla().
+Color must following formats:
+<InlineCode>#nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()</InlineCode>
+
 ```jsx
 import { setTheme } from '@doopage/react-ui-kit'
 
