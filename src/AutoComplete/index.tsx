@@ -7,31 +7,42 @@ import React, {
 	useState,
 } from 'react';
 import MuiAutocomplete, {
-	AutocompleteProps,
+	AutocompleteProps as MuiAutocompleteProps,
+	createFilterOptions,
 } from '@material-ui/lab/Autocomplete';
 import { debounce } from '@material-ui/core/utils';
 import Input, { InputProps } from '../Input';
 import MenuItem, { MenuItemProps } from '../MenuItem';
-import Chip from '../Chip';
+import Chip, { ChipProps } from '../Chip';
 
-type BaseProps = Omit<AutocompleteProps<any, any, any, any>, 'onChange'>;
+type BaseProps = Omit<
+	MuiAutocompleteProps<any, any, any, any>,
+	'onChange' | 'options'
+>;
 
-export interface Props extends BaseProps {
+export interface AutocompleteProps extends BaseProps {
 	show?: boolean;
 	loading?: boolean;
 	inputProps?: InputProps;
-	options: Array<MenuItemProps>;
+	options?: Array<MenuItemProps>;
 	label?: string;
 	placeholder?: string;
 	error?: string;
 	helperText?: string;
 	variant?: 'standard' | 'filled' | 'outlined';
 	chipColor?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
-	onChange: (id: string, value: any) => void;
-	getData: (value: string) => void;
+	onChange?: (id: string, value: any) => void;
+	getData?: (value: string) => void;
+	setCreateText?: (inputValue: string) => string;
+	allowCreate?: boolean;
+	chipProps?: ChipProps;
+	allowDuplicates?: boolean;
+	showCreateText?: boolean;
 }
 
-const Autocomplete: FC<Props> = (props) => {
+const filter = createFilterOptions<MenuItemProps>();
+
+const Autocomplete: FC<AutocompleteProps> = (props) => {
 	const {
 		show = true,
 		inputProps,
@@ -44,10 +55,15 @@ const Autocomplete: FC<Props> = (props) => {
 		variant,
 		chipColor,
 		onChange,
-		options,
+		options = [],
 		value,
 		defaultValue,
 		getData,
+		allowCreate,
+		allowDuplicates,
+		showCreateText = true,
+		setCreateText,
+		chipProps,
 		...rest
 	} = props;
 
@@ -69,25 +85,27 @@ const Autocomplete: FC<Props> = (props) => {
 	const handleChange = (_event: ChangeEvent, newValue: any) => {
 		if (!newValue) return;
 
-		if (!multiple) {
-			onChange?.(newValue.id, newValue);
-		} else {
-			onChange?.(
-				newValue.map((item: any) => item.id),
-				newValue
-			);
+		let ids = !multiple
+			? newValue?.inputValue ?? newValue?.id ?? newValue
+			: newValue.map((item: any) => item?.inputValue ?? item?.id ?? item);
+
+		if (multiple && !allowDuplicates) {
+			// @ts-ignore
+			ids = [...new Set<string>(ids)];
 		}
+
+		onChange?.(ids, newValue);
 	};
 
 	const getValue = (valueIds: string | string[]) => {
 		if (!Array.isArray(valueIds)) {
-			if (typeof valueIds !== 'object') return valueIds;
-			return options.find((item) => item.id === valueIds);
+			if (typeof valueIds === 'object') return valueIds;
+			return options.find((item) => item.id === valueIds) || valueIds;
 		}
 
 		return valueIds.map((id) => {
 			if (typeof id === 'object') return id;
-			return options.find((item) => item.id === id);
+			return options.find((item) => item.id === id) || id;
 		});
 	};
 
@@ -109,13 +127,37 @@ const Autocomplete: FC<Props> = (props) => {
 			disableCloseOnSelect={multiple}
 			noOptionsText='Không tìm thấy'
 			loadingText='Đang tải...'
-			getOptionLabel={(option) => option.name}
+			getOptionLabel={(option) => {
+				// Value selected with enter, right from the input
+				if (typeof option === 'string') return option;
+				// Add "xxx" option created dynamically
+				if (option.inputValue) return option.inputValue;
+				// Regular option
+				return option.name;
+			}}
 			onInputChange={handleInputChange}
 			onChange={handleChange}
-			renderOption={(item) => (
-				<MenuItem key={item.id} value={item.id} {...item} justContent />
-			)}
+			renderOption={(item) => {
+				const { id, data, inputValue, ...rest } = item;
+				return (
+					<MenuItem key={id} value={inputValue || id} {...rest} justContent />
+				);
+			}}
 			{...rest}
+			freeSolo={allowCreate}
+			filterOptions={(options, params) => {
+				const filtered = filter(options, params);
+				const inputValue = params?.inputValue?.trim();
+				if (!!inputValue.length && allowCreate && showCreateText) {
+					filtered.push({
+						id: new Date().getTime().toString(),
+						inputValue,
+						name: setCreateText?.(inputValue) || `Thêm "${inputValue}"`,
+					});
+				}
+
+				return filtered;
+			}}
 			renderInput={(params) => (
 				<Input
 					{...params}
@@ -136,11 +178,12 @@ const Autocomplete: FC<Props> = (props) => {
 						<Chip
 							{...getTagProps({ index })}
 							color={chipColor}
-							key={id || index}
-							square
+							key={id || `${index}-${option}`}
+							rounded={false}
 							outlined
 							avatar={icon}
-							label={name}
+							label={name || option}
+							{...chipProps}
 						/>
 					);
 				})

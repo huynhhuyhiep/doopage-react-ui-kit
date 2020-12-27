@@ -4,10 +4,13 @@ route: /autocomplete
 ---
 
 
-import AdbIcon from "@material-ui/icons/Adb"; import {
-  Playground,
-  Props
-} from "docz"; import { useState } from "react"; import Avatar from "../Avatar";
+
+
+
+import AdbIcon from "@material-ui/icons/Adb"; import { Playground, Props } from "docz"; import {
+  useState,
+  useMemo
+} from "react"; import Avatar from "../Avatar";
 import { Autocomplete } from "../index"; import { doopageLogo } from "../utils/constants";
 
 # Autocomplete
@@ -63,7 +66,6 @@ export default Example;
 ### Multiple
 <Playground>
   <Autocomplete
-    debug
     multiple
     placeholder='Select options'
     label='Autocomplete Multiple'
@@ -82,26 +84,78 @@ export default Example;
 <Playground>
   {() =>
   {
-    const [value, setValue] = useState(['1', '2'])
-    console.log('selected Value', value)
+    const [valueSingle, setValueSingle] = useState('3')
+    const [valueMulti, setValueMulti] = useState(['1', '2'])
+    const options = useMemo(() => Array(10).fill(0).map((item, index) => ({
+      id: index.toString(),
+      name: `option ${index}`,
+    })), [])
     return (
-      <Autocomplete
-        debug
-        multiple
-        placeholder='Select options'
-        label='Autocomplete Multiple'
-        variant='filled'
-        value={value}
-        onChange={(value) =>
-        {
-          setValue(value);
-        }}
-        options={Array(10).fill(0).map((item, index) => ({
-          id: index.toString(),
-          name: `option ${index}`,
-          icon: index % 2 ? <AdbIcon /> : <Avatar src={doopageLogo} size={"small"} />,
-        }))}
-      />
+      <div>
+        <div style={{fontSize: 15, marginBottom: 10}}>Single Value: {valueSingle}</div>
+        <Autocomplete
+          placeholder='Select options'
+          label='Autocomplete Single'
+          variant='outlined'
+          value={valueSingle}
+          onChange={(value) =>
+          {
+            setValueSingle(value);
+          }}
+          options={options}
+        />
+        <br/>
+        <div style={{fontSize: 15, marginBottom: 10}}>Multiple Value: {valueMulti.join(', ')}</div>
+        <Autocomplete
+          multiple
+          placeholder='Select options'
+          label='Autocomplete Multiple'
+          variant='outlined'
+          value={valueMulti}
+          onChange={(value) =>
+          {
+            setValueMulti(value);
+          }}
+          options={options}
+        />
+      </div>
+    )
+  }}
+</Playground>
+
+### Allow create item
+<Playground>
+  {() =>
+  {
+    const [value, setValue] = useState(['1', '2'])
+    return (
+      <div>
+        <div style={{fontSize: 15, marginBottom: 10}}>Value: {value.join(', ')}</div>
+        <Autocomplete
+          allowCreate
+          multiple
+          placeholder='Select options'
+          label='Autocomplete Multiple'
+          variant='outlined'
+          value={value}
+          onChange={(value) =>
+          {
+            setValue(value);
+          }}
+          options={Array(10).fill(0).map((item, index) => ({
+            id: index.toString(),
+            name: `option ${index}`,
+          }))}
+          chipProps={{
+            outlined: false,
+            rounded: true,
+            color: 'success'
+          }}
+          setCreateText={value => `Add "${value}"`}
+          showCreateText={false}
+          allowDuplicates
+        />
+      </div>
     )
   }}
 </Playground>
