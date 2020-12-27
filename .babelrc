@@ -1,7 +1,7 @@
 {
   "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
+    "@babel/preset-react",
+    ["@babel/preset-env", {"modules": false}]
   ],
   "plugins": [
     [
@@ -20,17 +20,7 @@
           "preventFullImport": true
         }
       }
-    ],
-    [
-      "transform-remove-console",
-      {
-        "exclude": [
-          "error",
-          "warn"
-        ]
-      }
-    ],
-    ["@babel/plugin-transform-runtime"]
+    ]
   ],
   "ignore": [
     "**/*.test.js",

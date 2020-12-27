@@ -9,7 +9,7 @@ module.exports = ({ pure, withModules, isUMD = false }) => ({
 			? []
 			: [
 					[
-						'@babel/env',
+						'@babel/preset-env',
 						{
 							modules: withModules,
 							loose: true,

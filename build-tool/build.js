@@ -76,10 +76,10 @@ function getConcurrentlyArgs(scripts, { killOthers = true } = {}) {
 
 	// prettier-ignore
 	return [
-    killOthers ? '--kill-others-on-fail' : null,
-    '--prefix', '[{name}]',
-    '--names', Object.keys(scripts).join(','),
-    '--prefix-colors', prefixColors,
+    killOthers ? "--kill-others-on-fail" : null,
+    "--prefix", "[{name}]",
+    "--names", Object.keys(scripts).join(","),
+    "--prefix-colors", prefixColors,
     ...Object.values(scripts).map((s) => JSON.stringify(s)), // stringify escapes quotes ✨
   ].filter(Boolean);
 }
@@ -149,6 +149,7 @@ function getBabelCommands() {
 			`--extensions ${extensions.join(',')}`,
 			'src',
 		].join(' ');
+
 		return cmds;
 	}, {});
 }
