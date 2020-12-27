@@ -1,0 +1,66 @@
+---
+name: Chip Input
+route: /chip-input
+---
+
+
+import { Playground, Props } from "docz"; import { useState } from "react"; import ChipInput from "./index";
+
+# Chip Input
+Base on [Auto Complete](https://huynhhuyhiep.github.io/doopage-react-ui-kit/autocomplete)
+
+Related component
+- [Auto Complete](https://huynhhuyhiep.github.io/doopage-react-ui-kit/autocomplete)
+
+## Basic usage
+
+```jsx
+import { ChipInput } from '@doopage/react-ui-kit'
+
+const Example = () => <ChipInput label={'Chip Input'}/>;
+
+export default Example;
+```
+
+## Playground
+
+### Normal
+<Playground>
+  <ChipInput label={'Chip Input'} placeholder={'Enter to Submit'} />
+</Playground>
+
+### Advanced
+<Playground>
+  {() =>
+  {
+    const [value, setValue] = useState(['default value', 'llll'])
+    return (
+      <div>
+        <div style={{ fontSize: 15, marginBottom: 10 }}>Value: {value.join(', ')}</div>
+        <ChipInput
+          allowCreate
+          multiple
+          placeholder='Enter to Submit'
+          label='Chip Input'
+          variant='outlined'
+          value={value}
+          onChange={(value) =>
+          {
+            setValue(value);
+          }}
+          chipProps={{
+            outlined: false,
+            rounded: true,
+            color: 'warning'
+          }}
+          setCreateText={value => `Add "${value}"`}
+          showCreateText={true}
+        />
+      </div>
+    )
+  }}
+</Playground>
+
+## Properties
+
+<Props of={ChipInput} />
