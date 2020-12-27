@@ -15,5 +15,16 @@ export { default as Switch } from './Switch';
 export { default as Checkbox } from './Checkbox';
 export { default as Autocomplete } from './AutoComplete';
 export { default as Chip } from './Chip';
+export { default as Snackbar } from './Snackbar';
+export {
+	showSuccessSnackbar,
+	showErrorSnackbar,
+	showInfoSnackbar,
+	showSnackbar,
+	showWarningSnackbar,
+	showPrimarySnackbar,
+	showSnackbarVariant,
+	closeSnackbar,
+} from './Snackbar';
 
 export { theme, setTheme, useTheme, getTheme } from './Theme';
