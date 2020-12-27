@@ -1,0 +1,153 @@
+---
+name: Snack bar
+route: /snack-bar
+---
+
+
+
+
+
+
+
+
+
+import { Playground, Props } from "docz"; import { useState } from "react";
+import {
+  Snackbar,
+  Button,
+  showSuccessSnackbar,
+  showInfoSnackbar,
+  showWarningSnackbar,
+  showErrorSnackbar,
+  showSnackbar,
+  showPrimarySnackbar,
+  closeSnackbar,
+  Checkbox,
+} from "../index";
+
+# Snackbar
+Base on https://iamhosseindhv.com/notistack <br/>
+and https://material-ui.com/components/snackbars/#snackbar
+
+### Note
+autoHideDuration default value was calculated base on length of message
+```
+autoHideDuration = Math.min(Math.max(message?.length * 50, 2000), 10000);
+```
+## Basic usage
+
+In root, add `Snackbar` component
+
+```jsx
+import { Snackbar } from '@doopage/react-ui-kit';
+
+const App = () => (
+  <>
+    {/*your root component*/}
+    <Snackbar />
+  </>
+);
+
+export default App;
+```
+And any where you need, call `showSnackbar` func to show your snackbar
+```jsx
+import { closeSnackbar, showSnackbar } from '@doopage/react-ui-kit';
+const id = showSnackbar('My Snack bar')
+closeSnackbar(id)
+```
+
+## Playground
+
+### Basic
+<Playground>
+  <div>Click button to show snack bar</div>
+  <Snackbar />
+  <Button onClick={() => showSnackbar('Hi, I am snackbar')} color='gray'>Default</Button>
+  <Button
+    onClick={() => showSuccessSnackbar('Hi, I am snackbar', { persist: true })}
+    color='success'>Success</Button>
+  <Button onClick={() => showInfoSnackbar('Hi, I am snackbar')} color='info'>Info</Button>
+  <Button onClick={() => showWarningSnackbar('Hi, I am snackbar')} color='warning'>Warning</Button>
+  <Button onClick={() => showErrorSnackbar('Hi, I am snackbar')} color='danger'>Error</Button>
+</Playground>
+
+### Persist
+<Playground>
+  {() =>
+  {
+    const [id, setId] = useState()
+    return (
+      <>
+        <Button onClick={() => setId(showPrimarySnackbar('Hi, I am snackbar', { persist: true }))} color='primary'>Persist
+          snackbar</Button>
+        <Button onClick={() => closeSnackbar(id)} color='gray'>Close snackbar</Button>
+      </>
+    )
+  }}
+</Playground>
+
+
+### Advanced
+You can pass any material-ui snackbar props to either <Snackbar /> component or `showSnackbar` prop.
+
+<Playground>
+  {() =>
+  {
+    const [enable, setEnable] = useState(false)
+    return (
+      <>
+        <Checkbox label={'Enable custom snackbar'} onChange={(event) => setEnable(event.target.checked)} />
+        {enable ? <>
+          <Snackbar
+            autoHideDuration={2000}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            maxSnack={2}
+            action={(key) => (
+              <>
+                <Button
+                  onClick={() => closeSnackbar(key)}
+                  simple
+                  color='transparent'
+                >
+                  Close
+                </Button>
+                <Button
+                  onClick={() => closeSnackbar(key)}
+                  color='primary'
+                >
+                  Action
+                </Button>
+              </>
+            )}
+          />
+        </> : <Snackbar />}
+        <Button
+          onClick={() =>
+          {
+            showPrimarySnackbar('Hi, I am snackbar', { autoHideDuration: 1000 })
+          }}
+          color='primary'>
+          Show custom snackbar
+        </Button>
+        <Button
+          onClick={() =>
+          {
+            showPrimarySnackbar('Hi, I am snackbar', {
+              anchorOrigin: { vertical: 'top', horizontal: 'left' },
+            })
+          }}
+          color='info'>
+          Show custom position
+        </Button>
+      </>
+    )
+  }}
+</Playground>
+
+## Properties
+
+<Props of={Snackbar} />
