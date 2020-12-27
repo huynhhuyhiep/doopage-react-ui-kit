@@ -12,7 +12,11 @@ export interface MenuItemProps extends MuiMenuItemProps {
 	icon?: ReactNode;
 	endIcon?: ReactNode;
 	justContent?: boolean;
-	id: string;
+	id?: string;
+	/**
+	 * Special props, need for allowCreate feature of auto complete com
+	 * */
+	inputValue?: string;
 }
 
 const MenuItem: FC<MenuItemProps> = (props) => {
