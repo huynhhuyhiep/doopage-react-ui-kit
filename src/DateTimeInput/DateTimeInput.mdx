@@ -1,0 +1,42 @@
+---
+name: DateTime Input
+route: /datetime-input
+---
+
+
+
+
+import {Playground, Props} from "docz";
+import {DateTimeInput} from "../index";
+
+# Chip Input
+Base on [Input](https://huynhhuyhiep.github.io/doopage-react-ui-kit/input)
+
+Related component
+- https://www.npmjs.com/package/react-datetime
+
+## Basic usage
+
+```jsx
+import { DateTimeInput } from '@doopage/react-ui-kit'
+
+const Example = () => <DateTimeInput label={'DateTime Input'}/>;
+
+export default Example;
+```
+
+## Playground
+
+### Normal
+<Playground>
+    <DateTimeInput label={'DateTime Input'} onChange={value => console.log(value)}/>
+</Playground>
+
+### Native
+<Playground>
+    <DateTimeInput label={'Native Date Input'} onChange={value => console.log(value)} native/>
+</Playground>
+
+## Properties
+
+<Props of={DateTimeInput} table/>

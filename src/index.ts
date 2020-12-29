@@ -16,6 +16,7 @@ export { default as Checkbox } from './Checkbox';
 export { default as Autocomplete } from './AutoComplete';
 export { default as Chip } from './Chip';
 export { default as Snackbar } from './Snackbar';
+export { default as DateTimeInput } from './DateTimeInput';
 export {
 	showSuccessSnackbar,
 	showErrorSnackbar,

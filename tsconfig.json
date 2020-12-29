@@ -35,6 +35,7 @@
     "dist",
     "example",
     "docs",
-    "src/**/*.test.tsx"
+    "src/**/*.test.tsx",
+    "*.css"
   ]
 }

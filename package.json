@@ -71,9 +71,11 @@
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
+    "@nejcm/docz-theme-extended": "^2.0.10",
     "classnames": "^2.2.6",
     "material-ui-popup-state": "^1.7.1",
     "notistack": "^1.0.3",
+    "react-datetime": "^3.0.4",
     "valtio": "^0.4.10"
   },
   "devDependencies": {
