@@ -3,24 +3,20 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-export { default as Button, Props as ButtonProps } from './Button';
-export { default as Input, InputProps } from './Input';
-export { default as Select, Props as SelectProps } from './Select';
-export { default as Popup, PopupProps } from './Popup';
-export { default as Menu, Props as MenuProps } from './Menu';
-export { default as MenuItem, MenuItemProps } from './MenuItem';
-export { default as Avatar, Props as AvatarProps, UserProps } from './Avatar';
-export { default as Space, Props as SpaceProps } from './Space';
-export { default as Switch, Props as SwitchProps } from './Switch';
-export { default as Checkbox, Props as CheckboxProps } from './Checkbox';
-export { default as Autocomplete, AutocompleteProps } from './AutoComplete';
-export { default as Chip, ChipProps } from './Chip';
-export { default as Snackbar, Props as SnackbarProps } from './Snackbar';
-export {
-	default as DateTimeInput,
-	Props as DateTimeInputProps,
-} from './DateTimeInput';
-
+export { default as Button } from './Button';
+export { default as Input } from './Input';
+export { default as Select } from './Select';
+export { default as Popup } from './Popup';
+export { default as Menu } from './Menu';
+export { default as MenuItem } from './MenuItem';
+export { default as Avatar } from './Avatar';
+export { default as Space } from './Space';
+export { default as Switch } from './Switch';
+export { default as Checkbox } from './Checkbox';
+export { default as Autocomplete } from './AutoComplete';
+export { default as Chip } from './Chip';
+export { default as Snackbar } from './Snackbar';
+export { default as DateTimeInput } from './DateTimeInput';
 export {
 	showSuccessSnackbar,
 	showErrorSnackbar,

@@ -1,12 +1,14 @@
 import React, { FC, memo } from 'react';
-import MuiButton, { ButtonProps } from '@material-ui/core/Button';
+import MuiButton, {
+	ButtonProps as MuiButtonProps,
+} from '@material-ui/core/Button';
 import { CircularProgress, Tooltip, Zoom } from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
 
-type BaseProps = Omit<ButtonProps, 'color' | 'variant' | 'size'>;
+type BaseProps = Omit<MuiButtonProps, 'color' | 'variant' | 'size'>;
 
-export interface Props extends BaseProps {
+export interface ButtonProps extends BaseProps {
 	loading?: boolean;
 	show?: boolean;
 	color?:
@@ -53,7 +55,7 @@ export interface Props extends BaseProps {
 		| 'top';
 }
 
-const Index: FC<Props> = (props) => {
+const Index: FC<ButtonProps> = (props) => {
 	const classes = useStyles();
 	const {
 		loading = false,

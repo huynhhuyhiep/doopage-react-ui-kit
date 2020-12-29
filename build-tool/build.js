@@ -93,9 +93,8 @@ const rollupCommand = [resolveBin('rollup'), config];
 
 function getRollupCommands() {
 	return rollupFormats.reduce((cmds, format) => {
-		const [formatName, minify = false] = format.split('.');
+		const [formatName, minify = true] = format.split('.');
 		const nodeEnv = minify ? 'production' : 'development';
-		const sourceMap = formatName === 'umd' ? '--sourcemap' : '';
 		const buildMinify = Boolean(minify);
 		const env = [
 			`${isWindow ? 'set ' : ''}BUILD_FORMAT=${formatName}`,
@@ -112,11 +111,7 @@ function getRollupCommands() {
 		]
 			.filter(Boolean)
 			.join(isWindow ? '&& ' : ' ');
-		cmds[format] = [
-			`${env}${isWindow ? ' && ' : ''}`,
-			...rollupCommand,
-			sourceMap,
-		]
+		cmds[format] = [`${env}${isWindow ? ' && ' : ''}`, ...rollupCommand]
 			.filter(Boolean)
 			.join(' ');
 		return cmds;

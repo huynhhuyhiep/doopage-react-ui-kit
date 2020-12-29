@@ -15,7 +15,7 @@ import {
 	usePopupState,
 } from 'material-ui-popup-state/hooks';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
-import Button, { Props as ButtonProps } from '../Button';
+import Button, { ButtonProps } from '../Button';
 import useStyles from './styles';
 
 type BaseProps = Omit<PopoverProps, 'open'>;
