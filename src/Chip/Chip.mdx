@@ -1,7 +1,6 @@
 ---
 name: Chip
 route: /chip
-menu: Data Display
 ---
 
 
@@ -99,7 +98,7 @@ export default Example;
       label='primary'
       avatar={<Avatar src={doopageLogo} />}
       onDelete={() => console.log('delete click')}
-      rounded={false}
+      square
       outlined
     >
       Chip
@@ -121,11 +120,11 @@ export default Example;
       size='medium'
       deleteIcon={<DoneIcon />}
       onDelete={() => console.log('delete click')}
-      rounded={false}
+      square
     />
   </Space>
 </Playground>
 
 ### Properties
 
-<Props of={Chip} table/>
+<Props of={Chip} />
