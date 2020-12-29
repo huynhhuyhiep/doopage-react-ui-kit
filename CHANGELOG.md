@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.28 (2020-12-29)
+
+
+### Features
+
+* **DateTimeInput:** Support Date Time Input ([a0cccbd](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/a0cccbd22e9d06b86a3b9c3d4c758e02ae924e99))
+
 ### 0.0.27 (2020-12-29)
 
 ### 0.0.26 (2020-12-27)
