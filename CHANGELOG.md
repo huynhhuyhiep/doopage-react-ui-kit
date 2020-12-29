@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.29 (2020-12-29)
+
+
+### Features
+
+* **PropsType:** Support PropType for all Component ([3141152](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/314115296747f168f9dd81737b05544fbf367624))
+
 ### 0.0.28 (2020-12-29)
 
 
