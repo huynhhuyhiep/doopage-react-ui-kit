@@ -1,16 +1,9 @@
-import React, { FC, memo, ReactNode, useMemo } from 'react';
+import React, { FC, memo, useMemo } from 'react';
 import Input, { InputProps } from '../Input';
-import MenuItem from '../MenuItem';
-
-export type Option = {
-	id: string;
-	name: string;
-	description?: string;
-	icon?: ReactNode;
-};
+import MenuItem, { MenuItemProps } from '../MenuItem';
 
 export interface Props extends InputProps {
-	options: Array<Option> | string[] | number[];
+	options: Array<MenuItemProps> | string[] | number[];
 	multiple?: boolean;
 }
 
@@ -23,10 +16,10 @@ const Select: FC<Props> = (props) => {
 		...rest
 	} = props;
 
-	const options: Option[] = useMemo(
+	const options: MenuItemProps[] = useMemo(
 		() =>
 			// @ts-ignore
-			rawOption.map((item: Option | number | string) => {
+			rawOption.map((item: MenuItemProps | number | string) => {
 				// @ts-ignore
 				if (item?.id) return item;
 				return { id: item.toString(), name: item.toString() };
@@ -39,7 +32,7 @@ const Select: FC<Props> = (props) => {
 		const selectedOptions = arrValue.map((id: string) =>
 			options.find((item) => item.id === id)
 		);
-		return selectedOptions.map((item: Option) => item.name).join(', ');
+		return selectedOptions.map((item: MenuItemProps) => item.name).join(', ');
 	};
 
 	if (!show) return null;
@@ -63,6 +56,3 @@ const Select: FC<Props> = (props) => {
 };
 
 export default memo(Select);
-
-// @ts-ignore
-export const SelectOption = (props: Option) => null;
