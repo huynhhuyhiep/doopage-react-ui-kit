@@ -4,20 +4,20 @@ import MenuItem, { MenuItemProps } from '../MenuItem';
 
 type BaseProps = Omit<MenuItemProps, 'onClick'>;
 
-export interface Option extends BaseProps {
+export interface MenuOption extends BaseProps {
 	closeOnClick?: boolean;
-	onClick: (item: Option, e: any) => void;
+	onClick: (item: MenuOption, e: any) => void;
 }
 
-export interface Props extends PopupProps {
-	options: Array<Option>;
+export interface MenuProps extends PopupProps {
+	options: Array<MenuOption>;
 	/**
 	 * Apply divider for all item
 	 */
 	divider?: boolean;
 }
 
-const Menu: FC<Props> = (props) => {
+const Menu: FC<MenuProps> = (props) => {
 	const { options, divider, ...restProps } = props;
 	const popupRef = useRef();
 	return (

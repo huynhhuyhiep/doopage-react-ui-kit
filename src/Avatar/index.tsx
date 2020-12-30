@@ -1,11 +1,13 @@
-import MuiAvatar, { AvatarProps } from '@material-ui/core/Avatar';
+import MuiAvatar, {
+	AvatarProps as MuiAvatarProps,
+} from '@material-ui/core/Avatar';
 import React, { FC, memo, ReactNode, useMemo, useState } from 'react';
 import { Badge, BadgeProps, Tooltip, TooltipProps } from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
 import { listColor } from '../utils/constants';
 
-export type UserProps = {
+export type UserAvatarProps = {
 	name: string;
 	avatar?: string;
 	image?: string;
@@ -13,14 +15,14 @@ export type UserProps = {
 	fb_id?: string;
 };
 
-type BaseProps = Omit<AvatarProps, 'variant'>;
+type BaseProps = Omit<MuiAvatarProps, 'variant'>;
 
-export interface Props extends BaseProps {
+export interface AvatarProps extends BaseProps {
 	/**
 	 * default is circular
 	 */
 	show?: boolean;
-	user?: UserProps;
+	user?: UserAvatarProps;
 	helperText?: string;
 	tooltipProps?: TooltipProps;
 	rounded?: boolean;
@@ -58,7 +60,7 @@ const getColor = (str = '') => listColor[str.charCodeAt(0) % listColor.length];
 
 const getLetter = (str = '') => str?.[0]?.toUpperCase();
 
-const Avatar: FC<Props> = (props) => {
+const Avatar: FC<AvatarProps> = (props) => {
 	const {
 		show = true,
 		imgProps,
@@ -170,4 +172,4 @@ const Avatar: FC<Props> = (props) => {
 export default memo(Avatar);
 
 // @ts-ignore
-export const UProps = (props: UserProps) => null;
+export const UProps = (props: UserAvatarProps) => null;

@@ -14,7 +14,7 @@ import Button from '../Button';
 
 type BaseProps = Omit<SnackbarProviderProps, 'color'>;
 
-export type Props = BaseProps;
+export type SnackbarProps = BaseProps;
 
 export interface SnackbarControlType {
 	show: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
@@ -77,7 +77,7 @@ export const showWarningSnackbar = showSnackbarVariant('warning');
 export const showInfoSnackbar = showSnackbarVariant('info');
 export const showPrimarySnackbar = showSnackbarVariant('primary');
 
-const Provider: FC<Props> = (props) => {
+const Provider: FC<SnackbarProps> = (props) => {
 	const classes = useStyles(props);
 	return (
 		<SnackbarProvider

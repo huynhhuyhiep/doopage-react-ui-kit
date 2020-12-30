@@ -5,7 +5,7 @@ import useStyles from './styles';
 
 type BaseProps = Omit<DatetimepickerProps, 'inputProps' | 'onChange'>;
 
-export interface Props extends BaseProps {
+export interface DateTimeProps extends BaseProps {
 	onChange?: (value?: string) => void;
 	inputProps?: InputProps;
 	loading?: boolean;
@@ -17,7 +17,7 @@ export interface Props extends BaseProps {
 	native?: boolean;
 }
 
-const DateTimeInput: FC<Props> = (props) => {
+const DateTimeInput: FC<DateTimeProps> = (props) => {
 	const {
 		placeholder,
 		label,

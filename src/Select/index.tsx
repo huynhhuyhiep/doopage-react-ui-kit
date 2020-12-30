@@ -2,12 +2,12 @@ import React, { FC, memo, useMemo } from 'react';
 import Input, { InputProps } from '../Input';
 import MenuItem, { MenuItemProps } from '../MenuItem';
 
-export interface Props extends InputProps {
+export interface SelectProps extends InputProps {
 	options: Array<MenuItemProps> | string[] | number[];
 	multiple?: boolean;
 }
 
-const Select: FC<Props> = (props) => {
+const Select: FC<SelectProps> = (props) => {
 	const {
 		show = true,
 		options: rawOption,
