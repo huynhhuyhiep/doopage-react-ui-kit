@@ -1,0 +1,107 @@
+---
+name: Date Range Input
+route: /date-range-input
+menu: Inputs
+
+---
+
+
+
+
+
+
+
+
+
+
+import { addDays } from "date-fns";
+import { Playground, Props } from "docz"; import { useState } from "react";
+import { DateRangeInput } from "../index";
+
+# Menu
+Base on https://hypeserver.github.io/react-date-range/#daterangepicker
+
+Related component
+- [Popup](https://huynhhuyhiep.github.io/doopage-react-ui-kit/popup)
+- [Input](https://huynhhuyhiep.github.io/doopage-react-ui-kit/input)
+
+## Basic usage
+Install `date-fns`
+```bash
+npm install date-fns --save
+or
+yarn add date-fns
+```
+
+```jsx
+import { DateRangeInput } from '@doopage/react-ui-kit'
+
+const Example = () => {
+    return (
+      <DateRangeInput
+        label={'select date range'}
+        onChange={(values) => console.log(values)}
+      />
+    );
+}
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+  <DateRangeInput
+    label={'Select Date Range'}
+    onChange={(values) => console.log(values)}
+  />
+</Playground>
+
+### Advanced
+#### One month
+<Playground>
+  <DateRangeInput
+    months={1}
+    label={'Select Date Range'}
+    onChange={(values) => console.log(values)}
+  />
+</Playground>
+
+#### Hide defined range
+<Playground>
+  <DateRangeInput
+    months={1}
+    minDate={addDays(new Date(), -30)}
+    maxDate={addDays(new Date(), 30)}
+    hideDefinedRange
+    label={'Select Date Range'}
+    onChange={(values) => console.log(values)}
+  />
+</Playground>
+
+#### Control
+<Playground>
+  {() =>
+  {
+    const [range, setRange] = useState([1606755600000, 1609347600000])
+    console.log('select range ', range)
+    return (
+      <DateRangeInput
+        value={range}
+        months={1}
+        dateFormat='dd/MM/yyyy'
+        minDate={addDays(new Date(), -30)}
+        maxDate={addDays(new Date(), 30)}
+        hideDefinedRange
+        label={'Select Date Range'}
+        onChange={setRange}
+      />
+    )
+  }}
+
+</Playground>
+
+## Properties
+
+<Props of={DateRangeInput} table />

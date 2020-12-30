@@ -29,7 +29,7 @@ const DateTimeInput: FC<Props> = (props) => {
 		onChange,
 		value,
 		inputProps,
-		dateFormat = 'YYYY-MM-DD',
+		dateFormat = 'yyyy-MM-DD',
 		...rest
 	} = props;
 	const classes = useStyles();

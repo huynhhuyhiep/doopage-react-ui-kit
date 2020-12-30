@@ -30,3 +30,4 @@ export {
 } from './Snackbar';
 
 export { theme, setTheme, useTheme, getTheme } from './Theme';
+export { default as DateRangeInput } from './DateRangeInput';
