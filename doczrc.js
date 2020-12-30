@@ -1,10 +1,10 @@
 export default {
 	lang: 'en',
 	description: `Base component for DooPage project.`,
-	// groups: {
-	// 	'': [],
-	// 	Components: ['Layout', 'Inputs', 'Data Display', 'Feedback', 'Navigation'],
-	// },
+	groups: {
+		'': [],
+		Components: ['Layout', 'Inputs', 'Data Display', 'Feedback', 'Navigation'],
+	},
 	title: `DooPage - React UI Kit`,
 	dest: './docs',
 	menu: ['Getting Started', 'Theme'],

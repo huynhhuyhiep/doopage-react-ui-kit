@@ -44,7 +44,7 @@ export const getHoverShadow = (color: string) => {
 };
 
 export const doopageLogo =
-	'https://my.doopage.com/static/media/doopage_logo_color.43617878.png';
+	'https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/argpgshyxeztagczhzqe';
 
 export const listColor = [
 	'#EF4444',
