@@ -1,5 +1,12 @@
 import MuiAvatar, { AvatarProps } from '@material-ui/core/Avatar';
-import React, { FC, memo, ReactNode, useMemo, useState } from 'react';
+import React, {
+	FC,
+	memo,
+	ReactNode,
+	useLayoutEffect,
+	useMemo,
+	useState,
+} from 'react';
 import { Badge, BadgeProps, Tooltip, TooltipProps } from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
@@ -95,11 +102,12 @@ const Avatar: FC<Props> = (props) => {
 	);
 
 	const genColor = useMemo(() => getColor(alt || name), [alt, name]);
-	const [backgroundColor, setBackgroundColor] = useState(() => {
-		if (color) return color;
-		if (!imageSrc) return genColor;
-		return undefined;
-	});
+	const [backgroundColor, setBackgroundColor] = useState(() => color);
+
+	useLayoutEffect(() => {
+		console.log('useLayoutEffect', imageSrc, genColor);
+		if (!imageSrc) setBackgroundColor(genColor);
+	}, []);
 
 	const classes = useStyles(props);
 
@@ -117,6 +125,7 @@ const Avatar: FC<Props> = (props) => {
 		setBackgroundColor(genColor);
 	};
 
+	console.log('backgroundColor', backgroundColor);
 	let avatarCom = (
 		<MuiAvatar
 			{...rest}

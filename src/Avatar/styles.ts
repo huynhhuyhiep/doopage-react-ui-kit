@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		border: (props: any) => ({
 			border: `2px solid ${theme.palette.background.paper}`,
-			backgroundColor: theme.palette.background.paper,
+			// backgroundColor: theme.palette.background.paper,
 			...props?.borderStyle,
 		}),
 	})
