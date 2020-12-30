@@ -1,15 +1,16 @@
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import autoprefixer from 'autoprefixer';
 import glob from 'glob';
 import { camelize } from 'inflected';
 import path from 'path';
-import babel from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-import nodeResolve from '@rollup/plugin-node-resolve';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import { terser } from 'rollup-plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
 
 const { pkg, fromRoot, extensions } = require('./utils');
 
@@ -79,6 +80,7 @@ export default {
 	input: input[0],
 	output,
 	plugins: [
+		typescript,
 		peerDepsExternal(),
 		nodeResolve({ mainFields: ['jsnext', 'main'], browser: true, extensions }),
 		commonjs({ include: 'node_modules/**' }),

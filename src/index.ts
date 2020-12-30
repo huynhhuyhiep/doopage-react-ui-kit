@@ -4,6 +4,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 export { default as Button } from './Button';
+export * from './Button';
 export { default as Input } from './Input';
 export { default as Select } from './Select';
 export { default as Popup } from './Popup';
