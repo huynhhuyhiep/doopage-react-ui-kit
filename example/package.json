@@ -1,0 +1,40 @@
+{
+  "name": "example2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@doopage/react-ui-kit": "file:..",
+    "@testing-library/jest-dom": "file:../node_modules/@testing-library/jest-dom",
+    "@testing-library/react": "file:../node_modules/@testing-library/react",
+    "@types/jest": "file:../node_modules/@types/jest",
+    "@types/node": "file:../node_modules/@types/node",
+    "@types/react": "file:../node_modules/@types/react",
+    "@types/react-dom": "file:../node_modules/@types/react-dom",
+    "react": "file:../node_modules/react",
+    "react-dom": "file:../node_modules/react-dom",
+    "react-scripts": "4.0.1",
+    "typescript": "file:../node_modules/typescript"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "update": "npx npm-check --update"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

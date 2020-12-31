@@ -107,12 +107,14 @@ const Avatar: FC<AvatarProps> = (props) => {
 	const [backgroundColor, setBackgroundColor] = useState(() => color);
 
 	useLayoutEffect(() => {
+		console.log('useLayoutEffect', imageSrc, genColor);
 		if (!imageSrc) setBackgroundColor(genColor);
 	}, [genColor, imageSrc]);
 
 	const classes = useStyles(props);
 
 	const customClass = classNames(className, classes.root, {
+		// @ts-ignore
 		[classes[size]]: !!size,
 		[classes.shadow]: shadow,
 		[classes.cursor]: onClick,
@@ -123,9 +125,11 @@ const Avatar: FC<AvatarProps> = (props) => {
 
 	const handleLoadError = () => {
 		if (color) return;
+		console.log('error image', genColor);
 		setBackgroundColor(genColor);
 	};
 
+	console.log('backgroundColor', backgroundColor);
 	let avatarCom = (
 		<MuiAvatar
 			{...rest}

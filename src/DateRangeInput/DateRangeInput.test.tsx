@@ -8,11 +8,6 @@ afterEach(cleanup);
 
 it('renders without crashing', () => {
 	const div: HTMLDivElement = document.createElement('div');
-	ReactDom.render(
-		<DateRangeInput
-			label={'menu'}
-		/>,
-		div
-	);
+	ReactDom.render(<DateRangeInput label={'menu'} />, div);
 	ReactDom.unmountComponentAtNode(div);
 });

@@ -4,13 +4,13 @@ import MenuItem, { MenuItemProps } from '../MenuItem';
 
 type BaseProps = Omit<MenuItemProps, 'onClick'>;
 
-export interface MenuOption extends BaseProps {
+export interface MenuOptionProps extends BaseProps {
 	closeOnClick?: boolean;
-	onClick: (item: MenuOption, e: any) => void;
+	onClick: (item: MenuOptionProps, e: any) => void;
 }
 
 export interface MenuProps extends PopupProps {
-	options: Array<MenuOption>;
+	options: Array<MenuOptionProps>;
 	/**
 	 * Apply divider for all item
 	 */
@@ -54,4 +54,4 @@ const Menu: FC<MenuProps> = (props) => {
 export default memo(Menu);
 
 // @ts-ignore
-export const MenuOption = (props: Option) => null;
+export const MenuOption = (props: MenuOptionProps) => null;
