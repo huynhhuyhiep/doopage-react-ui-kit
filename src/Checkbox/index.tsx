@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 import {
-	CheckboxProps,
+	CheckboxProps as MuiCheckboxProps,
 	FormControlLabel,
 	FormControlLabelProps,
 	Tooltip,
@@ -11,9 +11,9 @@ import MuiCheckbox from '@material-ui/core/Checkbox';
 import { Check } from '@material-ui/icons';
 import useStyles from './styles';
 
-type BaseProps = Omit<CheckboxProps, 'color' | 'size'>;
+type BaseProps = Omit<MuiCheckboxProps, 'color' | 'size'>;
 
-export interface Props extends BaseProps {
+export interface CheckboxProps extends BaseProps {
 	show?: boolean;
 	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
 	helperText?: string;
@@ -23,7 +23,7 @@ export interface Props extends BaseProps {
 	labelPlacement?: 'end' | 'start' | 'top' | 'bottom';
 }
 
-const Index: FC<Props> = (props) => {
+const Index: FC<CheckboxProps> = (props) => {
 	const classes = useStyles(props);
 	const {
 		helperText,

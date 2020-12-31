@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { SwitchProps } from '@material-ui/core/Switch';
+import { SwitchProps as MuiSwitchProps } from '@material-ui/core/Switch';
 import {
 	FormControlLabel,
 	FormControlLabelProps,
@@ -10,9 +10,9 @@ import {
 import classNames from 'classnames';
 import useStyles from './styles';
 
-type BaseProps = Omit<SwitchProps, 'color'>;
+type BaseProps = Omit<MuiSwitchProps, 'color'>;
 
-export interface Props extends BaseProps {
+export interface SwitchProps extends BaseProps {
 	show?: boolean;
 	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
 	helperText?: string;
@@ -22,7 +22,7 @@ export interface Props extends BaseProps {
 	labelPlacement?: 'end' | 'start' | 'top' | 'bottom';
 }
 
-const Index: FC<Props> = (props) => {
+const Index: FC<SwitchProps> = (props) => {
 	const classes = useStyles(props);
 	const {
 		helperText,
