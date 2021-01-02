@@ -7,7 +7,7 @@ type BaseProps = Omit<TextFieldProps, 'color' | 'error'>;
 
 export interface InputProps extends BaseProps {
 	loading?: boolean;
-	show?: boolean;
+	hide?: boolean;
 	helperText?: string;
 	endIcon?: ReactNode;
 	startIcon?: ReactNode;
@@ -18,7 +18,7 @@ const Input: FC<InputProps> = (props) => {
 	const classes = useStyles(props);
 	const {
 		loading = false,
-		show = true,
+		hide,
 		size = 'small',
 		error,
 		label,
@@ -30,7 +30,7 @@ const Input: FC<InputProps> = (props) => {
 		...rest
 	} = props;
 
-	if (!show) return null;
+	if (hide) return null;
 
 	return (
 		<TextField

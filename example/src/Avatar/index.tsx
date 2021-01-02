@@ -28,7 +28,7 @@ export interface AvatarProps extends BaseProps {
 	/**
 	 * default is circular
 	 */
-	show?: boolean;
+	hide?: boolean;
 	user?: UserAvatarProps;
 	helperText?: string;
 	tooltipProps?: TooltipProps;
@@ -69,7 +69,7 @@ const getLetter = (str = '') => str?.[0]?.toUpperCase();
 
 const Avatar: FC<AvatarProps> = (props) => {
 	const {
-		show = true,
+		hide,
 		imgProps,
 		user,
 		src,
@@ -121,7 +121,7 @@ const Avatar: FC<AvatarProps> = (props) => {
 		[classes.border]: border || borderStyle,
 	});
 
-	if (!show) return null;
+	if (hide) return null;
 
 	const handleLoadError = () => {
 		if (color) return;

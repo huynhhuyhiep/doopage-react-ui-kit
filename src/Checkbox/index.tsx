@@ -14,7 +14,7 @@ import useStyles from './styles';
 type BaseProps = Omit<MuiCheckboxProps, 'color' | 'size'>;
 
 export interface CheckboxProps extends BaseProps {
-	show?: boolean;
+	hide?: boolean;
 	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
 	helperText?: string;
 	label?: string;
@@ -27,7 +27,7 @@ const Index: FC<CheckboxProps> = (props) => {
 	const classes = useStyles(props);
 	const {
 		helperText,
-		show = true,
+		hide,
 		label,
 		formProps,
 		color = 'primary',
@@ -38,7 +38,7 @@ const Index: FC<CheckboxProps> = (props) => {
 		...rest
 	} = props;
 
-	if (!show) return null;
+	if (hide) return null;
 
 	const customClass = classNames(className, classes.checkbox, {
 		[classes[color]]: color,

@@ -9,7 +9,7 @@ export interface DateTimeProps extends BaseProps {
 	onChange?: (value?: string) => void;
 	inputProps?: InputProps;
 	loading?: boolean;
-	show?: boolean;
+	hide?: boolean;
 	helperText?: string;
 	error?: string;
 	label?: string;
@@ -23,7 +23,7 @@ const DateTimeInput: FC<DateTimeProps> = (props) => {
 		label,
 		error,
 		helperText,
-		show = true,
+		hide,
 		loading,
 		native,
 		onChange,
@@ -33,7 +33,7 @@ const DateTimeInput: FC<DateTimeProps> = (props) => {
 		...rest
 	} = props;
 	const classes = useStyles();
-	if (!show) return null;
+	if (hide) return null;
 
 	const handleNativeChange = (e: ChangeEvent) => {
 		// @ts-ignore

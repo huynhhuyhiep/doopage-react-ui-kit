@@ -21,7 +21,7 @@ type BaseProps = Omit<
 >;
 
 export interface AutocompleteProps extends BaseProps {
-	show?: boolean;
+	hide?: boolean;
 	loading?: boolean;
 	inputProps?: InputProps;
 	options?: Array<MenuItemProps>;
@@ -44,7 +44,7 @@ const filter = createFilterOptions<MenuItemProps>();
 
 const Autocomplete: FC<AutocompleteProps> = (props) => {
 	const {
-		show = true,
+		hide,
 		inputProps,
 		multiple,
 		label,
@@ -112,7 +112,7 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 	const objValue = useMemo(() => getValue(value), [value]);
 	const defaultObjValue = useMemo(() => getValue(defaultValue), [defaultValue]);
 
-	if (!show) return null;
+	if (hide) return null;
 
 	return (
 		<MuiAutocomplete

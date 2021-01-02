@@ -21,7 +21,7 @@ import Button, { ButtonProps } from '../Button';
 type BaseProps = Omit<PopoverProps, 'open'>;
 
 export interface PopupProps extends BaseProps {
-	show?: boolean;
+	hide?: boolean;
 	buttonProps?: ButtonProps;
 	button?: ReactNode;
 	label?: ReactNode;
@@ -31,7 +31,7 @@ export interface PopupProps extends BaseProps {
 
 const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 	const {
-		show = true,
+		hide,
 		children,
 		buttonProps,
 		label,
@@ -50,7 +50,7 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 
 	useImperativeHandle(ref, () => popupValue, [popupValue]);
 
-	if (!show) return null;
+	if (hide) return null;
 	if (!hover)
 		return (
 			<>

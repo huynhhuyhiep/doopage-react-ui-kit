@@ -8,13 +8,7 @@ export interface SelectProps extends InputProps {
 }
 
 const Select: FC<SelectProps> = (props) => {
-	const {
-		show = true,
-		options: rawOption,
-		multiple,
-		SelectProps,
-		...rest
-	} = props;
+	const { hide, options: rawOption, multiple, SelectProps, ...rest } = props;
 
 	const options: MenuItemProps[] = useMemo(
 		() =>
@@ -35,7 +29,7 @@ const Select: FC<SelectProps> = (props) => {
 		return selectedOptions.map((item: MenuItemProps) => item.name).join(', ');
 	};
 
-	if (!show) return null;
+	if (hide) return null;
 
 	return (
 		<Input

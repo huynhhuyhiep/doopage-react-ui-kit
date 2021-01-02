@@ -6,7 +6,7 @@ import { ListItemIcon, ListItemText } from '@material-ui/core';
 import useStyles from './styles';
 
 export interface MenuItemProps extends MuiMenuItemProps {
-	show?: boolean;
+	hide?: boolean;
 	description?: string;
 	name?: string;
 	icon?: ReactNode;
@@ -22,7 +22,7 @@ export interface MenuItemProps extends MuiMenuItemProps {
 const MenuItem: FC<MenuItemProps> = (props) => {
 	const classes = useStyles(props);
 	const {
-		show = true,
+		hide,
 		endIcon,
 		icon,
 		description,
@@ -32,7 +32,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 		...rest
 	} = props;
 
-	if (!show) return null;
+	if (hide) return null;
 
 	if (justContent) {
 		return (

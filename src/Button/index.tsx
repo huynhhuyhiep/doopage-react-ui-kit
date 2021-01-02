@@ -10,7 +10,7 @@ type BaseProps = Omit<MuiButtonProps, 'color' | 'variant' | 'size'>;
 
 export interface ButtonProps extends BaseProps {
 	loading?: boolean;
-	show?: boolean;
+	hide?: boolean;
 	color?:
 		| 'info'
 		| 'success'
@@ -63,7 +63,7 @@ const Index: FC<ButtonProps> = (props) => {
 		children,
 		color = 'primary',
 		helperText,
-		show = true,
+		hide,
 		size = 'normal',
 		round = false,
 		fullWidth = false,
@@ -92,7 +92,7 @@ const Index: FC<ButtonProps> = (props) => {
 		[classes.justIcon]: justIcon,
 	});
 
-	if (!show) return null;
+	if (hide) return null;
 
 	const renderChildren = () => {
 		if (!loading) return children;
