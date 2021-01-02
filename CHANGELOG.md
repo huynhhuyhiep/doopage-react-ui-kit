@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 0.1.0 (2021-01-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* replace show to hide props
+
+* replace show to hide props ([872432e](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/872432e2cd6d2a41dae4c2032fbe5a5d6d566699))
+
 ### 0.0.32 (2020-12-31)
 
 ### 0.0.31 (2020-12-30)
