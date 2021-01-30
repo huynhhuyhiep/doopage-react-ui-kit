@@ -1,8 +1,3 @@
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-
 export { default as Button } from './Button';
 export * from './Button';
 export { default as Input } from './Input';
