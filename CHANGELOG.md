@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 0.2.0 (2021-01-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* move material ui to peer depen
+
+* move material ui to peer depen ([6d8fd77](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/6d8fd77f445f3270d31e7de2e32342b598529090))
+
 ## 0.1.0 (2021-01-02)
 
 
