@@ -40,7 +40,10 @@
   "peerDependencies": {
     "@types/react": "^16.8.6 || ^17.0.0",
     "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0"
+    "react-dom": "^16.8.0 || ^17.0.0",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57"
   },
   "license": "MIT",
   "engines": {
@@ -68,9 +71,6 @@
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@fontsource/roboto": "^4.0.1",
-    "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
     "classnames": "^2.2.6",
     "material-ui-popup-state": "^1.7.1",
     "notistack": "^1.0.3",
@@ -79,6 +79,9 @@
     "valtio": "^0.4.10"
   },
   "devDependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
     "@babel/plugin-proposal-class-properties": "^7.7.0",

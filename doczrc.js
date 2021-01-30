@@ -26,7 +26,7 @@ export default {
 		},
 		logo: {
 			src:
-				'https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/argpgshyxeztagczhzqe', // use this line if you want one logo for both color modes
+				'https://gblobscdn.gitbook.com/spaces%2F-L_lMBbRU2HXBnCnDHJ-%2Favatar-1611827712143.png?alt=media', // use this line if you want one logo for both color modes
 			width: 40,
 		},
 		menu: {
