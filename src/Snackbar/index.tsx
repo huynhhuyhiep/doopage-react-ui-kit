@@ -12,7 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import useStyles from './styles';
 import Button from '../Button';
 
-type BaseProps = Omit<SnackbarProviderProps, 'color'>;
+type BaseProps = Omit<SnackbarProviderProps, 'color' | 'children'>;
 
 export type SnackbarProps = BaseProps;
 

@@ -22,6 +22,16 @@ Or with yarn
 yarn add @doopage/react-ui-kit
 ```
 
+## Installing dependencies
+
+```bash
+npm install @material-ui/core @material-ui/lab 
+
+or
+
+yarn add @material-ui/core @material-ui/lab 
+```
+
 ## Documentation
 
 [Homepage](https://huynhhuyhiep.github.io/doopage-react-ui-kit)
