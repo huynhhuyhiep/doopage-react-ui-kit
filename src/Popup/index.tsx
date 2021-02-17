@@ -3,8 +3,10 @@ import React, {
 	forwardRef,
 	memo,
 	ReactNode,
+	SyntheticEvent,
 	useImperativeHandle,
 	useMemo,
+	useState,
 } from 'react';
 import Popover, { PopoverProps } from '@material-ui/core/Popover';
 import {
@@ -15,10 +17,11 @@ import {
 	usePopupState,
 } from 'material-ui-popup-state/hooks';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
+import classNames from 'classnames';
 import useStyles from './styles';
 import Button, { ButtonProps } from '../Button';
 
-type BaseProps = Omit<PopoverProps, 'open'>;
+type BaseProps = Omit<PopoverProps, 'open' | 'contextMenu'>;
 
 export interface PopupProps extends BaseProps {
 	hide?: boolean;
@@ -27,6 +30,9 @@ export interface PopupProps extends BaseProps {
 	label?: ReactNode;
 	hover?: boolean;
 	popupState?: PopupState;
+	getContextMenu?: (
+		value: (e: SyntheticEvent) => { top: number; left: number }
+	) => void;
 }
 
 const Popup: FC<PopupProps> = forwardRef((props, ref) => {
@@ -38,6 +44,8 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 		hover,
 		popupState,
 		button,
+		getContextMenu,
+		className,
 		...rest
 	} = props;
 	const classes = useStyles();
@@ -47,15 +55,48 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 		variant: 'popover',
 		...popupState,
 	});
+	const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
 
 	useImperativeHandle(ref, () => popupValue, [popupValue]);
 
 	if (hide) return null;
+
+	const openMenu = (event: SyntheticEvent) => {
+		event.preventDefault();
+		// @ts-ignore
+		const left = event?.clientX + 10;
+		// @ts-ignore
+		const top = event?.clientY + 10;
+
+		popupValue.setOpen(true, event);
+
+		setMenuPosition({ top, left });
+		return { top, left };
+	};
+
+	if (getContextMenu)
+		return (
+			<>
+				{getContextMenu(openMenu)}
+				<Popover
+					{...bindPopover(popupValue)}
+					anchorReference='anchorPosition'
+					anchorPosition={menuPosition}
+					{...rest}
+				>
+					{children}
+				</Popover>
+			</>
+		);
+
 	if (!hover)
 		return (
 			<>
 				{button ? (
-					<div className={classes.trigger} {...bindTrigger(popupValue)}>
+					<div
+						className={classNames(classes.trigger, className)}
+						{...bindTrigger(popupValue)}
+					>
 						{button}
 					</div>
 				) : (
@@ -84,7 +125,10 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 	return (
 		<>
 			{button ? (
-				<div className={classes.trigger} {...bindHover(popupValue)}>
+				<div
+					className={classNames(classes.trigger, className)}
+					{...bindHover(popupValue)}
+				>
 					{button}
 				</div>
 			) : (

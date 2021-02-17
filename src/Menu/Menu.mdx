@@ -9,12 +9,15 @@ menu: Navigation
 
 
 
+
+
+
+
+
+
+
 import AdbIcon from "@material-ui/icons/Adb";
-import { Playground, Props } from "docz"; import {
-  Avatar,
-  MenuOption,
-  Menu,
-} from "../index";
+import { Playground, Props } from "docz"; import { Avatar, MenuOption, Menu, } from "../index";
 import { doopageLogo } from "../utils/constants";
 
 # Menu
@@ -62,16 +65,60 @@ export default Example;
   }}
 </Playground>
 
-### Advanced
+### Hover
 <Playground>
   {() =>
   {
     const handleClick = (item) => console.log('on click', item)
     return (
       <Menu
-        button={<div style={{ width: 100, backgroundColor: 'gray', textAlign: 'center', color: '#fff' }}>click
-          here</div>}
+        button={<div style={{ width: 100, backgroundColor: 'gray', textAlign: 'center', color: '#fff' }}>menu</div>}
         hover
+        options={[
+          {
+            id: '1',
+            name: 'option 1',
+            onClick: handleClick,
+            description: 'description option 1',
+            icon: <AdbIcon />,
+            disabled: true,
+            divider: true
+          },
+          {
+            id: '2',
+            name: 'option 2',
+            onClick: handleClick,
+            description: 'description option 2',
+            icon: <Avatar src={doopageLogo} size='small' shadow={false} />,
+            closeOnClick: false
+          },
+        ]}
+      />
+    )
+  }}
+</Playground>
+
+### Context Menu
+<Playground>
+  {() =>
+  {
+    const handleClick = (item) => console.log('on click', item)
+    return (
+      <Menu
+        getContextMenu={(openMenu) =>
+        {
+          return (
+            <div
+              onContextMenu={(e) =>
+              {
+                const { top, left } = openMenu(e)
+              }}
+              style={{ width: 500, height: 300, backgroundColor: '#eeeeee', textAlign: 'center' }}
+            >
+              Right click to open menu
+            </div>
+          )
+        }}
         options={[
           {
             id: '1',
