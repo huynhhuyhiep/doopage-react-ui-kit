@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.3 (2021-02-17)
+
+
+### Bug Fixes
+
+* **Snackbar:** update props ([43e8678](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/43e867824fef189059dc2631cbce8210230fb86f))
+
 ### 0.2.2 (2021-01-30)
 
 ### 0.2.1 (2021-01-30)
