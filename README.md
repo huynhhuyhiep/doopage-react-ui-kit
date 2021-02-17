@@ -25,11 +25,11 @@ yarn add @doopage/react-ui-kit
 ## Installing dependencies
 
 ```bash
-npm install @material-ui/core @material-ui/lab 
+npm install @material-ui/core @material-ui/lab @material-ui/icons date-fns moment
 
 or
 
-yarn add @material-ui/core @material-ui/lab 
+yarn add @material-ui/core @material-ui/lab @material-ui/icons date-fns moment
 ```
 
 ## Documentation

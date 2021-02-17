@@ -63,8 +63,11 @@
   "peerDependencies": {
     "@material-ui/core": ">=4",
     "@material-ui/lab": ">=4",
+    "@material-ui/icon": ">=4",
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "moment": ">=2",
+    "date-fns": ">=2"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
