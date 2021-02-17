@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.5 (2021-02-17)
+
+
+### Features
+
+* **Menu:** support context menu ([49e4dfc](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/49e4dfc24683ba48fef31eb11628a0387030a80f))
+
 ### 0.2.4 (2021-02-17)
 
 ### 0.2.3 (2021-02-17)
