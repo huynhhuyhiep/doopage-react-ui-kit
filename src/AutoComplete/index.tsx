@@ -90,8 +90,8 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 			: newValue.map((item: any) => item?.inputValue ?? item?.id ?? item);
 
 		if (multiple && !allowDuplicates) {
-			// @ts-ignore
-			ids = [...new Set<string>(ids)];
+			const setIds = new Set<string>(ids);
+			ids = Array.from(setIds);
 		}
 
 		onChange?.(ids, newValue);
