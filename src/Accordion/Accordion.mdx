@@ -1,0 +1,61 @@
+---
+name: Accordion
+route: /accordion
+menu: Surfaces
+
+---
+
+
+
+
+import { Card } from "@material-ui/core";
+import InsertCommentIcon from "@material-ui/icons/InsertComment";
+import { Playground, Props } from "docz"; import { useState } from "react";
+import { Button, Input, Switch } from "../index";
+import Accordion from "./index";
+
+# Accordion
+Base on https://material-ui.com/components/accordion/
+
+## Basic usage
+
+```jsx
+import { Accordion } from '@doopage/react-ui-kit'
+
+const Example = () => <Accordion title='title'>content</Accordion>;
+
+export default Example;
+```
+
+## Playground
+
+### Normal
+<Playground>
+  <Accordion title='title'>content</Accordion>
+</Playground>
+
+### Advance
+<Playground>
+  {() =>
+  {
+    const [expand, setExpand] = useState(false)
+    return (
+      <Card>
+        <Accordion
+          expanded={expand}
+          title={<><InsertCommentIcon style={{ marginRight: 5 }} />This is title with icon</>}
+          expandIcon={<Switch checked={expand}/>}
+          rotateExpandIcon={false}
+          onChange={() => setExpand(prevState => !prevState)}
+        >
+          <Input label='this is input' />
+          <Button>Button</Button>
+        </Accordion>
+      </Card>
+    )
+  }}
+</Playground>
+
+## Properties
+
+<Props of={Accordion} table/>

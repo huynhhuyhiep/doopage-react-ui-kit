@@ -24,6 +24,8 @@ export { default as Chip } from './Chip';
 export * from './Chip';
 export { default as Snackbar } from './Snackbar';
 export * from './Snackbar';
+export { default as Accordion } from './Accordion';
+export * from './Accordion';
 export { default as DateTimeInput } from './DateTimeInput';
 export * from './DateTimeInput';
 export {
