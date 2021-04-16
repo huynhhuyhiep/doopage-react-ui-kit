@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.15 (2021-04-16)
+
+
+### Bug Fixes
+
+* add export chip input ([db9ae8e](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/db9ae8efdd55a2a86e014ea33f59209883202031))
+
 ### 0.2.14 (2021-04-16)
 
 
