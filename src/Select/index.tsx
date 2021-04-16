@@ -27,7 +27,9 @@ const Select: FC<SelectProps> = (props) => {
 		const selectedOptions = arrValue.map((id: string) =>
 			options.find((item) => item.id === id)
 		);
-		return selectedOptions.map((item: MenuItemProps) => item.name).join(', ');
+		return selectedOptions
+			.map((item: MenuItemProps) => item?.name ?? '')
+			.join(', ');
 	};
 
 	if (hide) return null;

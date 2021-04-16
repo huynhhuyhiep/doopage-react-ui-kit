@@ -4,7 +4,7 @@ import { getOpacityColor } from '../utils/constants';
 
 const createSwitchColor = (color: string) => ({
 	'& .Mui-checked': {
-		color,
+		color: `${color} !important`,
 	},
 	'& .Mui-checked:hover': {
 		backgroundColor: getOpacityColor(color)(0.1),
