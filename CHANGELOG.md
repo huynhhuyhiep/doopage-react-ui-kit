@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.11 (2021-04-16)
+
+
+### Bug Fixes
+
+* date-range-input broken style ([3366340](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/3366340c65b81b4dbe656bd0e773fb659112e650))
+
 ### 0.2.10 (2021-04-16)
 
 
