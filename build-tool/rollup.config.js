@@ -91,7 +91,7 @@ export default {
 			extensions,
 		}),
 		postcss({
-			extract: `dist/${pkg.name}.css`,
+			extract: `doopage-ui-kit.css`,
 			plugins: [autoprefixer()],
 			minimize: true,
 			sourceMap: false,
