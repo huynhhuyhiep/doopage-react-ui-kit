@@ -127,7 +127,10 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 			disableCloseOnSelect={multiple}
 			noOptionsText='Không tìm thấy'
 			loadingText='Đang tải...'
-			getOptionSelected={(option, value) => option.id === value.id}
+			getOptionSelected={(option, value) => {
+				if (option.id) return option.id === value.id;
+				return option === value;
+			}}
 			getOptionLabel={(option) => {
 				// Value selected with enter, right from the input
 				if (typeof option === 'string') return option;

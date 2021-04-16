@@ -24,6 +24,8 @@ export { default as Autocomplete } from './AutoComplete';
 export * from './AutoComplete';
 export { default as Chip } from './Chip';
 export * from './Chip';
+export { default as ChipInput } from './ChipInput';
+export * from './ChipInput';
 export { default as Snackbar } from './Snackbar';
 export * from './Snackbar';
 export { default as Accordion } from './Accordion';
