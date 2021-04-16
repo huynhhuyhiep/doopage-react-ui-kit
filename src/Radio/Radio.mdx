@@ -10,8 +10,10 @@ menu: Inputs
 
 
 
+
+
 import { FormControl, FormLabel, RadioGroup } from "@material-ui/core"; import { Playground, Props } from "docz";
-import { Space, Radio } from "../index";
+import { Space, Radio, DateRangeInput } from "../index";
 
 # Checkbox
 Base on https://material-ui.com/components/checkboxes/
@@ -41,16 +43,17 @@ export default Example;
   {() =>
   {
     const [value, setValue] = React.useState('female');
-    const handleChange = (event) => {
+    const handleChange = (event) =>
+    {
       setValue(event.target.value);
     };
     return (
       <FormControl component="fieldset">
         <FormLabel component="legend">Gender</FormLabel>
         <RadioGroup value={value} onChange={handleChange}>
-          <Radio value="female" label="Female" color='primary'/>
-          <Radio value="male" label="Male" color='info'/>
-          <Radio value="other" label="Other" disabled color='warning'/>
+          <Radio value="female" label="Female" color='primary' />
+          <Radio value="male" label="Male" color='info' />
+          <Radio value="other" label="Other" disabled color='warning' />
           <Radio value="helper" abel='Helper text' helperText='this is heplerText' />
         </RadioGroup>
       </FormControl>
@@ -66,6 +69,33 @@ export default Example;
     <Radio color='warning' label='Warning' checked labelPlacement='bottom' />
     <Radio color='success' checked labelPlacement='top'>Success</Radio>
   </Space>
+</Playground>
+
+### Advanced
+<Playground>
+  {() =>
+  {
+    const [value, setValue] = React.useState('female');
+    const handleChange = (event) =>
+    {
+      setValue(event.target.value);
+    };
+    return (
+      <FormControl>
+        <FormLabel>Gender</FormLabel>
+        <RadioGroup value={value} onChange={handleChange}>
+          <div style={{ display: 'flex' }}>
+            <Radio value="female">
+              All time
+            </Radio>
+            <Radio value="male">
+              <DateRangeInput />
+            </Radio>
+          </div>
+        </RadioGroup>
+      </FormControl>
+    )
+  }}
 </Playground>
 
 ## Properties

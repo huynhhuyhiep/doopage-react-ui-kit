@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => {
 	return createStyles({
 		checkbox: {
 			'& + .MuiFormControlLabel-label': {
-				fontSize: '0.8rem',
+				fontSize: '1rem',
 			},
 			'&$primary': createHoverBackgroundColor(primaryColor),
 			'&$info': createHoverBackgroundColor(infoColor),
