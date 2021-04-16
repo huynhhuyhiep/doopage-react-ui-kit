@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.9 (2021-04-16)
+
+
+### Bug Fixes
+
+* build fail ([1d93621](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/1d936212dfde7064432556298f312d4b6a721ee9))
+
 ### 0.2.8 (2021-04-15)
 
 
