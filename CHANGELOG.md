@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.13 (2021-04-16)
+
+
+### Features
+
+* **radio:** add radio button ([bf55a5d](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/bf55a5d19047655b7429bcb663fec980d2d2b491))
+
 ### 0.2.12 (2021-04-16)
 
 
