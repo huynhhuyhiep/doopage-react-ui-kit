@@ -18,7 +18,6 @@ menu: Inputs
 import { addDays } from "date-fns";
 import { Playground, Props } from "docz"; import { useState } from "react";
 import { DateRangeInput } from "../index";
-import '@doopage/react-ui-kit/dist/doopage-ui-kit.css'
 
 # Menu
 Base on https://hypeserver.github.io/react-date-range/#daterangepicker
@@ -95,6 +94,7 @@ export default Example;
     console.log('select range ', range)
     return (
       <DateRangeInput
+        fullWidth
         value={range}
         months={1}
         dateFormat='dd/MM/yyyy'

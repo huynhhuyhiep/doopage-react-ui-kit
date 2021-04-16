@@ -29,6 +29,7 @@ export interface PopupProps extends BaseProps {
 	button?: ReactNode;
 	label?: ReactNode;
 	hover?: boolean;
+	fullWidth?: boolean;
 	popupState?: PopupState;
 	getContextMenu?: (
 		value: (e: SyntheticEvent) => { top: number; left: number }
@@ -46,6 +47,7 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 		button,
 		getContextMenu,
 		className,
+		fullWidth,
 		...rest
 	} = props;
 	const classes = useStyles();
@@ -95,13 +97,18 @@ const Popup: FC<PopupProps> = forwardRef((props, ref) => {
 				{button ? (
 					<div
 						className={classNames(classes.trigger, className)}
+						style={{ width: fullWidth ? '100%' : 'unset' }}
 						{...bindTrigger(popupValue)}
 					>
 						{button}
 					</div>
 				) : (
 					// @ts-ignore
-					<Button {...buttonProps} {...bindTrigger(popupValue)}>
+					<Button
+						{...buttonProps}
+						{...bindTrigger(popupValue)}
+						fullWidth={fullWidth}
+					>
 						{label}
 					</Button>
 				)}

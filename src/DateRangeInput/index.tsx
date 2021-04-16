@@ -27,6 +27,7 @@ export interface DateRangeInputProps extends BaseProps {
 	popupProps?: PopupProps;
 	dateFormat?: string;
 	hideDefinedRange?: boolean;
+	fullWidth?: boolean;
 }
 
 const DateRangeInput: FC<DateRangeInputProps> = (props) => {
@@ -42,6 +43,7 @@ const DateRangeInput: FC<DateRangeInputProps> = (props) => {
 		popupProps,
 		dateFormat = 'yyyy-MM-dd',
 		hideDefinedRange,
+		fullWidth,
 		...restProps
 	} = props;
 	const popupRef = useRef();
@@ -99,6 +101,7 @@ const DateRangeInput: FC<DateRangeInputProps> = (props) => {
 						label,
 						placeholder,
 					}}
+					fullWidth={fullWidth}
 					{...inputProps}
 				/>
 			}
