@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.16 (2021-04-16)
+
+
+### Bug Fixes
+
+* **select:** fix crash when reset selected value ([e6d5ab6](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/e6d5ab623e9bf48a99954d924109cdecdb3a75d2))
+
 ### 0.2.15 (2021-04-16)
 
 
