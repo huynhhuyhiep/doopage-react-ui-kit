@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.10 (2021-04-16)
+
+
+### Features
+
+* **space:** add direction props ([6bb6ade](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/6bb6adea6e6d9f5eef1316422a6c17ffe8d6009e))
+
 ### 0.2.9 (2021-04-16)
 
 
