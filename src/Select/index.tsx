@@ -16,7 +16,7 @@ const Select: FC<SelectProps> = (props) => {
 			rawOption.map((item: MenuItemProps | number | string) => {
 				// @ts-ignore
 				if (item?.id) return item;
-				return { id: item.toString(), name: item.toString() };
+				return { id: item.toString(), name: item.toString() } as MenuItemProps;
 			}),
 		[rawOption]
 	);

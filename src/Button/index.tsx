@@ -6,7 +6,7 @@ import { CircularProgress, Tooltip, Zoom } from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
 
-type BaseProps = Omit<MuiButtonProps, 'color' | 'variant' | 'size'>;
+type BaseProps = Omit<MuiButtonProps, 'color' | 'variant' | 'size' | 'simple'>;
 
 export interface ButtonProps extends BaseProps {
 	loading?: boolean;
