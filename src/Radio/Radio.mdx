@@ -1,0 +1,73 @@
+---
+name: Radio
+route: /radio
+menu: Inputs
+
+---
+
+
+
+
+
+
+import { FormControl, FormLabel, RadioGroup } from "@material-ui/core"; import { Playground, Props } from "docz";
+import { Space, Radio } from "../index";
+
+# Checkbox
+Base on https://material-ui.com/components/checkboxes/
+
+Related component
+- https://material-ui.com/api/form-control-label/#formcontrollabel-api
+- https://material-ui.com/components/tooltips/
+- https://material-ui.com/components/icons/
+
+Icon
+- https://material-ui.com/components/material-icons/
+
+## Basic usage
+
+```jsx
+import { Checkbox } from '@doopage/react-ui-kit'
+
+const Example = () => <Checkbox />;
+
+export default Example;
+```
+
+## Playground
+
+### Basic
+<Playground>
+  {() =>
+  {
+    const [value, setValue] = React.useState('female');
+    const handleChange = (event) => {
+      setValue(event.target.value);
+    };
+    return (
+      <FormControl component="fieldset">
+        <FormLabel component="legend">Gender</FormLabel>
+        <RadioGroup value={value} onChange={handleChange}>
+          <Radio value="female" label="Female" color='primary'/>
+          <Radio value="male" label="Male" color='info'/>
+          <Radio value="other" label="Other" disabled color='warning'/>
+          <Radio value="helper" abel='Helper text' helperText='this is heplerText' />
+        </RadioGroup>
+      </FormControl>
+    )
+  }}
+</Playground>
+
+### Label placement
+<Playground>
+  <Space spaceWidth={15}>
+    <Radio color='primary' checked labelPlacement='start'>Primary</Radio>
+    <Radio color='info' checked labelPlacement='end'>Info</Radio>
+    <Radio color='warning' label='Warning' checked labelPlacement='bottom' />
+    <Radio color='success' checked labelPlacement='top'>Success</Radio>
+  </Space>
+</Playground>
+
+## Properties
+
+<Props of={Radio} table />

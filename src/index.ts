@@ -18,6 +18,8 @@ export { default as Switch } from './Switch';
 export * from './Switch';
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
+export { default as Radio } from './Radio';
+export * from './Radio';
 export { default as Autocomplete } from './AutoComplete';
 export * from './AutoComplete';
 export { default as Chip } from './Chip';
