@@ -10,12 +10,13 @@ export interface SelectProps extends InputProps {
 const Select: FC<SelectProps> = (props) => {
 	const { hide, options: rawOption, multiple, SelectProps, ...rest } = props;
 
-	const options: MenuItemProps[] = useMemo(
+	// @ts-ignore
+	const options: Array<MenuItemProps> = useMemo(
 		() =>
 			// @ts-ignore
 			rawOption.map((item: MenuItemProps | number | string) => {
 				// @ts-ignore
-				if (item?.id) return item;
+				if (item?.id) return item as MenuItemProps;
 				return { id: item.toString(), name: item.toString() } as MenuItemProps;
 			}),
 		[rawOption]
