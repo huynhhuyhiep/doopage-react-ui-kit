@@ -4,14 +4,23 @@ import useStyles from './styles';
 
 export interface SpaceProps extends BoxProps {
 	hide?: boolean;
+	direction?: 'horizontal' | 'vertical';
 	spaceWidth?: number;
 	spaceHeight?: number;
 	children: ReactNode;
 }
 
 const Space: FC<SpaceProps> = (props) => {
-	const { hide, children, spaceHeight, spaceWidth, ...rest } = props;
+	const {
+		hide,
+		children,
+		spaceHeight,
+		spaceWidth,
+		direction = 'horizontal',
+		...rest
+	} = props;
 	const classes = useStyles(props);
+
 	if (hide) return null;
 
 	return (

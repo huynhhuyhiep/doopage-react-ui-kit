@@ -7,6 +7,7 @@ menu: Layout
 
 
 
+
 import { Playground, Props } from "docz";
 import { Avatar, Space } from "../index";
 import { doopageLogo } from "../utils/constants";
@@ -30,14 +31,20 @@ export default Example;
 
 ### Basic
 <Playground>
-  <Space>
-    <Avatar src={doopageLogo} alt={'Logo'} />
-    <Avatar alt={'Logo'} />
+  <Space direction='vertical'>
+    <Space>
+      <Avatar alt={'Logo'} />
+      <Avatar src={doopageLogo} alt={'Logo'} />
+    </Space>
+    <Space direction='horizontal' spaceWidth={30}>
+      <Avatar src={doopageLogo} alt={'Logo'} />
+      <Avatar alt={'Logo'} />
+    </Space>
   </Space>
 </Playground>
 
 ## Properties
 
-<Props of={Space} table/>
+<Props of={Space} table />
 
 

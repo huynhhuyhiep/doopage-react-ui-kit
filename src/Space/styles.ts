@@ -4,10 +4,17 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			display: 'flex',
-			flexDirection: (props: any) => (props?.spaceHeight ? 'column' : 'row'),
+			flexDirection: (props: any) =>
+				props?.direction === 'vertical' ? 'column' : 'row',
 			'& > *': {
-				marginRight: (props: any) => props?.spaceWidth || theme.spacing(1),
-				marginBottom: (props: any) => props?.spaceHeight,
+				marginRight: (props: any) =>
+					props?.direction === 'vertical'
+						? 0
+						: props?.spaceWidth || theme.spacing(1),
+				marginBottom: (props: any) =>
+					props?.direction === 'vertical'
+						? props?.spaceHeight || theme.spacing(1)
+						: 0,
 			},
 			'& > *:last-child': {
 				marginRight: 0,
