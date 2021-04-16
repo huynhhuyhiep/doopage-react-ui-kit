@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.12 (2021-04-16)
+
+
+### Features
+
+* **daterange:** support fullwidth ([6114100](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/611410088f161a73796ad7b1946354ec59c5f231))
+
 ### 0.2.11 (2021-04-16)
 
 
