@@ -1,10 +1,9 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { theme } from '../Theme';
+import { getColor } from '../utils/constants';
+import { AccordionProps } from './index';
 
-const useStyles = makeStyles(({ breakpoints }) => {
-	const { primaryColor } = theme.colors;
-
-	return createStyles({
+const useStyles = makeStyles(({ breakpoints }) =>
+	createStyles({
 		root: {
 			flexGrow: 1,
 			// marginBottom: "20px"
@@ -30,11 +29,11 @@ const useStyles = makeStyles(({ breakpoints }) => {
 			borderTopRightRadius: '3px',
 			color: '#3C4858',
 			'&:hover': {
-				color: primaryColor,
+				color: (props: AccordionProps) => getColor(props.color),
 			},
 		},
 		expansionPanelSummaryExpanded: {
-			color: primaryColor,
+			color: (props: AccordionProps) => getColor(props.color),
 			'& $expansionPanelSummaryExpandIcon': {
 				[breakpoints.up('md')]: {
 					top: 'auto !important',
@@ -73,7 +72,7 @@ const useStyles = makeStyles(({ breakpoints }) => {
 			margin: 'auto 10px',
 			fontSize: '20px',
 		},
-	});
-});
+	})
+);
 
 export default useStyles;

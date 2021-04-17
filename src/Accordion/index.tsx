@@ -15,6 +15,7 @@ export interface AccordionProps extends BaseProps {
 	expandIcon?: ReactNode;
 	title?: ReactNode;
 	rotateExpandIcon?: boolean;
+	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary' | 'gray';
 }
 
 const Accordion: FC<AccordionProps> = (props) => {
@@ -58,6 +59,10 @@ const Accordion: FC<AccordionProps> = (props) => {
 			</ExpansionPanelDetails>
 		</ExpansionPanelGroup>
 	);
+};
+
+Accordion.defaultProps = {
+	color: 'primary',
 };
 
 export default memo(Accordion);
