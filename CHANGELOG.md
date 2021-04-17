@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.19 (2021-04-17)
+
+
+### Bug Fixes
+
+* **select:** logic detect id ([c95b01b](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/c95b01bd03c8b4781308136b7d3deebecba05215))
+
 ### 0.2.18 (2021-04-17)
 
 
