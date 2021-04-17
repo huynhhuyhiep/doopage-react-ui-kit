@@ -1,10 +1,11 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { theme } from '../Theme';
-import { getOpacityColor } from '../utils/constants';
+import { getOpacityColor, getTextColor } from '../utils/constants';
+import { ChipProps, isCustomColor } from './index';
 
-const createSwitchColor = (color: string) => ({
+const createChipColor = (color: string) => ({
 	backgroundColor: color,
-	color: '#fff',
+	color: getTextColor(color),
 	'&$outlined': {
 		backgroundColor: 'transparent',
 		color,
@@ -18,7 +19,7 @@ const createSwitchColor = (color: string) => ({
 		},
 	},
 	'& .MuiChip-avatar': {
-		color: '#fff',
+		color: getTextColor(color),
 	},
 	'& .MuiChip-deleteIcon': {
 		color: 'rgba(255, 255, 255, 0.5)',
@@ -47,17 +48,21 @@ const useStyles = makeStyles(() => {
 				marginRight: 2,
 			},
 		},
-		primary: createSwitchColor(primaryColor),
-		info: createSwitchColor(infoColor),
-		success: createSwitchColor(successColor),
-		warning: createSwitchColor(warningColor),
-		danger: createSwitchColor(dangerColor),
+		primary: createChipColor(primaryColor),
+		info: createChipColor(infoColor),
+		success: createChipColor(successColor),
+		warning: createChipColor(warningColor),
+		danger: createChipColor(dangerColor),
 		outlined: {
 			color: '#616161',
 		},
 		square: {
 			borderRadius: 5,
 		},
+		customColor: (props: ChipProps) =>
+			createChipColor(
+				isCustomColor(props.color) ? props.color || '#999999' : '#999999'
+			),
 	});
 });
 

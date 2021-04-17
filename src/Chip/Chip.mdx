@@ -64,6 +64,7 @@ export default Example;
     <Chip color='info' label='info' />
     <Chip color='warning' label='warning' />
     <Chip color='danger' label='danger' />
+    <Chip color='#D8BFD8' label='custom color' />
   </Space>
 </Playground>
 
@@ -78,8 +79,8 @@ export default Example;
 ### Square
 <Playground>
   <Space>
-    <Chip color='primary' label='primary' rounded={false}>Chip</Chip>
-    <Chip color='info' label='info' outlined size='medium' rounded={false} />
+    <Chip color='primary' label='primary' square>Chip</Chip>
+    <Chip color='info' label='info' outlined size='medium' square/>
   </Space>
 </Playground>
 
@@ -109,7 +110,7 @@ export default Example;
     <Chip
       color='info'
       label='info'
-      utlined
+      outlined
       avatar={<Avatar src={doopageLogo} />}
       size='medium'
       helperText='this is helper text'

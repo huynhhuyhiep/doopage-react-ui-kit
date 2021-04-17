@@ -176,12 +176,12 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 			)}
 			renderTags={(tagValue, getTagProps) =>
 				tagValue.map((option, index) => {
-					const { name, icon, id } = option;
+					const { name, icon, id, color } = option;
 
 					return (
 						<Chip
 							{...getTagProps({ index })}
-							color={chipColor}
+							color={color || chipColor}
 							key={id || `${index}-${option}`}
 							rounded={false}
 							outlined

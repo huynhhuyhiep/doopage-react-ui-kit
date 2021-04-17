@@ -60,3 +60,12 @@ export const listColor = [
 	'#EC4899',
 	'#F43F5E',
 ];
+
+export const getTextColor = (background: string): string => {
+	const [R, G, B] = getRGBColor(background).split(',');
+	// @ts-ignore
+	const luminance = (0.299 * R + 0.587 * G + 0.114 * B) / 255;
+
+	if (luminance > 0.7) return '#000';
+	return '#fff';
+};

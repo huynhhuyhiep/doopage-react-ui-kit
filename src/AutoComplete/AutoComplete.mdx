@@ -161,6 +161,36 @@ export default Example;
   }}
 </Playground>
 
+### Custom chip color
+<Playground>
+  {() =>
+  {
+    const [value, setValue] = useState(['1', '2'])
+    return (
+      <div>
+        <div style={{fontSize: 15, marginBottom: 10}}>Value: {value.join(', ')}</div>
+        <Autocomplete
+          allowCreate
+          multiple
+          placeholder='Select options'
+          label='Autocomplete Multiple'
+          variant='outlined'
+          value={value}
+          onChange={(value) =>
+          {
+            setValue(value);
+          }}
+          options={Array(10).fill(0).map((item, index) => ({
+            id: index.toString(),
+            name: `option ${index}`,
+            color: index % 2 === 0 ? '#D8BFD8' : undefined
+          }))}
+        />
+      </div>
+    )
+  }}
+</Playground>
+
 ## Properties
 
 <Props of={Autocomplete} table/>
