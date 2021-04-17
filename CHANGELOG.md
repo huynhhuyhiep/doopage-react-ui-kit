@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.20 (2021-04-17)
+
+
+### Features
+
+* **chip:** support custom color ([670869c](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/670869cf9adacae2dcaf8fca80fd6aa9c4613a9e))
+
 ### 0.2.19 (2021-04-17)
 
 
