@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.18 (2021-04-17)
+
+
+### Features
+
+* **button:** inc font size to 0.825rem ([e9bdd1e](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/e9bdd1e4806bccf2bbac5d84ec3c9f1471db1594))
+
 ### 0.2.17 (2021-04-17)
 
 
