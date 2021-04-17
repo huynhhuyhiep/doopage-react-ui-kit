@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.21 (2021-04-17)
+
+
+### Bug Fixes
+
+* **select:** fix logic gen options ([ec28924](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/ec28924d2a220cf51e3361f42a91ba23f74ee619))
+
 ### 0.2.20 (2021-04-17)
 
 
