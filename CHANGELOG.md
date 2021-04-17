@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.22 (2021-04-17)
+
+
+### Features
+
+* **accordion:** support color ([a1a1360](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/a1a13609e924be95c11d5c70b8ea6cce36274893))
+
 ### 0.2.21 (2021-04-17)
 
 
