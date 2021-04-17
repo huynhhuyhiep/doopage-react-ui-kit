@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.17 (2021-04-17)
+
+
+### Bug Fixes
+
+* **switch:** fix wrong primary color in default color ([cd0067d](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/cd0067dcdab5da4a13f1ef2a8aa4f0e46485c191))
+
 ### 0.2.16 (2021-04-16)
 
 
