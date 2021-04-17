@@ -46,7 +46,7 @@ const useStyles = makeStyles(() => {
 			position: 'relative',
 			padding: '8px 20px',
 			margin: '.3125rem 1px',
-			fontSize: '0.8rem',
+			fontSize: '0.825rem',
 			fontWeight: 500,
 			letterSpacing: '0.25',
 			willChange: 'box-shadow, transform',
