@@ -7,13 +7,13 @@ const createSwitchColor = (color: string) => ({
 		color: `${color} !important`,
 	},
 	'& .Mui-checked:hover': {
-		backgroundColor: getOpacityColor(color)(0.1),
+		backgroundColor: `${getOpacityColor(color)(0.1)} !important`,
 	},
 	'& .Mui-checked + .MuiSwitch-track': {
-		backgroundColor: color,
+		backgroundColor: `${color} !important`,
 	},
 	'& + .MuiFormControlLabel-label': {
-		fontSize: '0.8rem',
+		fontSize: '1rem',
 	},
 });
 
