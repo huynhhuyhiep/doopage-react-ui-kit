@@ -14,6 +14,7 @@ import { debounce } from '@material-ui/core/utils';
 import Input, { InputProps } from '../Input';
 import MenuItem, { MenuItemProps } from '../MenuItem';
 import Chip, { ChipProps } from '../Chip';
+import { ColorType } from '../utils/constants';
 
 type BaseProps = Omit<
 	MuiAutocompleteProps<any, any, any, any>,
@@ -30,7 +31,7 @@ export interface AutocompleteProps extends BaseProps {
 	error?: string;
 	helperText?: string;
 	variant?: 'standard' | 'filled' | 'outlined';
-	chipColor?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
+	chipColor?: ColorType;
 	onChange?: (id: string, value: any) => void;
 	getData?: (value: string) => void;
 	setCreateText?: (inputValue: string) => string;

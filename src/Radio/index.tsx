@@ -9,12 +9,13 @@ import {
 import classNames from 'classnames';
 import MuiRadio from '@material-ui/core/Radio';
 import useStyles from './styles';
+import { ColorType } from '../utils/constants';
 
 type BaseProps = Omit<MuiRadioProps, 'color' | 'size'>;
 
 export interface RadioProps extends BaseProps {
 	hide?: boolean;
-	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
+	color?: ColorType;
 	helperText?: string;
 	label?: string;
 	styles?: any;

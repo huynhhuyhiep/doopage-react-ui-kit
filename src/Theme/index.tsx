@@ -9,6 +9,7 @@ export const theme = proxy({
 		infoColor: '#2979ff',
 		grayColor: '#999999',
 		whiteColor: '#fff',
+		roseColor: '#e91e63',
 	},
 });
 
@@ -20,6 +21,7 @@ interface Theme {
 	infoColor?: string;
 	grayColor?: string;
 	whiteColor?: string;
+	roseColor?: string;
 }
 
 export const setTheme = (customTheme: Theme) => {

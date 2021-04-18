@@ -5,21 +5,14 @@ import MuiButton, {
 import { CircularProgress, Tooltip, Zoom } from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
+import { ColorType } from '../utils/constants';
 
 type BaseProps = Omit<MuiButtonProps, 'color' | 'variant' | 'size' | 'simple'>;
 
 export interface ButtonProps extends BaseProps {
 	loading?: boolean;
 	hide?: boolean;
-	color?:
-		| 'info'
-		| 'success'
-		| 'danger'
-		| 'warning'
-		| 'primary'
-		| 'white'
-		| 'gray'
-		| 'transparent';
+	color?: ColorType | 'transparent';
 	helperText?: string;
 	round?: boolean;
 	smooth?: boolean;

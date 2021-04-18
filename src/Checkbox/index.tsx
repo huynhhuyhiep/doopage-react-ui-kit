@@ -10,12 +10,13 @@ import classNames from 'classnames';
 import MuiCheckbox from '@material-ui/core/Checkbox';
 import { Check } from '@material-ui/icons';
 import useStyles from './styles';
+import { ColorType } from '../utils/constants';
 
 type BaseProps = Omit<MuiCheckboxProps, 'color' | 'size'>;
 
 export interface CheckboxProps extends BaseProps {
 	hide?: boolean;
-	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary';
+	color?: ColorType;
 	helperText?: string;
 	label?: string;
 	styles?: any;

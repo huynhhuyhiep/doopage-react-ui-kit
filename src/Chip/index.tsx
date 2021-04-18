@@ -7,19 +7,13 @@ import {
 } from '@material-ui/core';
 import classNames from 'classnames';
 import useStyles from './styles';
+import { ColorType, isThemeColor } from '../utils/constants';
 
 type BaseProps = Omit<MuiChipProps, 'color' | 'variant'>;
 
 export interface ChipProps extends BaseProps {
 	hide?: boolean;
-	color?:
-		| 'info'
-		| 'success'
-		| 'danger'
-		| 'warning'
-		| 'primary'
-		| 'gray'
-		| string;
+	color?: ColorType | string;
 	helperText?: string;
 	label?: string;
 	outlined?: boolean;
@@ -27,21 +21,9 @@ export interface ChipProps extends BaseProps {
 	square?: boolean;
 }
 
-export const isCustomColor = (
-	color:
-		| 'info'
-		| 'success'
-		| 'danger'
-		| 'warning'
-		| 'primary'
-		| 'gray'
-		| string
-		| undefined
-): boolean => {
+export const isCustomColor = (color: string): boolean => {
 	if (!color) return false;
-	return !['info', 'success', 'danger', 'warning', 'primary', 'gray'].includes(
-		color
-	);
+	return !isThemeColor(color);
 };
 
 const Chip: FC<ChipProps> = (props) => {
@@ -55,7 +37,6 @@ const Chip: FC<ChipProps> = (props) => {
 		className,
 		size = 'small',
 		outlined,
-		rounded = true,
 		square,
 		...rest
 	} = props;

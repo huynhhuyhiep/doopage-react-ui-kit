@@ -8,6 +8,7 @@ export type ColorType =
 	| 'warning'
 	| 'primary'
 	| 'white'
+	| 'rose'
 	| 'gray';
 
 export type Override<T1, T2> = Omit<T1, keyof T2> & T2;
@@ -70,3 +71,6 @@ export const getTextColor = (background: string): string => {
 	if (luminance > 0.7) return '#000';
 	return '#fff';
 };
+
+export const isThemeColor = (color: string): boolean =>
+	!!theme.colors[`${color}Color`];

@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import classNames from 'classnames';
 import React, { FC, memo, ReactNode } from 'react';
 import useStyles from './styles';
+import { ColorType } from '../utils/constants';
 
 type BaseProps = Omit<ExpansionPanelProps, 'title'>;
 
@@ -15,7 +16,7 @@ export interface AccordionProps extends BaseProps {
 	expandIcon?: ReactNode;
 	title?: ReactNode;
 	rotateExpandIcon?: boolean;
-	color?: 'info' | 'success' | 'danger' | 'warning' | 'primary' | 'gray';
+	color?: ColorType;
 }
 
 const Accordion: FC<AccordionProps> = (props) => {

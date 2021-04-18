@@ -7,8 +7,9 @@ menu: Inputs
 
 
 
+
 import AdbIcon from "@material-ui/icons/Adb";
-import {Playground, Props} from "docz";
+import { Playground } from "docz";
 import Button from "./index";
 
 # Button
@@ -35,13 +36,14 @@ export default Example;
 
 ### Normal
 <Playground>
-    <Button color='primary'>Some messages</Button>
-    <Button color='info'>Some messages</Button>
-    <Button color='warning' disabled>Some messages</Button>
-    <Button color='success'>Some messages</Button>
-    <Button color='danger'>Some messages</Button>
-    <Button color='gray'>Some messages</Button>
-    <Button color='white'>Some messages</Button>
+  <Button color='primary'>Some messages</Button>
+  <Button color='info'>Some messages</Button>
+  <Button color='warning' disabled>Some messages</Button>
+  <Button color='success'>Some messages</Button>
+  <Button color='danger'>Some messages</Button>
+  <Button color='rose'>Some messages</Button>
+  <Button color='gray'>Some messages</Button>
+  <Button color='white'>Some messages</Button>
 </Playground>
 
 ### Smooth
@@ -57,57 +59,57 @@ export default Example;
 
 ### Simple
 <Playground>
-    <Button simple color='primary'>Some messages</Button>
-    <Button simple color='info' disabled>Some messages</Button>
+  <Button simple color='primary'>Some messages</Button>
+  <Button simple color='info' disabled>Some messages</Button>
 </Playground>
 
 ### Size
 <Playground>
-    <Button size='tiny' color='info'>Tiny</Button>
-    <Button size='small' color='success'>Small</Button>
-    <Button size='normal' color='warning'>Normal</Button>
-    <Button size='large' color='danger'>Large</Button>
+  <Button size='tiny' color='info'>Tiny</Button>
+  <Button size='small' color='success'>Small</Button>
+  <Button size='normal' color='warning'>Normal</Button>
+  <Button size='large' color='danger'>Large</Button>
 </Playground>
 
 ### Round & Outline
 <Playground>
-    <Button round>Some messages</Button>
-    <Button round disabled color='success'>Some messages</Button>
-    <Button outline>Some messages</Button>
-    <Button outline disabled>Some messages</Button>
+  <Button round>Some messages</Button>
+  <Button round disabled color='success'>Some messages</Button>
+  <Button outline>Some messages</Button>
+  <Button outline disabled>Some messages</Button>
 </Playground>
 
 ### With helperText
 <Playground>
-    <Button fullWidth upcaseText helperText='this is heplerText'>Some messages</Button>
-    <Button helperText='this is heplerText' placement='right'>Some messages</Button>
+  <Button fullWidth upcaseText helperText='this is heplerText'>Some messages</Button>
+  <Button helperText='this is heplerText' placement='right'>Some messages</Button>
 </Playground>
 
 ### With icon
 <Playground>
-    <Button color='info' startIcon={<AdbIcon/>}>Some messages</Button>
-    <Button color='success' simple endIcon={<AdbIcon/>}>Some messages</Button>
-    <Button color='success' outline endIcon={<AdbIcon/>} startIcon={<AdbIcon/>}>Some messages</Button>
+  <Button color='info' startIcon={<AdbIcon />}>Some messages</Button>
+  <Button color='success' simple endIcon={<AdbIcon />}>Some messages</Button>
+  <Button color='success' outline endIcon={<AdbIcon />} startIcon={<AdbIcon />}>Some messages</Button>
 </Playground>
 
 ### Just icon
 <Playground>
-    <Button justIcon size='tiny' color='info' outline><AdbIcon/></Button>
-    <Button justIcon size='small' color='success' simple><AdbIcon/></Button>
-    <Button justIcon size='normal' color='warning' round><AdbIcon/></Button>
-    <Button justIcon size='large' color='danger'><AdbIcon/></Button>
+  <Button justIcon size='tiny' color='info' outline><AdbIcon /></Button>
+  <Button justIcon size='small' color='success' simple><AdbIcon /></Button>
+  <Button justIcon size='normal' color='warning' round><AdbIcon /></Button>
+  <Button justIcon size='large' color='danger'><AdbIcon /></Button>
 </Playground>
 
 ### With href
 <Playground>
-    <Button href='https://www.npmjs.com/package/@doopage/react-ui-kit'>With href</Button>
+  <Button href='https://www.npmjs.com/package/@doopage/react-ui-kit'>With href</Button>
 </Playground>
 
 ### With loading
 <Playground>
-    <Button loading>some text</Button>
-    <Button loading justIcon><AdbIcon/></Button>
-    <Button loading justIcon size='small'><AdbIcon/></Button>
+  <Button loading>some text</Button>
+  <Button loading justIcon><AdbIcon /></Button>
+  <Button loading justIcon size='small'><AdbIcon /></Button>
 </Playground>
 
 ## Properties

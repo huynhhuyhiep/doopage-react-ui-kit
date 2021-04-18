@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => {
 		dangerColor,
 		infoColor,
 		warningColor,
+		roseColor,
 	} = theme.colors;
 
 	return createStyles({
@@ -104,6 +105,7 @@ const useStyles = makeStyles(() => {
 		success: createButtonShadow(successColor),
 		warning: createButtonShadow(warningColor),
 		danger: createButtonShadow(dangerColor),
+		rose: createButtonShadow(roseColor),
 		white: {
 			'&,&:focus,&:hover': {
 				backgroundColor: '#FFFFFF !important',

@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => {
 		dangerColor,
 		infoColor,
 		warningColor,
+		roseColor,
 	} = theme.colors;
 
 	return createStyles({
@@ -53,6 +54,7 @@ const useStyles = makeStyles(() => {
 		success: createChipColor(successColor),
 		warning: createChipColor(warningColor),
 		danger: createChipColor(dangerColor),
+		rose: createChipColor(roseColor),
 		outlined: {
 			color: '#616161',
 		},
@@ -61,7 +63,7 @@ const useStyles = makeStyles(() => {
 		},
 		customColor: (props: ChipProps) =>
 			createChipColor(
-				isCustomColor(props.color) ? props.color || '#999999' : '#999999'
+				isCustomColor(props?.color || '') ? props.color || '#999999' : '#999999'
 			),
 	});
 });
