@@ -167,8 +167,8 @@ const useStyles = makeStyles(() => {
 			pointerEvents: 'none',
 		},
 		large: {
-			padding: '1.125rem 2.25rem',
-			fontSize: '0.875rem',
+			padding: '0.6rem 1.5rem',
+			fontSize: '1.125rem',
 			lineHeight: '1.333333',
 			borderRadius: '0.2rem',
 		},
