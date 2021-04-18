@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.24 (2021-04-18)
+
+
+### Features
+
+* **autocomplete:** support fetch api base on input ([537f781](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/537f78161b31df08f52b86e2316f3c25a175d1ae))
+
 ### 0.2.23 (2021-04-18)
 
 
