@@ -69,7 +69,7 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 	} = props;
 
 	const [open, setOpen] = useState(false);
-	const [, setInputValue] = useState('');
+	const [inputValue, setInputValue] = useState('');
 
 	const getDataDebounce =
 		typeof getData === 'function' ? debounce(getData, 500) : undefined;
@@ -80,8 +80,8 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 	};
 
 	useEffect(() => {
-		if (open && getDataDebounce) getDataDebounce(value);
-	}, [open, value]);
+		if (open && getDataDebounce) getDataDebounce(inputValue);
+	}, [open, inputValue]);
 
 	const handleChange = (_event: ChangeEvent, newValue: any) => {
 		if (!newValue) return;
