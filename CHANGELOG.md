@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.23 (2021-04-18)
+
+
+### Features
+
+* **button:** update large font size ([cd7e23f](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/cd7e23f02f8371dafc808bf02ba5dbc0bc14777d))
+
 ### 0.2.22 (2021-04-17)
 
 
