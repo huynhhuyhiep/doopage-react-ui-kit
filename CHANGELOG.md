@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.25 (2021-04-19)
+
+
+### Bug Fixes
+
+* **autocomplete:** logic get data ([ff1b955](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/ff1b95510115c41dcc8cd5c75c263cb63d3a0b03))
+
 ### 0.2.24 (2021-04-18)
 
 
