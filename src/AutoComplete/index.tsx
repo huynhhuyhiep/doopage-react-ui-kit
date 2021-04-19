@@ -81,7 +81,11 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 
 	useEffect(() => {
 		if (open && getDataDebounce) getDataDebounce(inputValue);
-	}, [open, inputValue]);
+	}, [open]);
+
+	useEffect(() => {
+		if (open && getDataDebounce && inputValue) getDataDebounce(inputValue);
+	}, [inputValue]);
 
 	const handleChange = (_event: ChangeEvent, newValue: any) => {
 		if (!newValue) return;
