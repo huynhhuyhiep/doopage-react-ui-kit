@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.26 (2021-04-22)
+
+
+### Features
+
+* **autocomplete:** support avatar props in menu items ([f03c436](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/f03c4362e2d0784b1741ba6b615588935d7eaea1))
+
 ### 0.2.25 (2021-04-19)
 
 
