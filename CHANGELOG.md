@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.29 (2021-04-22)
+
+
+### Features
+
+* **chip input:** support create on blur ([3aeddf1](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/3aeddf1a9c756e7dc602ffe6024aa1c27251d656))
+
 ### 0.2.28 (2021-04-22)
 
 
