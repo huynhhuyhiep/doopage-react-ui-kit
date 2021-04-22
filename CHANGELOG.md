@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.28 (2021-04-22)
+
+
+### Bug Fixes
+
+* **autocomplete:** crash ([45b02c2](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/45b02c25ace594225abbc4d58d9c6acfdce59fc2))
+
 ### 0.2.27 (2021-04-22)
 
 
