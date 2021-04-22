@@ -2,6 +2,7 @@ import React, {
 	ChangeEvent,
 	FC,
 	memo,
+	ReactElement,
 	useEffect,
 	useMemo,
 	useState,
@@ -15,6 +16,7 @@ import Input, { InputProps } from '../Input';
 import MenuItem, { MenuItemProps } from '../MenuItem';
 import Chip, { ChipProps } from '../Chip';
 import { ColorType } from '../utils/constants';
+import { Avatar } from '../index';
 
 type BaseProps = Omit<
 	MuiAutocompleteProps<any, any, any, any>,
@@ -42,6 +44,15 @@ export interface AutocompleteProps extends BaseProps {
 }
 
 const filter = createFilterOptions<MenuItemProps>();
+
+const getChipAvatar = (option: MenuItemProps) => {
+	const { icon, avatar, image } = option;
+	if (icon) return icon as ReactElement;
+	if (avatar) return <Avatar src={avatar} size={'small'} />;
+	if (image) return <Avatar src={image} size={'small'} rounded />;
+
+	return undefined;
+};
 
 const Autocomplete: FC<AutocompleteProps> = (props) => {
 	const {
@@ -181,7 +192,7 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 			)}
 			renderTags={(tagValue, getTagProps) =>
 				tagValue.map((option, index) => {
-					const { name, icon, id, color } = option;
+					const { name, id, color } = option;
 
 					return (
 						<Chip
@@ -190,7 +201,7 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 							key={id || `${index}-${option}`}
 							rounded={false}
 							outlined
-							avatar={icon}
+							avatar={getChipAvatar(option)}
 							label={name || option}
 							{...chipProps}
 						/>

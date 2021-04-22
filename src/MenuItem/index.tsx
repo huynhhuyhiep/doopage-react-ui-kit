@@ -16,6 +16,7 @@ export interface MenuItemProps extends MuiMenuItemProps {
 	id?: string;
 	color?: string;
 	avatar?: string;
+	image?: string;
 	/**
 	 * Special props, need for allowCreate feature of auto complete com
 	 * */
@@ -33,6 +34,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 		id,
 		justContent,
 		avatar,
+		image,
 		...rest
 	} = props;
 
@@ -53,6 +55,11 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 						<Avatar src={avatar} size={'small'} />
 					</ListItemIcon>
 				)}
+				{!!image && (
+					<ListItemIcon>
+						<Avatar src={image} size={'small'} rounded />
+					</ListItemIcon>
+				)}
 				<ListItemText primary={name} secondary={description} />
 				{endIcon && <ListItemIcon>{endIcon}</ListItemIcon>}
 			</div>
@@ -66,6 +73,11 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 			{!!avatar && (
 				<ListItemIcon>
 					<Avatar src={avatar} size={'small'} />
+				</ListItemIcon>
+			)}
+			{!!image && (
+				<ListItemIcon>
+					<Avatar src={image} size={'small'} rounded />
 				</ListItemIcon>
 			)}
 			<ListItemText primary={name} secondary={description} />
