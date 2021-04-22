@@ -41,6 +41,7 @@ export interface AutocompleteProps extends BaseProps {
 	chipProps?: ChipProps;
 	allowDuplicates?: boolean;
 	showCreateText?: boolean;
+	createOnBlur?: boolean;
 }
 
 const filter = createFilterOptions<MenuItemProps>();
@@ -76,6 +77,7 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 		showCreateText = true,
 		setCreateText,
 		chipProps,
+		createOnBlur,
 		...rest
 	} = props;
 
@@ -187,6 +189,16 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 					helperText={helperText}
 					error={error}
 					variant={variant}
+					onBlur={(e) => {
+						if (
+							!!inputValue &&
+							createOnBlur &&
+							allowCreate &&
+							Array.isArray(objValue)
+						) {
+							handleChange(e, [...objValue, inputValue]);
+						}
+					}}
 					{...inputProps}
 				/>
 			)}
