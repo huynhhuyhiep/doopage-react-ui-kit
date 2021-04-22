@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.27 (2021-04-22)
+
+
+### Features
+
+* **autocomplete:** support option with image and avatar field ([5bcd409](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/5bcd4093eefdd7e0400607f3ce65afc11fea8796))
+
 ### 0.2.26 (2021-04-22)
 
 
