@@ -12,6 +12,7 @@ menu: Inputs
 
 
 
+
 import AdbIcon from "@material-ui/icons/Adb"; import { Playground } from "docz"; import {
   useState,
   useMemo
@@ -59,12 +60,10 @@ export default Example;
 <Playground>
   <Autocomplete
     options={[
-      { id: '1', name: "option 1", icon: <AdbIcon />, description: 'description options' }, {
-        id: '2',
-        name: "option 2",
-        icon: <AdbIcon />,
-        description: 'description options'
-      }]}
+      { id: '1', name: "option 1", icon: <AdbIcon />, description: 'description options' },
+      { id: '2', name: "option 2", icon: <Avatar src={doopageLogo} size={"small"} />, description: 'description options' },
+      { id: '2', name: "option 2", avatar: doopageLogo, description: 'description options' }
+    ]}
   />
 </Playground>
 
@@ -233,4 +232,4 @@ export default Example;
 </Playground>
 
 ## Properties
-<Props of={Autocomplete} table/>
+<Props of={Autocomplete} table />

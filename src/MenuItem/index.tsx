@@ -4,6 +4,7 @@ import MuiMenuItem, {
 } from '@material-ui/core/MenuItem';
 import { ListItemIcon, ListItemText } from '@material-ui/core';
 import useStyles from './styles';
+import { Avatar } from '../index';
 
 export interface MenuItemProps extends MuiMenuItemProps {
 	hide?: boolean;
@@ -14,6 +15,7 @@ export interface MenuItemProps extends MuiMenuItemProps {
 	justContent?: boolean;
 	id?: string;
 	color?: string;
+	avatar?: string;
 	/**
 	 * Special props, need for allowCreate feature of auto complete com
 	 * */
@@ -30,6 +32,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 		name,
 		id,
 		justContent,
+		avatar,
 		...rest
 	} = props;
 
@@ -44,7 +47,12 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 				{...rest}
 				className={classes.root}
 			>
-				{icon && <ListItemIcon>{icon}</ListItemIcon>}
+				{!!icon && <ListItemIcon>{icon}</ListItemIcon>}
+				{!!avatar && (
+					<ListItemIcon>
+						<Avatar src={avatar} size={'small'} />
+					</ListItemIcon>
+				)}
 				<ListItemText primary={name} secondary={description} />
 				{endIcon && <ListItemIcon>{endIcon}</ListItemIcon>}
 			</div>
@@ -55,6 +63,11 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 		// @ts-ignore
 		<MuiMenuItem key={id} classes={classes} {...rest}>
 			{!!icon && <ListItemIcon>{icon}</ListItemIcon>}
+			{!!avatar && (
+				<ListItemIcon>
+					<Avatar src={avatar} size={'small'} />
+				</ListItemIcon>
+			)}
 			<ListItemText primary={name} secondary={description} />
 			{!!endIcon && <ListItemIcon>{endIcon}</ListItemIcon>}
 		</MuiMenuItem>
