@@ -144,7 +144,7 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 			noOptionsText='Không tìm thấy'
 			loadingText='Đang tải...'
 			getOptionSelected={(option, value) => {
-				if (option.id) return option.id === value.id;
+				if (option?.id) return option?.id === value?.id;
 				return option === value;
 			}}
 			getOptionLabel={(option) => {
