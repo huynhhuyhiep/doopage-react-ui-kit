@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.30 (2021-05-14)
+
+
+### Features
+
+* **avatar:** support helpertext for avatar ([31e69db](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/31e69db31490e5f2f5efebfab0a211f99a3d3120))
+
 ### 0.2.29 (2021-04-22)
 
 
