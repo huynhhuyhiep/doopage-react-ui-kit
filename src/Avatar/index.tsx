@@ -147,11 +147,7 @@ const Avatar: FC<AvatarProps> = (props) => {
 
 	if (helperText)
 		avatarCom = (
-			<Tooltip
-				title={name || helperText || 'title'}
-				placement={placement}
-				{...tooltipProps}
-			>
+			<Tooltip title={helperText} placement={placement} {...tooltipProps}>
 				{avatarCom}
 			</Tooltip>
 		);
