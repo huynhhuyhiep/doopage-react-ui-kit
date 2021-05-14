@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.31 (2021-05-14)
+
+
+### Bug Fixes
+
+* **avatar:** remove name in tooltip ([03af08b](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/03af08b01aae0b3bd99751b5aaff068760804d8c))
+
 ### 0.2.30 (2021-05-14)
 
 
