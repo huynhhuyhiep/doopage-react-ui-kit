@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
-import AutoComplete, { AutocompleteProps } from '../AutoComplete';
+import AutoComplete, { AutoCompleteProps } from '../AutoComplete';
 
-const ChipInput: FC<AutocompleteProps> = (props) => (
+const ChipInput: FC<AutoCompleteProps> = (props) => (
 	<AutoComplete
 		allowCreate
 		multiple
