@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.32 (2021-07-15)
+
+
+### Bug Fixes
+
+* **chipinput:** import wrong component props ([3976b5c](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/3976b5c0e0a0ab37ef51072a6861ac2bc5fd1929))
+
 ### 0.2.31 (2021-05-14)
 
 
