@@ -129,24 +129,42 @@ export default Example;
   }}
 </Playground>
 
-### Allow create item
+### Allow add more item
 <Playground>
   {() =>
   {
-    const [value, setValue] = useState(['1', '2'])
+    const [values, setValues] = useState(['1', '2'])
+    const [value, setValue] = useState('1')
     return (
       <div>
-        <div style={{ fontSize: 15, marginBottom: 10 }}>Value: {value.join(', ')}</div>
+        <div style={{ fontSize: 15, marginBottom: 10 }}>Value: {value}</div>
         <AutoComplete
           allowCreate
-          multiple
-          placeholder='Select options'
-          label='AutoComplete Multiple'
+          placeholder='Select options or typing to add'
+          label='Single'
           variant='outlined'
           value={value}
           onChange={(value) =>
           {
             setValue(value);
+          }}
+          options={Array(10).fill(0).map((item, index) => ({
+            id: index.toString(),
+            name: `option ${index}`,
+          }))}
+          setCreateText={value => `Add "${value}"`}
+        />
+        <div style={{ fontSize: 15, marginBottom: 10, marginTop: 10 }}>Value: {values.join(', ')}</div>
+        <AutoComplete
+          allowCreate
+          multiple
+          placeholder='Select options or typing to add'
+          label='Multiple'
+          variant='outlined'
+          value={values}
+          onChange={(value) =>
+          {
+            setValues(value);
           }}
           options={Array(10).fill(0).map((item, index) => ({
             id: index.toString(),

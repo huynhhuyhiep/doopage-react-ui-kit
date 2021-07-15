@@ -10,7 +10,7 @@ import React, {
 import MuiAutocomplete, {
 	AutocompleteProps as MuiAutocompleteProps,
 	createFilterOptions,
-} from '@material-ui/lab/AutoComplete';
+} from '@material-ui/lab/Autocomplete';
 import { debounce } from '@material-ui/core/utils';
 import Input, { InputProps } from '../Input';
 import MenuItem, { MenuItemProps } from '../MenuItem';
@@ -20,7 +20,7 @@ import { Avatar } from '../index';
 
 type BaseProps = Omit<
 	MuiAutocompleteProps<any, any, any, any>,
-	'onChange' | 'options'
+	'onChange' | 'options' | 'renderInput'
 >;
 
 export interface AutoCompleteProps extends BaseProps {
@@ -143,8 +143,8 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 			multiple={multiple}
 			filterSelectedOptions
 			disableCloseOnSelect={multiple}
-			noOptionsText='Không tìm thấy'
-			loadingText='Đang tải...'
+			noOptionsText='Not found'
+			loadingText='Loading...'
 			getOptionSelected={(option, value) => {
 				if (option?.id) return option?.id === value?.id;
 				return option === value;
@@ -174,7 +174,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 					filtered.push({
 						id: new Date().getTime().toString(),
 						inputValue,
-						name: setCreateText?.(inputValue) || `Thêm "${inputValue}"`,
+						name: setCreateText?.(inputValue) || `Add "${inputValue}"`,
 					});
 				}
 
