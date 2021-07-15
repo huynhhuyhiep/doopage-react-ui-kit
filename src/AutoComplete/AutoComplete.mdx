@@ -1,5 +1,5 @@
 ---
-name: Autocomplete
+name: AutoComplete
 route: /autocomplete
 menu: Inputs
 ---
@@ -17,9 +17,9 @@ import AdbIcon from "@material-ui/icons/Adb"; import { Playground } from "docz";
   useState,
   useMemo
 } from "react"; import Avatar from "../Avatar";
-import { Autocomplete } from "../index"; import { doopageLogo } from "../utils/constants";
+import { AutoComplete } from "../index"; import { doopageLogo } from "../utils/constants";
 
-# Autocomplete
+# AutoComplete
 Base on https://material-ui.com/components/autocomplete/#autocomplete
 
 Related component
@@ -31,10 +31,10 @@ Icon
 ## Basic usage
 
 ```jsx
-import { Autocomplete } from '@doopage/react-ui-kit'
+import { AutoComplete } from '@doopage/react-ui-kit'
 
 const Example = () =>
-    <Autocomplete
+    <AutoComplete
       options={[
           { id: '1', name: 'The Shawshank Redemption' },
           { id: '2', name: 'The Godfather' },
@@ -48,7 +48,7 @@ export default Example;
 
 ### Basic
 <Playground>
-  <Autocomplete
+  <AutoComplete
     options={[
       { id: '1', name: 'The Shawshank Redemption' },
       { id: '2', name: 'The Godfather' },
@@ -58,7 +58,7 @@ export default Example;
 
 ### Custom option item
 <Playground>
-  <Autocomplete
+  <AutoComplete
     multiple
     options={[
       { id: '1', name: "option 1", icon: <AdbIcon />, description: 'description options' },
@@ -71,10 +71,10 @@ export default Example;
 
 ### Multiple
 <Playground>
-  <Autocomplete
+  <AutoComplete
     multiple
     placeholder='Select options'
-    label='Autocomplete Multiple'
+    label='AutoComplete Multiple'
     variant='outlined'
     chipColor='info'
     options={Array(10).fill(0).map((item, index) => ({
@@ -99,9 +99,9 @@ export default Example;
     return (
       <div>
         <div style={{ fontSize: 15, marginBottom: 10 }}>Single Value: {valueSingle}</div>
-        <Autocomplete
+        <AutoComplete
           placeholder='Select options'
-          label='Autocomplete Single'
+          label='AutoComplete Single'
           variant='outlined'
           value={valueSingle}
           onChange={(value) =>
@@ -112,10 +112,10 @@ export default Example;
         />
         <br />
         <div style={{ fontSize: 15, marginBottom: 10 }}>Multiple Value: {valueMulti.join(', ')}</div>
-        <Autocomplete
+        <AutoComplete
           multiple
           placeholder='Select options'
-          label='Autocomplete Multiple'
+          label='AutoComplete Multiple'
           variant='outlined'
           value={valueMulti}
           onChange={(value) =>
@@ -137,11 +137,11 @@ export default Example;
     return (
       <div>
         <div style={{ fontSize: 15, marginBottom: 10 }}>Value: {value.join(', ')}</div>
-        <Autocomplete
+        <AutoComplete
           allowCreate
           multiple
           placeholder='Select options'
-          label='Autocomplete Multiple'
+          label='AutoComplete Multiple'
           variant='outlined'
           value={value}
           onChange={(value) =>
@@ -174,11 +174,11 @@ export default Example;
     return (
       <div>
         <div style={{ fontSize: 15, marginBottom: 10 }}>Value: {value.join(', ')}</div>
-        <Autocomplete
+        <AutoComplete
           allowCreate
           multiple
           placeholder='Select options'
-          label='Autocomplete Multiple'
+          label='AutoComplete Multiple'
           variant='outlined'
           value={value}
           onChange={(value) =>
@@ -219,7 +219,7 @@ export default Example;
     }
     return (
       <div>
-        <Autocomplete
+        <AutoComplete
           error={error}
           loading={loading}
           getData={getData}
@@ -234,4 +234,4 @@ export default Example;
 </Playground>
 
 ## Properties
-<Props of={Autocomplete} table />
+<Props of={AutoComplete} table />

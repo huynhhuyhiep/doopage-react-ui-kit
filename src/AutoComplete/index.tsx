@@ -10,7 +10,7 @@ import React, {
 import MuiAutocomplete, {
 	AutocompleteProps as MuiAutocompleteProps,
 	createFilterOptions,
-} from '@material-ui/lab/Autocomplete';
+} from '@material-ui/lab/AutoComplete';
 import { debounce } from '@material-ui/core/utils';
 import Input, { InputProps } from '../Input';
 import MenuItem, { MenuItemProps } from '../MenuItem';
@@ -23,7 +23,7 @@ type BaseProps = Omit<
 	'onChange' | 'options'
 >;
 
-export interface AutocompleteProps extends BaseProps {
+export interface AutoCompleteProps extends BaseProps {
 	hide?: boolean;
 	loading?: boolean;
 	inputProps?: InputProps;
@@ -55,7 +55,7 @@ const getChipAvatar = (option: MenuItemProps) => {
 	return undefined;
 };
 
-const Autocomplete: FC<AutocompleteProps> = (props) => {
+const AutoComplete: FC<AutoCompleteProps> = (props) => {
 	const {
 		hide,
 		inputProps,
@@ -224,4 +224,4 @@ const Autocomplete: FC<AutocompleteProps> = (props) => {
 	);
 };
 
-export default memo(Autocomplete);
+export default memo(AutoComplete);

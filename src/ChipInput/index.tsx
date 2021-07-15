@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react';
-import Autocomplete, { AutocompleteProps } from '../AutoComplete';
+import AutoComplete, { AutocompleteProps } from '../AutoComplete';
 
 const ChipInput: FC<AutocompleteProps> = (props) => (
-	<Autocomplete
+	<AutoComplete
 		allowCreate
 		multiple
 		showCreateText={false}

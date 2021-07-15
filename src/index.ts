@@ -20,7 +20,7 @@ export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
 export { default as Radio } from './Radio';
 export * from './Radio';
-export { default as Autocomplete } from './AutoComplete';
+export { default as AutoComplete } from './AutoComplete';
 export * from './AutoComplete';
 export { default as Chip } from './Chip';
 export * from './Chip';
