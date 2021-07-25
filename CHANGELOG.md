@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.33 (2021-07-25)
+
+
+### Features
+
+* **selectlocale:** add select locale component ([e7ffed5](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/e7ffed503dfa58ea2c4ff2e24429c036fd825d00))
+
 ### 0.2.32 (2021-07-15)
 
 
