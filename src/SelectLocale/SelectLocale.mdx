@@ -1,0 +1,112 @@
+---
+name: Select Locale
+route: /select-locale
+menu: Inputs
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+import { Playground, Props } from "docz"; import { useState } from "react";
+import SelectLocale from "./index";
+
+# SelectLocale
+Base on https://material-ui.com/components/text-fields/
+
+Related component
+- https://material-ui.com/components/selects/#select
+
+Icon
+- https://material-ui.com/components/material-icons/
+
+## Basic usage
+
+```jsx
+import { SelectLocale } from '@doopage/react-ui-kit'
+
+const Example = () => {
+    return <SelectLocale />;
+}
+
+export default Example;
+```
+
+## Playground
+
+### Simple
+<Playground>
+  {() =>
+  {
+    const [selectedLocale, setSelectedLocale] = useState()
+    return (
+      <div>
+        <div>selectedLocale: {selectedLocale}</div>
+        <SelectLocale onSelectedChange={setSelectedLocale} />
+      </div>
+    )
+  }}
+</Playground>
+
+### Show default locale
+<Playground>
+  {() =>
+  {
+    const [selectedLocale, setSelectedLocale] = useState('en_US')
+    const [defaultLocale, setDefaultLocale] = useState('vi_VN')
+    const [options, setOptions] = useState([{
+      id: 'vi_VN',
+      name: 'Việt Nam'
+    }, { "id": "en_US", "name": "English (US)" }])
+    return (
+      <div>
+        <div>selectedLocale: {selectedLocale}</div>
+        <div>defaultLocale: {defaultLocale}</div>
+        <div>Locale Options: {JSON.stringify(options)}</div>
+        <SelectLocale
+          defaultSelectedLocale={selectedLocale}
+          onSelectedChange={setSelectedLocale}
+          defaultLocale={defaultLocale}
+          onCheckedDefaultLocale={setDefaultLocale}
+          defaultOptions={options}
+          onOptionsChange={setOptions}
+          showCheckedDefaultLocale
+        />
+      </div>
+    )
+  }}
+</Playground>
+
+### Show default option
+<Playground>
+  {() =>
+  {
+    const [selectedLocale, setSelectedLocale] = useState()
+    const [options, setOptions] = useState([{ id: 'default', name: 'Default Locale', allowRemove: false }, {
+      id: 'vi_VN',
+      name: 'Việt Nam'
+    }])
+    return (
+      <div>
+        <div>selectedLocale: {selectedLocale}</div>
+        <div>Locale Options: {JSON.stringify(options)}</div>
+        <SelectLocale onSelectedChange={setSelectedLocale} defaultOptions={options} onOptionsChange={setOptions} />
+      </div>
+    )
+  }}
+</Playground>
+
+## Properties
+
+### Select Locale
+<Props of={SelectLocale} table />
+
+

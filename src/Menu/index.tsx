@@ -6,7 +6,7 @@ type BaseProps = Omit<MenuItemProps, 'onClick'>;
 
 export interface MenuOptionProps extends BaseProps {
 	closeOnClick?: boolean;
-	onClick: (item: MenuOptionProps, e: any) => void;
+	onClick: (item: MenuOptionProps, e?: any) => void;
 }
 
 export interface MenuProps extends PopupProps {

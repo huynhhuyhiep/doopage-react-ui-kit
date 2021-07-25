@@ -21,6 +21,10 @@ export interface MenuItemProps extends MuiMenuItemProps {
 	 * Special props, need for allowCreate feature of auto complete com
 	 * */
 	inputValue?: string;
+	/**
+	 * Special props, use for select locale
+	 * */
+	allowRemove?: boolean;
 }
 
 const MenuItem: FC<MenuItemProps> = (props) => {
