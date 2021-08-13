@@ -14,6 +14,7 @@ import Select, { SelectProps } from '../Select';
 import Button, { ButtonProps } from '../Button';
 import { MenuItemProps, MenuOptionProps, Radio } from '../index';
 import Menu from '../Menu';
+import useStyles from './styles';
 
 export const defaultLocaleOptions = [
 	{ id: 'af_ZA', name: 'Afrikaans' },
@@ -106,6 +107,7 @@ const SelectLocale: FC<SelectLocaleProps> = (props) => {
 		defaultSelectedLocale,
 		localeOptions = defaultLocaleOptions,
 	} = props;
+	const classes = useStyles(props);
 	const [defaultLocale, setDefaultLocale] = useState<string>(initValue);
 	const [addItems, setAddItems] = useState<MenuItemProps[]>(
 		defaultOptions || []
@@ -161,7 +163,7 @@ const SelectLocale: FC<SelectLocaleProps> = (props) => {
 
 	// @ts-ignore
 	return (
-		<Space style={{ width: '100%' }}>
+		<Space className={classes.container}>
 			<Select
 				fullWidth
 				disabled={!addItems?.length}
@@ -172,53 +174,49 @@ const SelectLocale: FC<SelectLocaleProps> = (props) => {
 				onChange={(e) => setSelected(e.target.value)}
 				{...selectProps}
 			/>
-			<Menu
-				button={
-					<Button
-						justIcon
-						round
-						color='info'
-						simple
-						helperText='Add locale'
-						{...addButtonProps}
-					>
-						{addIcon || <AddIcon />}
-					</Button>
-				}
-				options={localeOptions
-					.filter((item) => !addItems.some((el) => el.id === item.id))
-					.map(
-						(item) => ({ ...item, onClick: handleSelect } as MenuOptionProps)
-					)}
-			/>
-			<Button
-				round
-				disabled={defaultLocale === selected || !allowRemove}
-				justIcon
-				color='danger'
-				simple
-				helperText='Remove locale'
-				onClick={removeItem}
-				{...removeButtonProps}
-			>
-				{removeIcon || <DeleteIcon />}
-			</Button>
-			{showCheckedDefaultLocale && (
-				<div
-					style={{
-						width: 250,
-						display: 'flex',
-						justifyContent: 'flex-end',
-					}}
+			<div className={classes.action}>
+				<Menu
+					button={
+						<Button
+							justIcon
+							round
+							color='info'
+							simple
+							helperText='Add locale'
+							{...addButtonProps}
+						>
+							{addIcon || <AddIcon />}
+						</Button>
+					}
+					options={localeOptions
+						.filter((item) => !addItems.some((el) => el.id === item.id))
+						.map(
+							(item) => ({ ...item, onClick: handleSelect } as MenuOptionProps)
+						)}
+				/>
+				<Button
+					round
+					disabled={defaultLocale === selected || !allowRemove}
+					justIcon
+					color='danger'
+					simple
+					helperText='Remove locale'
+					onClick={removeItem}
+					{...removeButtonProps}
 				>
-					<Radio
-						key={`${defaultLocale === selected}`}
-						label='Default locale'
-						checked={defaultLocale === selected && !!selected}
-						onClick={() => setDefaultLocale(selected || '')}
-					/>
-				</div>
-			)}
+					{removeIcon || <DeleteIcon />}
+				</Button>
+				{showCheckedDefaultLocale && (
+					<div className={classes.defaultLocale}>
+						<Radio
+							key={`${defaultLocale === selected}`}
+							label='Default locale'
+							checked={defaultLocale === selected && !!selected}
+							onClick={() => setDefaultLocale(selected || '')}
+						/>
+					</div>
+				)}
+			</div>
 		</Space>
 	);
 };
