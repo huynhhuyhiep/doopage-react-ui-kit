@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.34 (2021-08-13)
+
+
+### Bug Fixes
+
+* **selectlocale:** fix wrong margin bottom ([0e14f31](https://github.com/huynhhuyhiep/doopage-react-ui-kit/commit/0e14f311ec9f30cd87367d972a895b62f10a327a))
+
 ### 0.2.33 (2021-07-25)
 
 
